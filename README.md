@@ -46,14 +46,18 @@
 ```java
 String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"}; // This represents a solved cube
 ```
+<br> 
 
 2. Now make a Cubot object with the String[] 
 
 ```java
 Cubot cube = new Cubot(temp) ; // makes your cube with the given input 
 ```
+<br> 
 
 3. To solve, use solve() which gives you the solution as a String ( you can use this if you want in your projects ). Or if you just want to solve your cube, just print the solution returned. <br> 
+<br> 
+
 **Note : In case the String[] used while making the object is wrong or faulty you will have to re-enter the Strings. If they are all of same length, then Cubot will let you know if an edge is flipped or a corner is flipped. In either of the two cases, Cubot will stop solving, give you the output till there, and then let you know that something is wrong.** 
 
 
@@ -61,12 +65,14 @@ Cubot cube = new Cubot(temp) ; // makes your cube with the given input
 String sol = cube.solve() ; // gets you the solution 
 System.out.println(sol); // prints it out on the terminal 
 ```
+<br> 
 
 4. You can also check if the cube is solved with isSolved() --> For example, if you want to execute a move and check if the cube is solved or not, use this method. 
 
 ```java
 boolean solved = cube.isSolved() ; // returns true if solved, false if not
 ```
+<br> 
 
 5. You can access most of the cube moves like R(), R'(), etc. For more moves, see [allmoves.md](https://github.com/AkshathRaghav/cubot/blob/main/initialization.md) 
 
@@ -75,18 +81,21 @@ cube.R() ;
 cube.Rdash() ; 
 cube.L() ; 
 ```
+<br> 
 
 6. Do you have an algorithm you want to try out? Use stringalg(String given) to use all the moves in (given) on your cube. 
 
 ```java
 cube.stringalg("R U R' U'") ; // executes the algorithm and returns String ( if you want ) 
 ```
+<br> 
 
 7. You can print the entire cube which will give you all the colors one each piece. ( Refer to [indexes](https://eli.thegreenplace.net/images/2015/row-major-3D.png) ) 
 
 ```java
 System.out.println(cube) ; // prints out the cube --> piece location, colors and centers 
 ```
+<br> 
 
 8. You can get the entire cube in array form like this as well. ( If you are using it in your code, this might be useful ) 
 
