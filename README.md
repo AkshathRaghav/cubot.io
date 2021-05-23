@@ -44,7 +44,7 @@
 1. First make a String[] containing the sides of the cube as explained in the [initialize.md](https://github.com/AkshathRaghav/cubot/blob/main/initialization.md) file
 
 ```java
-String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"}; 
+String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"}; // This represents a solved cube
 ```
 
 2. Now make a Cubot object with the String[] 
@@ -72,7 +72,7 @@ boolean solved = cube.isSolved() ; // returns true if solved, false if not
 
 ```java
 cube.R() ; 
-cube.R'() ; 
+cube.Rdash() ; 
 cube.L() ; 
 ```
 
@@ -85,13 +85,24 @@ cube.stringalg("R U R' U'") ; // executes the algorithm and returns String ( if 
 7. You can print the entire cube which will give you all the colors one each piece. ( Refer to [indexes](https://eli.thegreenplace.net/images/2015/row-major-3D.png) ) 
 
 ```java
-System.out.println(cube) ; 
+System.out.println(cube) ; // prints out the cube --> piece location, colors and centers 
 ```
 
 8. You can get the entire cube in array form like this as well. ( If you are using it in your code, this might be useful ) 
 
 ```java
-String[][][][] cubearray = cube.getCube() ; 
+String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cube
+```
+
+## A Mention - Cubot makes use of a Cube object to work. If you wish to just have a Cube object, you can. 
+### Below is the Cube class 
+
+```java 
+  private String[][][][] cube ; 
+  public Cube(String  [] temp) ; // Makes the Cube with String[]    
+  public boolean solved(Cube other) ; // tells you if its solved, with respect to another cube ( play around with it ;) )
+  public String toString() ; // returns a String representing the cube
+  public String[][][][] getCube() ; // returns the 4-D cube array
 ```
 
 <hr> 
