@@ -1,17 +1,15 @@
 <h1 align="center">CUBOT</h1>
 
 <p align="center">
-  <img width="350" src="https://cdn.discordapp.com/attachments/812010624301269012/846008134396805120/cube.PNG" alt="cubot">
+  <img width="300" src="https://cdn.discordapp.com/attachments/812010624301269012/846043080104607744/output-onlinepngtools.png" alt="cubot">
 </p>
-
 <br> 
-
 # Description
 
 ### A Java library to help you : 
-*Solve the Cube by getting the solution, 
-*Execute Moves, 
-*Obtain the Cube which you can use in your projects
+* Solve the Cube by getting the solution, 
+* Execute Moves, 
+* Obtain the Cube which you can use in your projects
 
 ---
 
