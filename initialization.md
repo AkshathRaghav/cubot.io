@@ -6,7 +6,7 @@
 <hr> 
 
 Terms 
-* XX Face : The side of the cube with center color XX 
+* (XX) Face : The side of the cube with center color (XX) 
 
 
 # How to initialize a Cubot object
