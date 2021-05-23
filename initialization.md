@@ -5,7 +5,7 @@
 </p>
 <hr> 
 
-###Terms 
+Terms 
 * XX Face : The side of the cube with center color XX 
 
 
@@ -21,8 +21,8 @@
   <img width="300" src="https://cdn.discordapp.com/attachments/812010624301269012/846018771907117086/Untitled_design.png" alt="cubot">
 </p>
 <p align="center">
-  <img width="300" src="https://cdn.discordapp.com/attachments/812010624301269012/846039736976277556/greenyellow.png" alt="cubot">
+  <img width="300" src="https://cdn.discordapp.com/attachments/812010624301269012/846045567205638175/Untitled_design_1.png" alt="cubot">
 </p>
 <p align="center">
-  <img width="300" src="https://cdn.discordapp.com/attachments/812010624301269012/846043080104607744/output-onlinepngtools.png" alt="cubot">
+  <img width="300" src="https://cdn.discordapp.com/attachments/812010624301269012/846039736976277556/greenyellow.png" alt="cubot">
 </p>
