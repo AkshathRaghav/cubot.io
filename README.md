@@ -9,9 +9,11 @@
 # Description
 
 ### A Java library to help you : 
-* Solve the Cube by getting the solution, 
-* Execute Moves, 
-* Obtain the Cube which you can use in your projects
+* Virtual construct a Cube, 
+* Execute Moves and Perform algorithms easily, 
+* Manipulate the Cube in other ways, 
+* Get the solution for the cube
+* Use a cube in your own projects 
 
 ---
 
