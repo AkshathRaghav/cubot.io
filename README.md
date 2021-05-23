@@ -39,7 +39,7 @@
 
 ## Usage
 
-1. First make a String[] containing the sides of the cube as explained below 
+1. First make a String[] containing the sides of the cube as explained in the [initialize.md](https://github.com/othneildrew/Best-README-Template/issues) file
 ```java
 String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"}; 
 ```
