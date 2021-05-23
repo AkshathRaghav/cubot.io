@@ -9,9 +9,9 @@
 # Description
 
 ### A Java library to help you : 
-* Virtual construct a Cube, 
+* Virtually construct a Cube, 
 * Execute Moves and Perform algorithms easily, 
-* Manipulate the Cube in other ways, 
+* Manipulate the Cube using simple java, 
 * Get the solution for the cube
 * Use a cube in your own projects 
 
