@@ -37,6 +37,8 @@
   <img width="250" src="https://cdn.discordapp.com/attachments/812010624301269012/846011334029344828/unknown.png" alt="example">
 </p>
 
+<hr> 
+
 ## Usage
 
 1. First make a String[] containing the sides of the cube as explained below 
@@ -44,12 +46,19 @@
 String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"}; 
 ```
 
-### Hold the cube with yellow facing up and white facing down. 
+### First hold the cube with yellow facing up and white facing down. 
 ### Look at the face with the Red center and enter the first letter of each color in a row-major order. Do the same for the Green, Orange and Blue faces. 
+
+#### Below is an example for the Green Face
 <p align="center">
   <img width="250" src="https://cdn.discordapp.com/attachments/812010624301269012/846018771907117086/Untitled_design.png" alt="example">
 </p>
-### Once done with these 4, make the Green face point towards you and fill in the colors on the White and Yellow faces in the same way 
+
+###Once done with these 4, make the Green face point towards you and fill in the colors on the White and Yellow faces in the same way 
+
+<p align="center">
+  <img width="250" src="https://cdn.discordapp.com/attachments/812010624301269012/846039736976277556/greenyellow.png" alt="example">
+</p>
 
 2. Now make a Cubot object with the String[] 
 ```java
