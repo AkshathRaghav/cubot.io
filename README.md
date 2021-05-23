@@ -93,8 +93,10 @@ System.out.println(cube) ; // prints out the cube --> piece location, colors and
 ```java
 String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cube
 ```
+<hr> 
 
-## A Mention - Cubot makes use of a Cube object to work. If you wish to just have a Cube object, you can. 
+
+## Note :  Cubot makes use of a Cube object to work. If you wish to just have a Cube object, you can. 
 ### Below is the Cube class 
 
 ```java 
