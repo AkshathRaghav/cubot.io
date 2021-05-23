@@ -9,9 +9,9 @@
 # Description
 
 ### A Java library to help you : 
-#### - Solve the Cube by getting the solution, 
-#### - Execute Moves, 
-#### - Obtain the Cube which you can use in your projects
+*Solve the Cube by getting the solution, 
+*Execute Moves, 
+*Obtain the Cube which you can use in your projects
 
 ---
 
@@ -45,16 +45,15 @@
 ```java
 String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"}; 
 ```
-<hr> 
 ### These rules are the most important while making a Cubot object. Read them carefully.
 ### First hold the cube with yellow facing up and white facing down. 
-### Look at the face with the Red center and enter the first letter of each color in a row-major order. Do the same for the Green, Orange and Blue faces. 
-#### Below is an example for the Green Face
+### Look at the face with the Red center and enter the first letter of each color in a row-major order ( examples given below ). Do the same for the Green, Orange and Blue faces. 
+### Once done with these 4, make the Green face point towards you. With this face pointing towards you, tilt the cube and fill in the colors on the White and Yellow faces in the same way  
+
+#### Below is an example for the Green, White and Yellow faces. 
 <p align="center">
   <img width="250" src="https://cdn.discordapp.com/attachments/812010624301269012/846018771907117086/Untitled_design.png" alt="example">
 </p>
-### Once done with these 4, make the Green face point towards you and fill in the colors on the White and Yellow faces in the same way  
-#### Below are the examples for the White and Yellow face 
 <p align="center">
   <img width="250" src="https://cdn.discordapp.com/attachments/812010624301269012/846039736976277556/greenyellow.png" alt="example">
 </p>
