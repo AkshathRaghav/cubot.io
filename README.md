@@ -3,14 +3,17 @@
 
 
 
-![Project Image](https://cdn.discordapp.com/attachments/812010624301269012/846008134396805120/cube.PNG)
+![github-small](https://cdn.discordapp.com/attachments/812010624301269012/846008134396805120/cube.PNG)
 
 
 ---
 
-## Description
+# Description
 
-# A Java library to help you make, solve and execute moves on a virtual Rubik's Cube 
+## A Java library to help you : 
+### Solve the Cube by getting the solution, 
+### Execute Moves, 
+### Obtain the Cube which you can use in your projects
 
 ---
 
