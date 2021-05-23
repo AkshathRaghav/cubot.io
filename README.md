@@ -45,19 +45,6 @@
 ```java
 String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"}; 
 ```
-### These rules are the most important while making a Cubot object. Read them carefully.
-### First hold the cube with yellow facing up and white facing down. 
-### Look at the face with the Red center and enter the first letter of each color in a row-major order ( examples given below ). Do the same for the Green, Orange and Blue faces. 
-### Once done with these 4, make the Green face point towards you. With this face pointing towards you, tilt the cube and fill in the colors on the White and Yellow faces in the same way  
-
-#### Below is an example for the Green, White and Yellow faces. 
-<p align="center">
-  <img width="250" src="https://cdn.discordapp.com/attachments/812010624301269012/846018771907117086/Untitled_design.png" alt="example">
-</p>
-<p align="center">
-  <img width="250" src="https://cdn.discordapp.com/attachments/812010624301269012/846039736976277556/greenyellow.png" alt="example">
-</p>
-<hr> 
 2. Now make a Cubot object with the String[] 
 ```java
 Cubot cube = new Cubot(temp) ;
