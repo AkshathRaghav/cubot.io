@@ -1,10 +1,7 @@
 <h1 align="center">CUBOT</h1>
-
-
-
-
-![github-small](https://cdn.discordapp.com/attachments/812010624301269012/846008134396805120/cube.PNG)
-
+<p align="center">
+  <img width="200" src="https://cdn.discordapp.com/attachments/812010624301269012/846008134396805120/cube.PNG" alt="Material Bread logo">
+</p>
 
 ---
 
@@ -19,16 +16,12 @@
 
 ## How To Use
 
+
+---
+
 #### Installation
 
 
-
-#### API Reference
-
-```html
-    <p>dummy code</p>
-```
-[Back To The Top](#read-me-template)
 
 ---
 
