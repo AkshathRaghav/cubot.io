@@ -8,13 +8,22 @@
 
 <hr> 
 
-## Cubot Objects
+# Table of Contents  
+* [Cubot](#Cubot)  
+* [Cube](#Cube) 
+* 
+<hr> 
 
+# Cubot Objects
 
+For Initialization guide, click [here](https://github.com/AkshathRaghav/cubot/blob/main/initialization.md)
+
+#### Example Object 
 ```java
 String[] temp = {"WGBOROGGY", "YOYWGBOYB", "RBBOORRBY", "OBGWBYRYR", "GRWRGYWGB", "OWWWYROGG"};
 Cubot cube1 = new Cubot(temp) ; 
 ```
+
 * isSolved() --> Tells you if your cube is solved or not 
 
 ```java
@@ -110,7 +119,7 @@ String s = shorten("U U U F' F R' U' U") // Returns "U' R'"
 <hr> 
 
 
-## Cube Objects
+# Cube Objects
 
 ### Below is the Cube class 
 
@@ -124,7 +133,7 @@ String s = shorten("U U U F' F R' U' U") // Returns "U' R'"
 
 <br> 
 
-1. solved(Cube other) --> Returns true if Cube object matches another Cube object 
+* solved(Cube other) --> Returns true if Cube object matches another Cube object 
 
 ```java
 String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"};
@@ -135,6 +144,6 @@ System.out.println(cube1.solved(cube2)) ; --> Returns false
 ```
 <br> 
 
-2. toString/System.out.println --> Prints out the cube wtih indexes 
+* toString/System.out.println --> Prints out the cube wtih indexes 
 <br> 
-3. getCube() --> Returns String[][][][] object containing the cubearray 
+* getCube() --> Returns String[][][][] object containing the cubearray 
