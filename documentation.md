@@ -11,6 +11,7 @@
 # Table of Contents  
 * [Cubot](#Cubot)  
 * [Cube](#Cube) 
+* [The Difference](#Difference) 
 
 <hr> 
 
@@ -148,3 +149,10 @@ System.out.println(cube1.solved(cube2)) ; --> Returns false
 * toString/System.out.println --> Prints out the cube wtih indexes 
 
 * getCube() --> Returns String[][][][] object containing the cubearray 
+
+<hr> 
+
+# Difference Between the two classes 
+#### The Cubot and Cube classes have a composition relationship - Cubot has-a Cube <br> 
+#### With an object of Cube class, you can only make, compare with another Cube, and get the cubearray (String[][][][]) <br> 
+#### With an object of Cubot class, you can do much more + what Cube can do 
