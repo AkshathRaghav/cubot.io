@@ -25,11 +25,11 @@ System.out.println("Cube state == Solved ? --> " + cube1.isSolved());
 </p>
 
 2. solve() --> Solves the cube and returns the solution. 
-In case the cube is 
-* incorrectly entered, 
+Returns a warning along with the solution as well on how to fix the issue if the cube 
+* has been incorrectly entered, 
 * has an edge flipped,
 * has a corner flipped 
- it returns a warning along with the solution as well on how to fix it 
+
 
 ```java
 System.out.println("Cube state == Solved ? --> " + cube1.isSolved());
