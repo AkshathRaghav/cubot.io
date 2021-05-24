@@ -122,6 +122,8 @@ String s = shorten("U U U F' F R' U' U") // Returns "U' R'"
   public String[][][][] getCube() ; // returns the 4-D cube array
 ```
 
+<br> 
+
 1. solved(Cube other) --> Returns true if Cube object matches another Cube object 
 
 ```java
@@ -131,6 +133,8 @@ String[] temp2 = {"WGBOROGGY", "YOYWGBOYB", "RBBOORRBY", "OBGWBYRYR", "GRWRGYWGB
 Cube cube2 = new Cube(temp2) ; 
 System.out.println(cube1.solved(cube2)) ; --> Returns false
 ```
+<br> 
 
 2. toString/System.out.println --> Prints out the cube wtih indexes 
+<br> 
 3. getCube() --> Returns String[][][][] object containing the cubearray 
