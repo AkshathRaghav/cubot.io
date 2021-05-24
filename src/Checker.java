@@ -100,13 +100,9 @@
             if ( i == 1   ) {
                 if (j == 0) {
                     if (k == 0) {
-                        s += " " + Ldash() ;
-                        s += " " +Udash() ;
-                        s += " " +L() ;
+                        s += " " + Ldash() +Udash() + L() ;
                     } else {
-                        s += " " + L() ;
-                        s += " " +Udash() ;
-                        s += " " +Ldash() ;
+                        s += " " + L() +Udash() +Ldash() ;
                     }
                     s += " " +U() ;
 
@@ -116,16 +112,10 @@
                 }
                 else {
                     if (k == 0) {
-                        s += " " +R() ;
-                        s += " " +Udash() ;
-                        s += " " +Rdash() ;
-                        s += " " +U() ;
-                        s += " " +U() ;
+                        s += " " +R() +Udash()  +Rdash()  +U()  +U() ;
 
                     } else {
-                        s += " " +Rdash() ;
-                        s += " " +U() ;
-                        s += " " +R() ;
+                        s += " " +Rdash() +U() +R() ;
 
                     }
                     return cubearray[0][1][0][0] + s;
@@ -243,23 +233,15 @@
                     }
                     if (k == 0) {
                         if (j == 0) {
-                            s.append(F());
-                            s.append(Udash());
-                            s.append(Fdash());
+                            s.append(F()).append(Udash()).append(Fdash());
                         } else {
-                            s.append(Fdash());
-                            s.append(Udash());
-                            s.append(F());
+                            s.append(Fdash())append(Udash()).append(F());
                         }
                     } else {
                         if (j == 0) {
-                            s.append(Bdash());
-                            s.append(U());
-                            s.append(B());
+                            s.append(Bdash()).append(U()).append(B());
                         } else {
-                            s.append(B());
-                            s.append(U());
-                            s.append(Bdash());
+                            s.append(B()).append(U()).append(Bdash());
                         }
                     }
                 } else {
@@ -269,26 +251,17 @@
                     }
                     if (k == 0) {
                         if (j == 0) {
-                            s.append(Ldash());
-                            s.append(U());
-                            s.append(L());
+                            s.append(Ldash()).append(U()).append(L());
                         } else {
-                            s.append(R());
-                            s.append(Udash());
-                            s.append(Rdash());
+                            s.append(R());append(Udash()).append(Rdash());
                         }
                     } else {
                         if (j == 0) {
-                            s.append(L());
-                            s.append(U());
-                            s.append(Ldash());
+                            s.append(L()).append(U()).append(Ldash());
                         } else {
-                            s.append(Rdash());
-                            s.append(Udash());
-                            s.append(R());
+                            s.append(Rdash()).append(Udash()).append(R());
                         }
                     }
-
                 }
             }
             else {
@@ -562,11 +535,8 @@
                     }
                 }
                 s.append(y()).append("\n");
-
             }
-
             return s.toString();
-
         }
 
         private String oll() {
@@ -751,7 +721,6 @@
                 else {
                     s.append("(R' U L' U2 R U' L)2 U --> ()2, means repeat twice");
                     stringalg("R' U L' U2 R U' L R' U L' U2 R U' L U") ;
-
                 }
             }
             else if ( ad != 12 ){ return "You have either entered the cube wrongly, or one of your pieces is still flipped" ; }
@@ -795,16 +764,10 @@
                                 if ( !( cubearray[i][j][k][1].equals(endarray[i][j][k][1]) && cubearray[i][j][k][2].equals(endarray[i][j][k][2]) )) { change.add("( " +i + " " + j + " " + k + " : Side - " + endarray[i][j][k][1] + " , F/B - " + endarray[i][j][k][2] + " ) "  ) ; }
                             } else if (cubearray[i][j][k][1] == null) {
                                 if ( !( cubearray[i][j][k][0].equals(endarray[i][j][k][0]) && cubearray[i][j][k][2].equals(endarray[i][j][k][2]) )) { change.add("( " +i + " " + j + " " + k + " : T/b - " + endarray[i][j][k][0] + " , F/B - " + endarray[i][j][k][2] + " ) " ) ; }
-
-
                             } else if (cubearray[i][j][k][2] == null) {
                                 if ( !( cubearray[i][j][k][1].equals(endarray[i][j][k][1]) && cubearray[i][j][k][0].equals(endarray[i][j][k][0]) )) { change.add("( " + i + " " + j + " " + k + " : T/b - " + endarray[i][j][k][0] + " , Side - " + endarray[i][j][k][1] + " ) " )  ; }
-
-
                             } else {
                                 if ( !( cubearray[i][j][k][1].equals(endarray[i][j][k][1]) && cubearray[i][j][k][2].equals(endarray[i][j][k][2]) || cubearray[i][j][k][0].equals(endarray[i][j][k][0]) )) { change.add("( " +i + " " + j + " " + k + " : T/b - " + endarray[i][j][k][0] + " . Side - " + endarray[i][j][k][1]  + " . F/B - " + endarray[i][j][k][2] + " ) " ) ; }
-
-
                             }
                         }
                     }
