@@ -46,7 +46,6 @@
 ## Usage
 
 #### For all methods, and a detailed explanation, go to [Documentation](https://github.com/AkshathRaghav/cubot/blob/main/documentation.md)
-<br> 
 1. First make a String[] containing the sides of the cube as explained in the [Initialization](https://github.com/AkshathRaghav/cubot/blob/main/initialization.md) file
 
 ```java
@@ -108,8 +107,7 @@ System.out.println(cube) ; // prints out the cube --> piece location, colors and
 String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cube
 ```
 <hr> 
-## For more read the [Documentation](https://github.com/AkshathRaghav/cubot/edit/main/documentation.md) 
-<br> 
+ 
 
 ## Note :  Cubot makes use of a Cube object to work. If you wish to just have a Cube object, you can. 
 ### Below is the Cube class 
