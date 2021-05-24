@@ -42,7 +42,7 @@ System.out.println("------------------------------------------");
   <img width="250" src="https://user-images.githubusercontent.com/75845563/119396729-e0874100-bcf2-11eb-8ac0-e6a943983f11.png" alt="example">
 </p>
 
-3. toString()/System.out.println(cube) --> Prints out the cube in an easy to understand manner ( along with indexes ) 
+3. toString()/System.out.println(cube) --> Prints out the cube in an easy to understand manner ( along with [indexes](https://eli.thegreenplace.net/images/2015/row-major-3D.png)) 
 
 ```java
 System.out.println(cube1) ; 
