@@ -79,7 +79,7 @@ boolean solved = cube.isSolved() ; // returns true if solved, false if not
 ```
 <br> 
 
-5. You can access most of the cube moves like R(), R'(), etc. For more moves, see [allmoves.md](https://github.com/AkshathRaghav/cubot/blob/main/initialization.md) 
+5. You can access most of the cube moves like R(), R'(), etc. For more moves, see [All Moves](https://github.com/AkshathRaghav/cubot/blob/main/initialization.md) 
 
 ```java
 cube.R() ; 
