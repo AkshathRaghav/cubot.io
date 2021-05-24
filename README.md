@@ -18,7 +18,7 @@
 
 ### A Java library to help you : 
 * Virtually construct a Cube, 
-* Execute Moves and Perform algorithms easily, 
+* Quickly execute Moves and perform algorithms seamlessly, 
 * Manipulate the Cube using simple java, 
 * Get the solution for the cube
 * Use a cube in your own projects 
