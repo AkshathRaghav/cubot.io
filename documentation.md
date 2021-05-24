@@ -8,7 +8,7 @@
 
 <hr> 
 
-## All Methods 
+## Cubot Objects
 
 
 ```java
@@ -48,7 +48,7 @@ System.out.println("------------------------------------------");
 System.out.println(cube1) ; 
 ```
 
- <p align="center">
+<p align="center">
   <img width="350" src="https://user-images.githubusercontent.com/75845563/119397820-4e803800-bcf4-11eb-9eb1-c156694a7613.png" alt="example">
 </p>
 
@@ -64,7 +64,7 @@ System.out.println("------------------------------------------");
 System.out.println("Cube state == Solved ? --> " + cube1.isSolved());
 ```
 
- <p align="center">
+<p align="center">
   <img width="300" src="https://user-images.githubusercontent.com/75845563/119398164-ccdcda00-bcf4-11eb-9e2b-94de573443c5.png" alt="example">
 </p
 
@@ -96,9 +96,18 @@ String[][][][] cubearray = cube1.getCube() ;
 String[][][][] cubearray = cube1.getSolvedCube() ; 
 ```
 
-9. compareToSolved --> Returns an ArrayList containing the positions and colors on the pieces which are not solved ( i.e not in the solved positions ). Generally, this is used to check the exact positions which aren't solved during any solve or move. 
+8. compareToSolved --> Returns an ArrayList containing the positions and colors on the pieces which are not solved ( i.e not in the solved positions ). Generally, this is used to check the exact positions which aren't solved during any solve or move. 
 
 ```java
 ArrayList<String> positionsNotDone = cube1.compareToSolved() ; 
 ```
+
+9. shorten(String s) --> Returns the shortened version of the input algorithm ( Rdash -> R' ) 
+
+```java 
+String s = shorten("U U U F' F R' U' U") // Returns "U' R'" 
+```
+
+
+## Cube Objects
 
