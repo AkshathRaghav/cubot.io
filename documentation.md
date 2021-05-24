@@ -158,7 +158,7 @@ System.out.println(cube1.solved(cube2)) ; --> Returns false
 #### With an object of Cube class, you can only make, compare with another Cube, and get the cubearray (String[][][][]) <br> 
 #### With an object of Cubot class, you can do much more + what Cube can do 
 
-<hr> 
+
 
 #Indexing 
 #### cubearray[0][0][0][0] --> Color on top 
