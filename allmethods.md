@@ -24,12 +24,12 @@ System.out.println("Cube state == Solved ? --> " + cube1.isSolved());
   <img width="250" src="https://user-images.githubusercontent.com/75845563/119397066-4bd11300-bcf3-11eb-8a7b-feee3a81b287.png" alt="example">
 </p>
 
-2. solve() --> Solves the cube and returns the solution 
-#### In case the cube is 
+2. solve() --> Solves the cube and returns the solution. 
+In case the cube is 
 * incorrectly entered, 
 * has an edge flipped,
 * has a corner flipped 
-#### it returns a warning along with the solution as well on how to fix it 
+ it returns a warning along with the solution as well on how to fix it 
 
 ```java
 System.out.println("Cube state == Solved ? --> " + cube1.isSolved());
