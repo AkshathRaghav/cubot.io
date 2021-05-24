@@ -146,5 +146,5 @@ System.out.println(cube1.solved(cube2)) ; --> Returns false
 <br> 
 
 * toString/System.out.println --> Prints out the cube wtih indexes 
-<br> 
+
 * getCube() --> Returns String[][][][] object containing the cubearray 
