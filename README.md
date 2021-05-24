@@ -119,6 +119,7 @@ String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cu
   public String toString() ; // returns a String representing the cube
   public String[][][][] getCube() ; // returns the 4-D cube array
 ```
+Read more about the Cube class in the [Documentation](https://github.com/AkshathRaghav/cubot/blob/main/documentation.md) as well 
 <hr> 
 
 
