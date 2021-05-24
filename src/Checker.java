@@ -1,4 +1,6 @@
 import java.util.ArrayList ;
+
+// Handles most of the Cubot work
 public class Checker extends Moves {
 
     public Checker(String[] s) throws IllegalArgumentException {
