@@ -7,6 +7,7 @@
 
 
 # Description
+<hr> 
 
 ### A Java library to help you : 
 * Virtually construct a Cube, 
@@ -99,6 +100,8 @@ System.out.println(cube) ; // prints out the cube --> piece location, colors and
 <br> 
 
 8. You can get the entire cube in array form like this as well. ( If you are using it in your code, this might be useful ) 
+<br>
+## If you change something, this will lead to a change in the original cube so be careful.
 
 ```java
 String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cube
