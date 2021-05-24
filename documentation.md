@@ -16,13 +16,14 @@
 
 # Cubot Objects
 
-For Initialization guide, click [here](https://github.com/AkshathRaghav/cubot/blob/main/initialization.md)
+*For Initialization guide, click [here](https://github.com/AkshathRaghav/cubot/blob/main/initialization.md)*
 
 #### Example Object 
 ```java
 String[] temp = {"WGBOROGGY", "YOYWGBOYB", "RBBOORRBY", "OBGWBYRYR", "GRWRGYWGB", "OWWWYROGG"};
 Cubot cube1 = new Cubot(temp) ; 
 ```
+<br> 
 
 * isSolved() --> Tells you if your cube is solved or not 
 
