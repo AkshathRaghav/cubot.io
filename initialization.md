@@ -8,6 +8,7 @@
 Terms 
 * (XX) Face : The side of the cube with center color (XX) 
 
+<hr> 
 
 # How to initialize a Cubot object
 
