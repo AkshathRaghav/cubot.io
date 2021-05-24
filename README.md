@@ -5,9 +5,10 @@
 </p>
 
 
+<hr> 
+
 
 # Description
-<hr> 
 
 ### A Java library to help you : 
 * Virtually construct a Cube, 
