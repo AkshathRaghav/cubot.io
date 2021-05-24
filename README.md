@@ -47,7 +47,7 @@
 
 #### For all methods, and a detailed explanation, go to [Documentation](https://github.com/AkshathRaghav/cubot/blob/main/documentation.md)
 <br> 
-1. First make a String[] containing the sides of the cube as explained in the [initialize.md](https://github.com/AkshathRaghav/cubot/blob/main/initialization.md) file
+1. First make a String[] containing the sides of the cube as explained in the [Initialization](https://github.com/AkshathRaghav/cubot/blob/main/initialization.md) file
 
 ```java
 String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"}; // This represents a solved cube
