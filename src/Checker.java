@@ -2,6 +2,8 @@ import java.util.ArrayList ;
 
 // Handles most of the Cubot work
 public class Checker extends Moves {
+    private final String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"};
+    private final Cube end = new Cube(temp) ;
 
     public Checker(String[] s) throws IllegalArgumentException {
         super(s) ;
