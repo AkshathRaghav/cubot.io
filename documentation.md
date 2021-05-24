@@ -12,6 +12,7 @@
 * [Cubot](#Cubot)  
 * [Cube](#Cube) 
 * [The Difference](#Difference) 
+* [Accessing the Cubearray](#Indexing)
 
 <hr> 
 
@@ -156,3 +157,12 @@ System.out.println(cube1.solved(cube2)) ; --> Returns false
 #### The Cubot and Cube classes have a composition relationship - Cubot has-a Cube <br> 
 #### With an object of Cube class, you can only make, compare with another Cube, and get the cubearray (String[][][][]) <br> 
 #### With an object of Cubot class, you can do much more + what Cube can do 
+
+<hr> 
+
+#Indexing 
+#### cubearray[0][0][0][0] --> Color on top 
+#### cubearray[0][0][0][1] --> Color on side 
+#### cubearray[0][0][0][2] --> Color in front
+#### Only for Centers --> cubearray[0][0][0][1].substring(0,1) --> Gives you the color of the center piece
+#### cubearray[1][1][1] --> Joint Piece
