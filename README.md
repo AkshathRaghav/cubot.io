@@ -45,6 +45,8 @@
 
 ## Usage
 
+#### For all methods, and a detailed explanation, go to [Documentation](https://github.com/AkshathRaghav/cubot/blob/main/documentation.md)
+<br> 
 1. First make a String[] containing the sides of the cube as explained in the [initialize.md](https://github.com/AkshathRaghav/cubot/blob/main/initialization.md) file
 
 ```java
@@ -70,7 +72,7 @@ System.out.println(sol); // prints it out on the terminal
 ```
 <br> 
 
-4. You can also check if the cube is solved with isSolved() --> For example, if you want to execute a move and check if the cube is solved or not, use this method. 
+4. With isSolved(), you can get the status of your cube ( solved or not ) --> For example, if you want to execute a move and check if the cube is solved or not, use this method. 
 
 ```java
 boolean solved = cube.isSolved() ; // returns true if solved, false if not
@@ -93,16 +95,14 @@ cube.stringalg("R U R' U'") ; // executes the algorithm and returns String ( if 
 ```
 <br> 
 
-7. You can print the entire cube which will give you all the colors one each piece. ( Refer to [indexes](https://eli.thegreenplace.net/images/2015/row-major-3D.png) ) 
+7. You can print the entire cube on your terminal. ( Refer to [indexes](https://eli.thegreenplace.net/images/2015/row-major-3D.png) ) 
 
 ```java
 System.out.println(cube) ; // prints out the cube --> piece location, colors and centers 
 ```
 <br> 
 
-8. You can get the entire cube in array form like this as well. ( If you are using it in your code, this might be useful ) 
-<br>
-## If you change something, this will lead to a change in the original cube so be careful.
+8. Using getCube(), you can access each piece of the cube however you want to. If you change something, this will lead to a change in the original cube so be careful.
 
 ```java
 String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cube
