@@ -49,7 +49,7 @@ System.out.println(cube1) ;
 ```
 
  <p align="center">
-  <img width="250" src="https://user-images.githubusercontent.com/75845563/119397820-4e803800-bcf4-11eb-9eb1-c156694a7613.png" alt="example">
+  <img width="350" src="https://user-images.githubusercontent.com/75845563/119397820-4e803800-bcf4-11eb-9eb1-c156694a7613.png" alt="example">
 </p>
 
 4. R(),Rdash(), etc. --> Executes move on your cubot with R(), Rdash(), and other moves. Find the supported moves [here](https://github.com/AkshathRaghav/cubot/blob/main/moves.md)
@@ -65,7 +65,7 @@ System.out.println("Cube state == Solved ? --> " + cube1.isSolved());
 ```
 
  <p align="center">
-  <img width="250" src="https://user-images.githubusercontent.com/75845563/119398164-ccdcda00-bcf4-11eb-9e2b-94de573443c5.png" alt="example">
+  <img width="300" src="https://user-images.githubusercontent.com/75845563/119398164-ccdcda00-bcf4-11eb-9e2b-94de573443c5.png" alt="example">
 </p
 
 5. stringalg(String s) --> Executes the moves given as a String on the cubot 
