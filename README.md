@@ -115,7 +115,7 @@ String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cu
 <hr> 
  
 
-## Note :  Cubot makes use of a Cube object to work. If you wish to just have a Cube object, you can. 
+## Note :  Cubot makes use of a Cube object to work. If you wish to just have a Cube object ( of Cube type ) , you can. 
 ### Below is the Cube class 
 
 ```java 
@@ -125,7 +125,7 @@ String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cu
   public String toString() ; // returns a String representing the cube
   public String[][][][] getCube() ; // returns the 4-D cube array
 ```
-Read more about the Cube class in the [Documentation](https://github.com/AkshathRaghav/cubot/blob/main/documentation.md) as well 
+In case of any confusion between Cubot and Cube classes, read more in the [Documentation](https://github.com/AkshathRaghav/cubot/blob/main/documentation.md) as well 
 <hr> 
 
 
