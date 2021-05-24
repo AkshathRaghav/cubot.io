@@ -122,5 +122,7 @@ String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cu
 
 <hr> 
 
+## If you want to read more about using Cubot - [Working](https://eli.thegreenplace.net/2015/memory-layout-of-multi-dimensional-arrays)
+
 ## Sites used 
 * [Eli Bedernsky's Website](https://eli.thegreenplace.net/2015/memory-layout-of-multi-dimensional-arrays)
