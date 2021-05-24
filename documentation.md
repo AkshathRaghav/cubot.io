@@ -11,7 +11,7 @@
 # Table of Contents  
 * [Cubot](#Cubot)  
 * [Cube](#Cube) 
-* 
+
 <hr> 
 
 # Cubot Objects
