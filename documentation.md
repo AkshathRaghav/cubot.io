@@ -111,3 +111,25 @@ String s = shorten("U U U F' F R' U' U") // Returns "U' R'"
 
 ## Cube Objects
 
+### Below is the Cube class 
+
+```java 
+  private String[][][][] cube ; 
+  public Cube(String  [] temp) ; // Makes the Cube with String[]    
+  public boolean solved(Cube other) ; // tells you if its solved, with respect to another cube ( play around with it ;) )
+  public String toString() ; // returns a String representing the cube
+  public String[][][][] getCube() ; // returns the 4-D cube array
+```
+
+1. solved(Cube other) --> Returns true if Cube object matches another Cube object 
+
+```java
+String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"};
+Cube cube1 = new Cube(temp) ;
+String[] temp2 = {"WGBOROGGY", "YOYWGBOYB", "RBBOORRBY", "OBGWBYRYR", "GRWRGYWGB", "OWWWYROGG"};
+Cube cube2 = new Cube(temp2) ; 
+System.out.println(cube1.solved(cube2)) ; --> Returns false
+```
+
+2. toString/System.out.println --> Prints out the cube wtih indexes 
+3. getCube() --> Returns String[][][][] object containing the cubearray 
