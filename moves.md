@@ -35,7 +35,6 @@
 22. M2()
 23. D2()
 24. M2dash()
-25. y()
-26. Rotaterightlower() // not much use
+
 
      
