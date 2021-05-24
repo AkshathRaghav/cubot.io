@@ -151,7 +151,16 @@ System.out.println(cube1.solved(cube2)) ; --> Returns false
 
 * getCube() --> Returns String[][][][] object containing the cubearray 
 
+
 <hr> 
+
+
+# Indexing 
+#### cubearray[0][0][0][0] --> Color on top 
+#### cubearray[0][0][0][1] --> Color on side 
+#### cubearray[0][0][0][2] --> Color in front
+#### Only for Centers --> cubearray[0][0][0][1].substring(0,1) --> Gives you the color of the center piece
+#### cubearray[1][1][1] --> Joint Piece
 
 # Difference Between the two classes 
 #### The Cubot and Cube classes have a composition relationship - Cubot has-a Cube <br> 
@@ -160,9 +169,3 @@ System.out.println(cube1.solved(cube2)) ; --> Returns false
 
 
 
-#Indexing 
-#### cubearray[0][0][0][0] --> Color on top 
-#### cubearray[0][0][0][1] --> Color on side 
-#### cubearray[0][0][0][2] --> Color in front
-#### Only for Centers --> cubearray[0][0][0][1].substring(0,1) --> Gives you the color of the center piece
-#### cubearray[1][1][1] --> Joint Piece
