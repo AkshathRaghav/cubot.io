@@ -108,7 +108,8 @@ System.out.println(cube) ; // prints out the cube --> piece location, colors and
 String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cube
 ```
 <hr> 
-
+## For more read the [Documentation](https://github.com/AkshathRaghav/cubot/edit/main/documentation.md) 
+<br> 
 
 ## Note :  Cubot makes use of a Cube object to work. If you wish to just have a Cube object, you can. 
 ### Below is the Cube class 
@@ -120,10 +121,8 @@ String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cu
   public String toString() ; // returns a String representing the cube
   public String[][][][] getCube() ; // returns the 4-D cube array
 ```
-
 <hr> 
 
-## If you want to read more about using Cubot - [Working](https://eli.thegreenplace.net/2015/memory-layout-of-multi-dimensional-arrays)
 
 ## Sites used 
 * [Eli Bedernsky's Website](https://eli.thegreenplace.net/2015/memory-layout-of-multi-dimensional-arrays)
