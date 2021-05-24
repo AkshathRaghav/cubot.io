@@ -18,7 +18,7 @@
 
 ### A Java library to help you : 
 * Virtually construct a Cube, 
-* Quickly execute Moves and perform algorithms seamlessly, 
+* Quickly execute moves and perform algorithms seamlessly, 
 * Manipulate the Cube using simple java, 
 * Get the solution for the cube
 * Use a cube in your own projects 
@@ -40,7 +40,7 @@
  <p align="center">
   <img width="250" src="https://cdn.discordapp.com/attachments/812010624301269012/846011272054571038/unknown.png" alt="example">
 </p>
-5. You will get 3 options. Choose java and then select Cubot.jar from the download location 
+5. You will get 3 options. Choose Java and then select Cubot.jar from the download location 
 <br> 
 <br>
  <p align="center">
@@ -84,7 +84,7 @@ boolean solved = cube.isSolved() ; // returns true if solved, false if not
 ```
 <br> 
 
-5. You can access most of the cube moves like R(), R'(), etc. For more moves, see [All Moves](https://github.com/AkshathRaghav/cubot/blob/main/initialization.md) 
+5. You can access most of the cube moves like R(), R'(), etc. For more moves, see [All Moves](https://github.com/AkshathRaghav/cubot/blob/main/moves.md) 
 
 ```java
 cube.R() ; 
