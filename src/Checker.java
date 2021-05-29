@@ -2,6 +2,7 @@
     public class Checker extends Moves {
         private final String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"};
         private final Cube end = new Cube(temp) ;
+        private final String[] movesString = {"R", "R'", "L", "L'", "U", "U'", "D", "D'", "F", "F'", "B" , "B'", "U2", "F2", "R2", "L2",  "M2"} ;
 
         public Checker(String[] s) throws IllegalArgumentException {
             super(s) ;
@@ -71,6 +72,61 @@
 
         }
 
+
+        private String reversedo(String s) {
+            String monthString ="" ; // random thing i copied, just rename later
+            switch (s) {
+                case "R":  monthString = "R'";
+                    break;
+                case "R'":  monthString = "R";
+                    break;
+                case "L":  monthString = "L'";
+                    break;
+                case "L'":  monthString = "L";
+                    break;
+                case "U":  monthString = "U'";
+                    break;
+                case "U'":  monthString = "U";
+                    break;
+                case "D":  monthString = "D'";
+                    break;
+                case "D'":  monthString = "D";
+                    break;
+                case "F":  monthString = "F'";
+                    break;
+                case "F'": monthString = "F";
+                    break;
+                case "B": monthString = "B'";
+                    break;
+                case "B'": monthString = "B";
+                    break;
+                case "M":  monthString = "M'";
+                    break;
+                case "M'": monthString = "M";
+                    break;
+
+                case "r": monthString = "r'";
+                    break;
+                case "r'": monthString = "r";
+                    break;
+                default: monthString = s ;
+
+
+            }
+            return monthString ;
+
+
+        }
+        public String reversealg(String str) {
+            String s = "" ;
+            while (str.contains(" ")) {
+                s = reversedo(str.substring(0, str.indexOf(" "))) + " " + s ;
+                str = str.substring(str.indexOf(" ") +1 ) ;
+            }
+            s = reversedo(str) + " " + s ;
+            stringalg(s) ;
+            return s ;
+        }
         // slots the edges
         private String throwcoloredgers(String color, String colorside ) {
             String s = "" ;
@@ -100,9 +156,13 @@
             if ( i == 1   ) {
                 if (j == 0) {
                     if (k == 0) {
-                        s += " " + Ldash() +Udash() + L() ;
+                        s += " " + Ldash() ;
+                        s += " " +Udash() ;
+                        s += " " +L() ;
                     } else {
-                        s += " " + L() +Udash() +Ldash() ;
+                        s += " " + L() ;
+                        s += " " +Udash() ;
+                        s += " " +Ldash() ;
                     }
                     s += " " +U() ;
 
@@ -112,10 +172,16 @@
                 }
                 else {
                     if (k == 0) {
-                        s += " " +R() +Udash()  +Rdash()  +U()  +U() ;
+                        s += " " +R() ;
+                        s += " " +Udash() ;
+                        s += " " +Rdash() ;
+                        s += " " +U() ;
+                        s += " " +U() ;
 
                     } else {
-                        s += " " +Rdash() +U() +R() ;
+                        s += " " +Rdash() ;
+                        s += " " +U() ;
+                        s += " " +R() ;
 
                     }
                     return cubearray[0][1][0][0] + s;
@@ -233,15 +299,23 @@
                     }
                     if (k == 0) {
                         if (j == 0) {
-                            s.append(F()).append(Udash()).append(Fdash());
+                            s.append(F());
+                            s.append(Udash());
+                            s.append(Fdash());
                         } else {
-                            s.append(Fdash())append(Udash()).append(F());
+                            s.append(Fdash());
+                            s.append(Udash());
+                            s.append(F());
                         }
                     } else {
                         if (j == 0) {
-                            s.append(Bdash()).append(U()).append(B());
+                            s.append(Bdash());
+                            s.append(U());
+                            s.append(B());
                         } else {
-                            s.append(B()).append(U()).append(Bdash());
+                            s.append(B());
+                            s.append(U());
+                            s.append(Bdash());
                         }
                     }
                 } else {
@@ -251,17 +325,26 @@
                     }
                     if (k == 0) {
                         if (j == 0) {
-                            s.append(Ldash()).append(U()).append(L());
+                            s.append(Ldash());
+                            s.append(U());
+                            s.append(L());
                         } else {
-                            s.append(R());append(Udash()).append(Rdash());
+                            s.append(R());
+                            s.append(Udash());
+                            s.append(Rdash());
                         }
                     } else {
                         if (j == 0) {
-                            s.append(L()).append(U()).append(Ldash());
+                            s.append(L());
+                            s.append(U());
+                            s.append(Ldash());
                         } else {
-                            s.append(Rdash()).append(Udash()).append(R());
+                            s.append(Rdash());
+                            s.append(Udash());
+                            s.append(R());
                         }
                     }
+
                 }
             }
             else {
@@ -535,8 +618,11 @@
                     }
                 }
                 s.append(y()).append("\n");
+
             }
+
             return s.toString();
+
         }
 
         private String oll() {
@@ -721,6 +807,7 @@
                 else {
                     s.append("(R' U L' U2 R U' L)2 U --> ()2, means repeat twice");
                     stringalg("R' U L' U2 R U' L R' U L' U2 R U' L U") ;
+
                 }
             }
             else if ( ad != 12 ){ return "You have either entered the cube wrongly, or one of your pieces is still flipped" ; }
@@ -764,10 +851,16 @@
                                 if ( !( cubearray[i][j][k][1].equals(endarray[i][j][k][1]) && cubearray[i][j][k][2].equals(endarray[i][j][k][2]) )) { change.add("( " +i + " " + j + " " + k + " : Side - " + endarray[i][j][k][1] + " , F/B - " + endarray[i][j][k][2] + " ) "  ) ; }
                             } else if (cubearray[i][j][k][1] == null) {
                                 if ( !( cubearray[i][j][k][0].equals(endarray[i][j][k][0]) && cubearray[i][j][k][2].equals(endarray[i][j][k][2]) )) { change.add("( " +i + " " + j + " " + k + " : T/b - " + endarray[i][j][k][0] + " , F/B - " + endarray[i][j][k][2] + " ) " ) ; }
+
+
                             } else if (cubearray[i][j][k][2] == null) {
                                 if ( !( cubearray[i][j][k][1].equals(endarray[i][j][k][1]) && cubearray[i][j][k][0].equals(endarray[i][j][k][0]) )) { change.add("( " + i + " " + j + " " + k + " : T/b - " + endarray[i][j][k][0] + " , Side - " + endarray[i][j][k][1] + " ) " )  ; }
+
+
                             } else {
                                 if ( !( cubearray[i][j][k][1].equals(endarray[i][j][k][1]) && cubearray[i][j][k][2].equals(endarray[i][j][k][2]) || cubearray[i][j][k][0].equals(endarray[i][j][k][0]) )) { change.add("( " +i + " " + j + " " + k + " : T/b - " + endarray[i][j][k][0] + " . Side - " + endarray[i][j][k][1]  + " . F/B - " + endarray[i][j][k][2] + " ) " ) ; }
+
+
                             }
                         }
                     }
@@ -775,7 +868,17 @@
             }
             return change ;
         }
+        public String getScramble(int n ) {
+            StringBuilder s = new StringBuilder(" ");
+            for (int i =0 ; i < n ; i++ ) {
 
+                int x = (int) (Math.random() * movesString.length) ;
+
+                s.append(movesString[x]).append(" ");
+            }
+            return stringalg(s.toString()) ;
+
+        }
     }
 
 
