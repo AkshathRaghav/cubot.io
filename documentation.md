@@ -92,9 +92,20 @@ System.out.println("------------------------------------------");
 System.out.println("Cube state == Solved ? --> " + cube1.isSolved());
 ```
 
+
  <p align="center">
   <img width="250" src="https://user-images.githubusercontent.com/75845563/119398424-26dd9f80-bcf5-11eb-9f67-003c5815635b.png" alt="example">
 </p
+  
+* reverseAlg(String s, boolean check) --> reverses all the moves done ( s represents the moves executed ) if check is true, returns reversed String otherwise
+
+```java
+String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"};
+Cubot cube = new Cubot(temp) ;
+String s = "R U R' U'" ; 
+System.out.println(cube.reversealg(s), false) ; // just reverses it 
+System.out.println(cube.isSolved()); // --> true ( as nothing was done to the cube ) 
+```
 
 * getCube() --> Returns a String[][][][] object containing all the cube pieces. Be Careful! Any changes to the array will reflect on the cube. 
 
@@ -108,10 +119,22 @@ String[][][][] cubearray = cube1.getCube() ;
 String[][][][] cubearray = cube1.getSolvedCube() ; 
 ```
 
+
 * compareToSolved --> Returns an ArrayList containing the positions and colors on the pieces which are not solved ( i.e not in the solved positions ). Generally, this is used to check the exact positions which aren't solved during any solve or move. 
 
 ```java
 ArrayList<String> positionsNotDone = cube1.compareToSolved() ; 
+```
+
+* getScramble(int n, boolean check if tru) --> gives you a scramble of input n ( and executes it on the cube if check is true, just gives a scramble if check is false ) 
+
+```java
+String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"};
+Cubot cube = new Cubot(temp) ;
+String s = cube.getScramble(5, true); // makes scramble and changes cube
+System.out.println(s);
+System.out.println(cube.reversealg(s), true) ; // undoes s
+System.out.println(cube.isSolved()); // --> true 
 ```
 
 * shorten(String s) --> Returns the shortened version of the input algorithm ( Rdash -> R' ) 
@@ -119,6 +142,8 @@ ArrayList<String> positionsNotDone = cube1.compareToSolved() ;
 ```java 
 String s = shorten("U U U F' F R' U' U") // Returns "U' R'" 
 ```
+
+
 <hr> 
 
 
