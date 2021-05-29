@@ -11,6 +11,7 @@
 * [Description](#Description)  
 * [Installation](#Installation) 
 * [Usage](#Usage)
+* [Updates](#Updates)
 <hr> 
 
 
@@ -128,6 +129,13 @@ String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cu
 In case of any confusion between Cubot and Cube classes, read more in the [Documentation](https://github.com/AkshathRaghav/cubot/blob/main/documentation.md) as well 
 <hr> 
 
+<hr> 
+
+# Updates
+
+1. getScramble(int n) added 
+2. reverseAlg(String s) added 
+3. Code updated and minor tweaks in Checker - 30.5.2021
 
 ## Sites used 
 * [Eli Bedernsky's Website](https://eli.thegreenplace.net/2015/memory-layout-of-multi-dimensional-arrays)
