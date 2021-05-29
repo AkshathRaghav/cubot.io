@@ -868,15 +868,20 @@
             }
             return change ;
         }
-        public String getScramble(int n ) {
+       public String getScramble(int n, boolean check) {
             StringBuilder s = new StringBuilder(" ");
-            for (int i =0 ; i < n ; i++ ) {
+            for (int i = 0; i < n; i++) {
 
-                int x = (int) (Math.random() * movesString.length) ;
+                int x = (int) (Math.random() * movesString.length);
 
                 s.append(movesString[x]).append(" ");
             }
-            return stringalg(s.toString()) ;
+
+            if (check) {
+                return stringalg(s.toString());
+            }
+            else { return s.toString() ; }
+
 
         }
     }
