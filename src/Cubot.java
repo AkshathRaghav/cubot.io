@@ -1,6 +1,6 @@
 import java.util.ArrayList ;
 
-public class Cubot extends Checker{
+public class Cubot extends Checker {
     public Cubot(String[] s) throws IllegalArgumentException { super(s) ;}
     public String solve() {
         String s = super.solve() ;
@@ -16,5 +16,6 @@ public class Cubot extends Checker{
     public String[][][][] getSolvedCube() { return super.getSolvedCube() ; }
     public ArrayList<String> compareToSolved()  { return super.compareToSolved() ; }
     public String stringAlg(String s) { return super.stringalg(s) ; }
+    public String getScramble(int n ) { return super.getScramble(n) ; }
 
 }
