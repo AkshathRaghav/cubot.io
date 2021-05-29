@@ -117,15 +117,18 @@
 
 
         }
-        public String reversealg(String str) {
+        public String reversealg(String str, boolean check) {
             String s = "" ;
             while (str.contains(" ")) {
                 s = reversedo(str.substring(0, str.indexOf(" "))) + " " + s ;
                 str = str.substring(str.indexOf(" ") +1 ) ;
             }
             s = reversedo(str) + " " + s ;
-            stringalg(s) ;
-            return s ;
+            if (check) {
+                stringalg(s);
+            }
+            return s;
+
         }
         // slots the edges
         private String throwcoloredgers(String color, String colorside ) {
