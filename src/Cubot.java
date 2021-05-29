@@ -17,5 +17,6 @@ public class Cubot extends Checker {
     public ArrayList<String> compareToSolved()  { return super.compareToSolved() ; }
     public String stringAlg(String s) { return super.stringalg(s) ; }
     public String getScramble(int n ) { return super.getScramble(n) ; }
+    public String reverseAlg(String s) { return  super.reversealg(s) ; }
 
 }
