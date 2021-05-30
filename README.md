@@ -52,7 +52,6 @@
 
 # Usage
 
-#### For all methods, and a detailed explanation, go to [Documentation](https://github.com/AkshathRaghav/cubot/blob/main/documentation.md)
 1. First make a String[] containing the sides of the cube as explained in the [Initialization](https://github.com/AkshathRaghav/cubot/blob/main/initialization.md). 
 
 ```java
@@ -108,11 +107,14 @@ System.out.println(cube) ; // prints out the cube --> piece location, colors and
 ```
 <br> 
 
-8. Using getCube(), you can access each piece of the cube however you want to. If you change something, this will lead to a change in the original cube so be careful.
+8. Using getCube(), you can access each piece of the cube however you want to. If you change something here, the original cube will change as well.
 
 ```java
 String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cube
 ```
+
+
+#### For the other methods, and a detailed explanation, go to [Documentation](https://github.com/AkshathRaghav/cubot/blob/main/documentation.md)
 <hr> 
  
 
