@@ -135,9 +135,8 @@ In case of any confusion between Cubot and Cube classes, read more in the [Docum
 
 # Updates
 
-1. getScramble(int n) added 
-2. reverseAlg(String s) added 
-3. Code updated and minor tweaks in Checker - 30.5.2021
+1. getScramble(int n) added; reverseAlg(String s) added; minor tweaks in Checker - 30.5.2021
+2. E(), S() added, updated Moves in moves - 31.5.2021 
 
 <hr> 
 
