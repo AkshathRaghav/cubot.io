@@ -123,6 +123,15 @@ public class Moves {
         return "B'" ;
     }
 
+    public String S() {
+        frontswapper(1, FBdashswaps);
+        change(cubearray[2][2][1], "front") ;
+        change(cubearray[1][0][1], "front");
+        change(cubearray[0][1][1], "front");
+        change(cubearray[2][1][1], "front");
+        return "S" ;
+    }
+
     public String F() {
         frontswapper(0, FBdashswaps);
         change(cubearray[1][2][0], "front") ;
@@ -148,6 +157,14 @@ public class Moves {
         return "M'" ;
     }
 
+    public String E()  {
+        rowswapper(1, UdashDswaps);
+        change(cubearray[1][2][0], "row") ;
+        change(cubearray[1][1][0], "row") ;
+        change(cubearray[1][1][2], "row") ;
+        change(cubearray[1][0][1], "row") ;
+        return "E" ;
+    }
 
     public String r() {
         R() ;
