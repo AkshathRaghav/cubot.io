@@ -9,158 +9,53 @@ import java.util.* ;
         }
         private final int[][] edges = {{2, 0, 1, 2, 1, 0, 2, 2, 1, 2, 1, 2}, {1, 0, 0, 1, 0, 2, 1, 2, 0, 1, 2, 2}, {0, 0, 1, 0, 1, 0, 0, 2, 1, 0, 1, 2}};
         private final int[][] corners = {{2, 0, 0, 2, 0, 2, 2, 2, 0, 2, 2, 2}, {0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 2, 2}};
-        //shorten - shortens the solution returned
-        public String shorten(String s ) {
-            s= s.replaceAll("F' F ", "") ;
-            s= s.replaceAll("F F'", "") ;
-            s= s.replaceAll("U U' ", "") ;
-            s= s.replaceAll("U' U ", "") ;
-            s = s.replaceAll("U' U' U' U' ", "") ;
-            s = s.replaceAll("U U U U", "") ;
-            s = s.replaceAll("U U U ", "Udash ") ;
-            s = s.replaceAll("U' U' U' ", "U ") ;
-            s = s.replaceAll("U U ", "U2 ") ;
-            s = s.replaceAll("U' U' ", "U2' ") ;
-            s = s.replaceAll("U' U2", "U ") ;
-            s = s.replaceAll("U U2'", "U' ") ;
-            s= s.replaceAll("y y y y", "" ) ;
-            s= s.replaceAll("y y y", "y'" ) ;
-            s= s.replaceAll("x x x", "x'" ) ;
-            s= s.replaceAll("z z z", "z'" ) ;
-            s= s.replaceAll("z' z", "" ) ;
-            s= s.replaceAll("y' y", "" ) ;
-            s= s.replaceAll("x' x", "" ) ;
-            s= s.replaceAll("y\ny\ny\ny", "\n" ) ;
-            s = s.replaceAll("\n\n\n\n", "" );
-            s = s.replaceAll("\n\n\n", "" );
-            s = s.replaceAll("Either", "\n Either" );
-
-            return s ;
+        
+        public boolean isSolved() {
+            return cubie.solved(end) ;
         }
+        public String[][][][] getSolvedCube() { return end.getCube() ; }
+        public ArrayList<String> compareToSolved() {
+            String[][][][] endarray = end.getCube() ;
+            ArrayList<String> change = new ArrayList<String>() ;
+            for (int j = 0; j < cubearray.length; j++) {
+                for (int i = 0; i < cubearray.length; i++) {
+                    for (int k = 0; k < cubearray.length; k++) {
+                        String a, x, c;
+                        if (cubearray[i][j][k][0] != null || cubearray[i][j][k][2] != null) {
+                            if (cubearray[i][j][k][0] == null) {
+                                if ( !( cubearray[i][j][k][1].equals(endarray[i][j][k][1]) && cubearray[i][j][k][2].equals(endarray[i][j][k][2]) )) { change.add("( " +i + " " + j + " " + k + " : Side - " + endarray[i][j][k][1] + " , F/B - " + endarray[i][j][k][2] + " ) "  ) ; }
+                            } else if (cubearray[i][j][k][1] == null) {
+                                if ( !( cubearray[i][j][k][0].equals(endarray[i][j][k][0]) && cubearray[i][j][k][2].equals(endarray[i][j][k][2]) )) { change.add("( " +i + " " + j + " " + k + " : T/b - " + endarray[i][j][k][0] + " , F/B - " + endarray[i][j][k][2] + " ) " ) ; }
 
-        //chooses which move to execute based on input
-         private void choose(String ch) {
-            switch (ch) {
-                case "R" -> R();
-                case "R'" -> Rdash();
-                case "L'" -> Ldash();
-                case "L" -> L();
-                case "U" -> U();
-                case "U'" -> Udash();
-                case "F" -> F();
-                case "F'" -> Fdash();
-                case "B" -> B();
-                case "B'" -> Bdash();
-                case "D" -> D();
-                case "D'" -> Ddash();
-                case "M" -> M();
-                case "M'" -> Mdash();
-                case "R2" -> R2();
-                case "L2" -> L2();
-                case "r" -> r();
-                case "r'" -> rdash();
-                case "U2", "U2'" -> U2();
-                case "F2" -> F2();
-                case "B2" -> B2();
-                case "M2" -> M2();
-                case "D2" -> D2();
-                case "y" -> y();
-                case "z" -> z();
-                case "x" -> x();
-                case "E" -> E();
-                case "E'" -> Edash();
-                case "S" -> S();
-                case "S'" -> Sdash() ;
 
+                            } else if (cubearray[i][j][k][2] == null) {
+                                if ( !( cubearray[i][j][k][1].equals(endarray[i][j][k][1]) && cubearray[i][j][k][0].equals(endarray[i][j][k][0]) )) { change.add("( " + i + " " + j + " " + k + " : T/b - " + endarray[i][j][k][0] + " , Side - " + endarray[i][j][k][1] + " ) " )  ; }
+
+
+                            } else {
+                                if ( !( cubearray[i][j][k][1].equals(endarray[i][j][k][1]) && cubearray[i][j][k][2].equals(endarray[i][j][k][2]) || cubearray[i][j][k][0].equals(endarray[i][j][k][0]) )) { change.add("( " +i + " " + j + " " + k + " : T/b - " + endarray[i][j][k][0] + " . Side - " + endarray[i][j][k][1]  + " . F/B - " + endarray[i][j][k][2] + " ) " ) ; }
+
+
+                            }
+                        }
+                    }
+                }
             }
+            return change ;
         }
-
-
-        //converts String to alg ( to shorten the work ) - makes use of choose(ch)
-        public String stringalg(String str) {
-            String s = str.trim();
-            while (str.contains(" ")) {
-                choose(str.substring(0, str.indexOf(" ")));
-                str = str.substring(str.indexOf(" ") +1 ) ;
+        public String getScramble(int n, boolean check) {
+            StringBuilder s = new StringBuilder(" ");
+            for (int i = 0; i < n; i++) {
+                int x = (int) (Math.random() * movesString.length);
+                s.append(movesString[x]).append(" ");
             }
-            choose(str);
-            return s ;
-
-        }
-
-
-       
-        private String reversedo(String s) {
-            String monthString ="" ; // random thing i copied, just rename later
-            switch (s) {
-                case "R":  monthString = "R'";
-                    break;
-                case "R'":  monthString = "R";
-                    break;
-                case "L":  monthString = "L'";
-                    break;
-                case "L'":  monthString = "L";
-                    break;
-                case "U":  monthString = "U'";
-                    break;
-                case "U'":  monthString = "U";
-                    break;
-                case "D":  monthString = "D'";
-                    break;
-                case "D'":  monthString = "D";
-                    break;
-                case "F":  monthString = "F'";
-                    break;
-                case "F'": monthString = "F";
-                    break;
-                case "B": monthString = "B'";
-                    break;
-                case "B'": monthString = "B";
-                    break;
-                case "M":  monthString = "M'";
-                    break;
-                case "M'": monthString = "M";
-                    break;
-                case "r": monthString = "r'";
-                    break;
-                case "r'": monthString = "r";
-                    break;
-                case "x" : monthString = "x'" ;
-                    break ;
-                case "y" : monthString = "y'" ;
-                    break ;
-                case "z" : monthString = "z'" ;
-                    break;
-                case "E" : monthString = "E'" ;
-                    break ;
-                case "E'" : monthString = "E" ;
-                    break ;
-                case "S" : monthString = "S'" ;
-                    break;
-                default: monthString = s ;
-            }
-            return monthString ;
-
-
-        }
-            return monthString ;
-
-
-        }
-        public String reversealg(String str, boolean check) {
-            String s = "" ;
-            while (str.contains(" ")) {
-                s = reversedo(str.substring(0, str.indexOf(" "))) + " " + s ;
-                str = str.substring(str.indexOf(" ") +1 ) ;
-            }
-            s = reversedo(str) + " " + s ;
             if (check) {
-                stringalg(s);
+                return stringalg(s.toString());
             }
-            return s;
-
+            else { return s.toString() ; }
         }
-        // slots the edges
+       
+        
         private String throwcoloredgers(String color, String colorside ) {
             String s = "" ;
             int i = 5 , j = 5 , k = 5 ;
@@ -866,6 +761,7 @@ import java.util.* ;
             s +=  centers()  ;
             s+=  f2l();
             s+=  oll() ;
+//            if ( !(s.substring(s.length()-2).contains(" ")) && !s.contains("R") ) { return "Solved" ; }
             if ( !s.contains("Either") ) {
                 s += pll();
                 if ( !isSolved() ){ s += "The cube remains unsolved --> Recheck initilization or Report Bug " ; }
@@ -874,55 +770,146 @@ import java.util.* ;
             return  s ;
         }
 
+       
 
-        public boolean isSolved() {
-            return cubie.solved(end) ;
+        public String shorten(String s ) {
+            s= s.replaceAll("F' F ", "") ;
+            s= s.replaceAll("F F'", "") ;
+            s= s.replaceAll("U U' ", "") ;
+            s= s.replaceAll("U' U ", "") ;
+            s = s.replaceAll("U' U' U' U' ", "") ;
+            s = s.replaceAll("U U U U", "") ;
+            s = s.replaceAll("U U U ", "Udash ") ;
+            s = s.replaceAll("U' U' U' ", "U ") ;
+            s = s.replaceAll("U U ", "U2 ") ;
+            s = s.replaceAll("U' U' ", "U2' ") ;
+            s = s.replaceAll("U' U2", "U ") ;
+            s = s.replaceAll("U U2'", "U' ") ;
+            s= s.replaceAll("y y y y", "" ) ;
+
+            s= s.replaceAll("y y y", "y'" ) ;
+            s= s.replaceAll("x x x", "x'" ) ;
+            s= s.replaceAll("z z z", "z'" ) ;
+            s= s.replaceAll("z' z", "" ) ;
+            s= s.replaceAll("y' y", "" ) ;
+            s= s.replaceAll("x' x", "" ) ;
+            s= s.replaceAll("y\ny\ny\ny", "\n" ) ;
+            s = s.replaceAll("\n\n\n\n", "" );
+            s = s.replaceAll("\n\n\n", "" );
+            s = s.replaceAll("Either", "\n Either" );
+
+            return s ;
         }
-
-        public String[][][][] getSolvedCube() { return end.getCube() ; }
-
-        public ArrayList<String> compareToSolved() {
-            String[][][][] endarray = end.getCube() ;
-            ArrayList<String> change = new ArrayList<String>() ;
-            for (int j = 0; j < cubearray.length; j++) {
-                for (int i = 0; i < cubearray.length; i++) {
-                    for (int k = 0; k < cubearray.length; k++) {
-                        String a, x, c;
-                        if (cubearray[i][j][k][0] != null || cubearray[i][j][k][2] != null) {
-                            if (cubearray[i][j][k][0] == null) {
-                                if ( !( cubearray[i][j][k][1].equals(endarray[i][j][k][1]) && cubearray[i][j][k][2].equals(endarray[i][j][k][2]) )) { change.add("( " +i + " " + j + " " + k + " : Side - " + endarray[i][j][k][1] + " , F/B - " + endarray[i][j][k][2] + " ) "  ) ; }
-                            } else if (cubearray[i][j][k][1] == null) {
-                                if ( !( cubearray[i][j][k][0].equals(endarray[i][j][k][0]) && cubearray[i][j][k][2].equals(endarray[i][j][k][2]) )) { change.add("( " +i + " " + j + " " + k + " : T/b - " + endarray[i][j][k][0] + " , F/B - " + endarray[i][j][k][2] + " ) " ) ; }
-
-
-                            } else if (cubearray[i][j][k][2] == null) {
-                                if ( !( cubearray[i][j][k][1].equals(endarray[i][j][k][1]) && cubearray[i][j][k][0].equals(endarray[i][j][k][0]) )) { change.add("( " + i + " " + j + " " + k + " : T/b - " + endarray[i][j][k][0] + " , Side - " + endarray[i][j][k][1] + " ) " )  ; }
-
-
-                            } else {
-                                if ( !( cubearray[i][j][k][1].equals(endarray[i][j][k][1]) && cubearray[i][j][k][2].equals(endarray[i][j][k][2]) || cubearray[i][j][k][0].equals(endarray[i][j][k][0]) )) { change.add("( " +i + " " + j + " " + k + " : T/b - " + endarray[i][j][k][0] + " . Side - " + endarray[i][j][k][1]  + " . F/B - " + endarray[i][j][k][2] + " ) " ) ; }
-
-
-                            }
-                        }
-                    }
-                }
+        public String stringalg(String str) {
+            String s = str.trim();
+            while (str.contains(" ")) {
+                choose(str.substring(0, str.indexOf(" ")));
+                str = str.substring(str.indexOf(" ") +1 ) ;
             }
-            return change ;
+            choose(str);
+            return s ;
+
         }
-       public String getScramble(int n, boolean check) {
-            StringBuilder s = new StringBuilder(" ");
-            for (int i = 0; i < n; i++) {
-
-                int x = (int) (Math.random() * movesString.length);
-
-                s.append(movesString[x]).append(" ");
+        public String reversealg(String str, boolean check) {
+            String s = "" ;
+            while (str.contains(" ")) {
+                s = reversedo(str.substring(0, str.indexOf(" "))) + " " + s ;
+                str = str.substring(str.indexOf(" ") +1 ) ;
             }
-
+            s = reversedo(str) + " " + s ;
             if (check) {
-                return stringalg(s.toString());
+                stringalg(s);
             }
-            else { return s.toString() ; }
+            return s;
+
+        }
+        private void choose(String ch) {
+            switch (ch) {
+                case "R" -> R();
+                case "R'" -> Rdash();
+                case "L'" -> Ldash();
+                case "L" -> L();
+                case "U" -> U();
+                case "U'" -> Udash();
+                case "F" -> F();
+                case "F'" -> Fdash();
+                case "B" -> B();
+                case "B'" -> Bdash();
+                case "D" -> D();
+                case "D'" -> Ddash();
+                case "M" -> M();
+                case "M'" -> Mdash();
+                case "R2" -> R2();
+                case "L2" -> L2();
+                case "r" -> r();
+                case "r'" -> rdash();
+                case "U2", "U2'" -> U2();
+                case "F2" -> F2();
+                case "B2" -> B2();
+                case "M2" -> M2();
+                case "D2" -> D2();
+                case "y" -> y();
+                case "z" -> z();
+                case "x" -> x();
+                case "E" -> E();
+                case "E'" -> Edash();
+                case "S" -> S();
+                case "S'" -> Sdash();
+//                case "E" -> D2();
+
+            }
+        }
+        private String reversedo(String s) {
+            String monthString ="" ; // random thing i copied, just rename later
+            switch (s) {
+                case "R":  monthString = "R'";
+                    break;
+                case "R'":  monthString = "R";
+                    break;
+                case "L":  monthString = "L'";
+                    break;
+                case "L'":  monthString = "L";
+                    break;
+                case "U":  monthString = "U'";
+                    break;
+                case "U'":  monthString = "U";
+                    break;
+                case "D":  monthString = "D'";
+                    break;
+                case "D'":  monthString = "D";
+                    break;
+                case "F":  monthString = "F'";
+                    break;
+                case "F'": monthString = "F";
+                    break;
+                case "B": monthString = "B'";
+                    break;
+                case "B'": monthString = "B";
+                    break;
+                case "M":  monthString = "M'";
+                    break;
+                case "M'": monthString = "M";
+                    break;
+
+                case "r": monthString = "r'";
+                    break;
+                case "r'": monthString = "r";
+                    break;
+                case "x" : monthString = "x'" ;
+                    break ;
+                case "y" : monthString = "y'" ;
+                    break ;
+                case "z" : monthString = "z'" ;
+                    break;
+                case "E" : monthString = "E'" ;
+                    break ;
+                case "E'" : monthString = "E" ;
+                    break ;
+                case "S" : monthString = "S'" ;
+                    break;
+                default: monthString = s ;
+            }
+            return monthString ;
 
 
         }
