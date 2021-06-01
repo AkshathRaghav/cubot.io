@@ -9,9 +9,10 @@
 
 # Table of Contents  
 * [Description](#Description)  
+* [Updates](#Updates)
 * [Installation](#Installation) 
 * [Usage](#Usage)
-* [Updates](#Updates)
+
 <hr> 
 
 
@@ -25,6 +26,14 @@
 * Use a cube in your own projects 
 
 ---
+
+# Updates
+
+1. getScramble(int n) added; reverseAlg(String s) added; minor tweaks in Checker - 30.5.2021
+2. E(), S() added, updated Moves in moves - 31.5.2021 
+3. Edash(), Sdash(), x(), y(), y'() + Optimized the big slice moves; solve(), stringalg(), reversealg() updated - 1.6.2021
+
+<hr>
 
 # Installation
 
@@ -132,11 +141,6 @@ In case of any confusion between Cubot and Cube classes, read more in the [Docum
 <hr> 
 
 
-
-# Updates
-
-1. getScramble(int n) added; reverseAlg(String s) added; minor tweaks in Checker - 30.5.2021
-2. E(), S() added, updated Moves in moves - 31.5.2021 
 
 <hr> 
 
