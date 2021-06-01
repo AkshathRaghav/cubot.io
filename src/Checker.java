@@ -1,4 +1,4 @@
-    import java.util.ArrayList ;
+import java.util.* ;
     public class Checker extends Moves {
         private final String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"};
         private final Cube end = new Cube(temp) ;
@@ -23,6 +23,13 @@
             s = s.replaceAll("U' U' ", "U2' ") ;
             s = s.replaceAll("U' U2", "U ") ;
             s = s.replaceAll("U U2'", "U' ") ;
+            s= s.replaceAll("y y y y", "" ) ;
+            s= s.replaceAll("y y y", "y'" ) ;
+            s= s.replaceAll("x x x", "x'" ) ;
+            s= s.replaceAll("z z z", "z'" ) ;
+            s= s.replaceAll("z' z", "" ) ;
+            s= s.replaceAll("y' y", "" ) ;
+            s= s.replaceAll("x' x", "" ) ;
             s= s.replaceAll("y\ny\ny\ny", "\n" ) ;
             s = s.replaceAll("\n\n\n\n", "" );
             s = s.replaceAll("\n\n\n", "" );
@@ -32,7 +39,7 @@
         }
 
         //chooses which move to execute based on input
-        private void choose(String ch) {
+         private void choose(String ch) {
             switch (ch) {
                 case "R" -> R();
                 case "R'" -> Rdash();
@@ -57,8 +64,17 @@
                 case "B2" -> B2();
                 case "M2" -> M2();
                 case "D2" -> D2();
+                case "y" -> y();
+                case "z" -> z();
+                case "x" -> x();
+                case "E" -> E();
+                case "E'" -> Edash();
+                case "S" -> S();
+                case "S'" -> Sdash() ;
+
             }
         }
+
 
         //converts String to alg ( to shorten the work ) - makes use of choose(ch)
         public String stringalg(String str) {
@@ -73,6 +89,7 @@
         }
 
 
+       
         private String reversedo(String s) {
             String monthString ="" ; // random thing i copied, just rename later
             switch (s) {
@@ -104,15 +121,28 @@
                     break;
                 case "M'": monthString = "M";
                     break;
-
                 case "r": monthString = "r'";
                     break;
                 case "r'": monthString = "r";
                     break;
+                case "x" : monthString = "x'" ;
+                    break ;
+                case "y" : monthString = "y'" ;
+                    break ;
+                case "z" : monthString = "z'" ;
+                    break;
+                case "E" : monthString = "E'" ;
+                    break ;
+                case "E'" : monthString = "E" ;
+                    break ;
+                case "S" : monthString = "S'" ;
+                    break;
                 default: monthString = s ;
-
-
             }
+            return monthString ;
+
+
+        }
             return monthString ;
 
 
@@ -823,7 +853,16 @@
         public String solve() {
             String s = "\n" ;
             int count =0 ;
-            while ( !cubearray[1][1][0][1].equals("Green") && count < 4) { s += y() + " "; count++ ; }
+            for (int i = 0 ; i < 2 ; i++ ) {
+                count =0 ;
+                while (!cubearray[1][1][0][1].equals("Green") && count < 3) {
+                    s += y() + " ";
+                    count++;
+                }
+                s += " " + z() ;
+            }
+            count =0 ;
+            while ( ( !cubearray[2][1][1][1].equals("White") && count < 3 )) { s += " " +  z() ; }
             s +=  centers()  ;
             s+=  f2l();
             s+=  oll() ;
@@ -832,9 +871,9 @@
                 if ( !isSolved() ){ s += "The cube remains unsolved --> Recheck initilization or Report Bug " ; }
             }
             s = (shorten(s));
-
-            return "Solution : " + s ;
+            return  s ;
         }
+
 
         public boolean isSolved() {
             return cubie.solved(end) ;
