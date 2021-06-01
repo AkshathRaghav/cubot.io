@@ -13,23 +13,7 @@ public class Moves {
     private  final int[] FBdashswaps = {0,2,0,0,0,0,2,0,2,0,2,2,0,1,1,0,1,0,2,1,2,1,1,2} ;
     private  final int[] FdashBswaps = {2,0,0,0,0,0,0,2,0,2,2,2,1,0,0,1,0,1,1,2,1,2,2,1} ;
 
-    private static void change(String[] piece, String check) {
-        if (check.equals("col")) {
-            String temp = piece[0] ;
-            piece[0] = piece[2] ;
-            piece[2] = temp ;
-        }
-        else if (check.equals("row")) {
-            String temp = piece[1] ;
-            piece[1] = piece[2] ;
-            piece[2] = temp ;
-        }
-        else if ( check.equals("front")){
-            String temp = piece[0] ;
-            piece[0] = piece[1] ;
-            piece[1] = temp ;
-        }
-    }
+
 
     private void colswapper(int colindex, int[] swaps) {
         for (int i = 0 ; i  < swaps.length-2 ; i+=4) {
@@ -131,6 +115,14 @@ public class Moves {
         change(cubearray[2][1][1], "front");
         return "S" ;
     }
+    public String Sdash() {
+        frontswapper(1, FdashBswaps);
+        change(cubearray[2][2][1], "front") ;
+        change(cubearray[1][2][1], "front");
+        change(cubearray[0][1][1], "front");
+        change(cubearray[1][0][1], "front");
+        return "S'" ;
+    }
 
     public String F() {
         frontswapper(0, FBdashswaps);
@@ -165,6 +157,15 @@ public class Moves {
         change(cubearray[1][0][1], "row") ;
         return "E" ;
     }
+    public String Edash() {
+        rowswapper(1, UDdashswaps);
+        change(cubearray[1][1][0], "row") ;
+        change(cubearray[1][0][2], "row") ;
+        change(cubearray[1][0][1], "row") ;
+        change(cubearray[1][2][1], "row") ;
+        return "E'" ;
+    }
+
 
     public String r() {
         R() ;
@@ -216,21 +217,33 @@ public class Moves {
 
     public String y() {
         U();
-        rowswapper(1, UDdashswaps);
-        change(cubearray[1][1][0], "row") ;
-        change(cubearray[1][0][2], "row") ;
-        change(cubearray[1][0][1], "row") ;
-        change(cubearray[1][2][1], "row") ;
+        Edash() ;
         Ddash();
         return "y" ;
     }
+
+    
     public String Rotaterightlower() {
-        rowswapper(1, UDdashswaps);
-        change(cubearray[1][1][0], "row") ;
-        change(cubearray[1][0][2], "row") ;
-        change(cubearray[1][0][1], "row") ;
-        change(cubearray[1][2][1], "row") ;
+        Edash() ;
         Ddash();
         return "RotateRightLower" ;
+    }
+
+    private static void change(String[] piece, String check) {
+        if (check.equals("col")) {
+            String temp = piece[0] ;
+            piece[0] = piece[2] ;
+            piece[2] = temp ;
+        }
+        else if (check.equals("row")) {
+            String temp = piece[1] ;
+            piece[1] = piece[2] ;
+            piece[2] = temp ;
+        }
+        else if ( check.equals("front")){
+            String temp = piece[0] ;
+            piece[0] = piece[1] ;
+            piece[1] = temp ;
+        }
     }
 }
