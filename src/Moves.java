@@ -221,6 +221,18 @@ public class Moves {
         Ddash();
         return "y" ;
     }
+    public String z() {
+        F() ;
+        S() ;
+        Bdash() ;
+        return "z" ;
+    }
+    public String x() {
+        R() ;
+        Ldash()  ;
+        Mdash() ;
+        return "x" ;
+    }
 
     
     public String Rotaterightlower() {
