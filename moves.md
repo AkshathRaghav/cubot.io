@@ -8,8 +8,7 @@
 
 
 
-# All Moves 
-### More moves will be coming in the next version 
+# All Supported Moves
 
 1. R() 
 2. Rdash() 
