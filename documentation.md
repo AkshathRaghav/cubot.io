@@ -59,6 +59,15 @@ System.out.println("------------------------------------------");
 ```java
 System.out.println(cube1) ; 
 ```
+<p align="center">
+  <img width="350" src="https://user-images.githubusercontent.com/75845563/120409500-a9f29b80-c36e-11eb-9f03-8e99a294bb62.png" alt="example">
+</p>
+
+* indexedString() --> Prints out the cube with indexes and colors on each face of the cube pieces 
+ 
+```java
+System.out.println(cube1.indexedString()) ; 
+```
 
 <p align="center">
   <img width="350" src="https://user-images.githubusercontent.com/75845563/119397820-4e803800-bcf4-11eb-9eb1-c156694a7613.png" alt="example">
