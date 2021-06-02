@@ -109,7 +109,7 @@ cube.stringalg("R U R' U'") ; // executes the algorithm and returns String ( if 
 ```
 <br> 
 
-7. You can print the entire cube on your terminal. ( Refer to [indexes](https://eli.thegreenplace.net/images/2015/row-major-3D.png) ) 
+7. You can print the entire cube on your terminal ( indexedString() does it differently. ( Refer to [Documentation](https://github.com/AkshathRaghav/cubot/blob/main/documentation.md) ) 
 
 ```java
 System.out.println(cube) ; // prints out the cube --> piece location, colors and centers 
