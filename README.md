@@ -32,6 +32,7 @@
 1. getScramble(int n) added; reverseAlg(String s) added; minor tweaks in Checker - 30.5.2021
 2. E(), S() added, updated Moves in moves - 31.5.2021 
 3. Edash(), Sdash(), x(), y(), y'() + Optimized the big slice moves; solve(), stringalg(), reversealg() updated - 1.6.2021
+4. toString() improved to make it much easier to understand the cube-state ( check out the new output in Documentation ) - 2.6.2021 
 
 <hr>
 
@@ -109,7 +110,7 @@ cube.stringalg("R U R' U'") ; // executes the algorithm and returns String ( if 
 ```
 <br> 
 
-7. You can print the entire cube on your terminal ( indexedString() does it differently ) <br> Refer to [Documentation](https://github.com/AkshathRaghav/cubot/blob/main/documentation.md) ) 
+7. You can print the entire cube on your terminal ( indexedString() does it differently ) <br> Refer to [Documentation](https://github.com/AkshathRaghav/cubot/blob/main/documentation.md) 
 
 ```java
 System.out.println(cube) ; // prints out the cube --> piece location, colors and centers 
