@@ -132,8 +132,8 @@ public class Cube {
         return true;
     } // tells you if its solved, with respect to another cube ( play around with it ;) )
 
-    public String toString() {
-        String s = "";
+    public String indexedString() {
+        String s = "" ;
         String[] lis = {"Left", "Middle", "Right"};
         for (int j = 0; j < cube.length; j++) {
             s += lis[j] + " : From top row to bottom row - " + "\n --------------------------------------";
@@ -153,18 +153,64 @@ public class Cube {
                         s += "T/b: " + cube[i][j][k][0] + " Side: " + cube[i][j][k][1] + "\t\t|\t\t";
                     } else {
                         s += "T/b: " + cube[i][j][k][0] + " F/b: " + cube[i][j][k][2] + " Side: " + cube[i][j][k][1] + "\t\t|\t\t";
-
                     }
-
-
                 }
                 s += "\n";
             }
             s += " -------------------------------------- \n\n\n";
+        }
+        return s ;
+    } // returns the colors on each side of the cube pieces with index
+    public String toString() {
+        String s = "";
+        for (int j = 0; j < 3; j++) {
+            s += "\t\t| " ;
+            for (int k = 0; k < 3; k++) {
+                if ( j ==1 && k == 1 ) {  s += cube[0][k][2-j][1].charAt(0) + " " ; }
+                else { s += cube[0][k][2-j][0].charAt(0) + " " ; }
+            }
+            s += "|\n" ;
+        }
+        for (int i =0 ; i < 3 ; i++ ) {
+            s += "| " ;
+            for (int j = 0; j < 4; j++) {
+                for (int k = 0; k < 3; k++) {
+                    if ( j ==  0 ) {
+                        s += cube[i][0][2 - k][1].charAt(0) + " ";
+                    }
+                    else if ( j ==1 ) {
+                        if (i == 1 &&  k == 1 ) { s += cube[i][k][0][1].charAt(0) + " ";}
+                        else {
+                            s += cube[i][k][0][2].charAt(0) + " ";
+                        }
+                    }
+                    else if ( j == 2) {
+                        s += cube[i][2][k][1].charAt(0) + " ";
+                    }
+                    else if ( j == 3 ){
+                        if ( i == 1 &&  k == 1 ) { s += cube[i][2-k][2][1].charAt(0) + " ";}
+                        else { s += cube[i][2-k][2][2].charAt(0) + " ";}
+                    }
+                    else if ( j == 4)
+                    {
 
+                    }
+                    else {}
+                }
+                s += "| " ;
+            }
+            s += "\n" ;
+        }
+        for (int j = 0; j < 3; j++) {
+            s += "\t\t| " ;
+            for (int k = 0; k < 3; k++) {
+                if ( j ==1 && k == 1 ) {  s += cube[2][k][2-j][1].charAt(0) + " " ; }
+                else { s += cube[2][k][2-j][0].charAt(0) + " " ; }
+            }
+            s += "|\n" ;
         }
         return s;
-    } // returns a String representing the cube
+    } // returns a Cube on the terminal
 
     public String[][][][] getCube() {
         return cube;
