@@ -33,6 +33,7 @@
 2. E(), S() added, updated Moves in moves - 31.5.2021 
 3. Edash(), Sdash(), x(), y(), y'() + Optimized the big slice moves; solve(), stringalg(), reversealg() updated - 1.6.2021
 4. toString() improved to make it much easier to understand the cube-state ( check out the new output in Documentation ) - 2.6.2021 
+5. Cube constructor updated ( Enter cube faces randomly now ) - 3.6.2021
 
 <hr>
 
