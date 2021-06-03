@@ -18,9 +18,8 @@ Terms
 String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"}; 
 Cubot cube = new Cubot(temp) ; 
 ``` 
-
-### Add a String element to the <temp> with the first letters of each color you see on a face, in row-major order. 
-### While entering the White and Yellow faces, remember to keep the Green face facing you ( as shown in the pictures below ) 
+* Add a String element to the <temp> with the first letters of each color you see on a face, in row-major order. 
+* While entering the White and Yellow faces, remember to keep the Green face facing you ( as shown in the pictures below ) 
   
 #### Green, White and Yellow Faces for example 
 <p align="center">
