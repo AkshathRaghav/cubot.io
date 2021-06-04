@@ -144,8 +144,6 @@ In case of any confusion between Cubot and Cube classes, read more in the [Docum
 
 
 
-<hr> 
-
 
 ## Sites used 
 * [Eli Bedernsky's Website](https://eli.thegreenplace.net/2015/memory-layout-of-multi-dimensional-arrays)
