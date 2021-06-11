@@ -196,7 +196,7 @@ public class Cube {
             s += "\t\t| " ;
             for (int k = 0; k < 3; k++) {
                 if ( j ==1 && k == 1 ) {  s += cube[2][k][2-j][1].charAt(0) + " " ; }
-                else { s += cube[2][k][2-j][0].charAt(0) + " " ; }
+                else { s += cube[2][k][j][0].charAt(0) + " " ; }
             }
             s += "|\n" ;
         }
