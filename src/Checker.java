@@ -1,15 +1,15 @@
 import java.util.* ;
-    public class Checker extends Moves {
+    public class Checker3d extends Moves3d {
         private final String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"};
-        private final Cube end = new Cube(temp) ;
+        private final Cube3d end = new Cube3d(temp) ;
         private final String[] movesString = {"R", "R'", "L", "L'", "U", "U'", "D", "D'", "F", "F'", "B" , "B'", "U2", "F2", "R2", "L2",  "M2"} ;
 
-        public Checker(String[] s) throws IllegalArgumentException {
+        public Checker3d(String[] s) throws IllegalArgumentException {
             super(s) ;
         }
         private final int[][] edges = {{2, 0, 1, 2, 1, 0, 2, 2, 1, 2, 1, 2}, {1, 0, 0, 1, 0, 2, 1, 2, 0, 1, 2, 2}, {0, 0, 1, 0, 1, 0, 0, 2, 1, 0, 1, 2}};
         private final int[][] corners = {{2, 0, 0, 2, 0, 2, 2, 2, 0, 2, 2, 2}, {0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 2, 2}};
-        
+
         public boolean isSolved() {
             return cubie.solved(end) ;
         }
@@ -54,8 +54,8 @@ import java.util.* ;
             }
             else { return s.toString() ; }
         }
-       
-        
+
+
         private String throwcoloredgers(String color, String colorside ) {
             String s = "" ;
             int i = 5 , j = 5 , k = 5 ;
@@ -643,109 +643,106 @@ import java.util.* ;
         }
 
         private String pll() {
-                StringBuilder s = new StringBuilder();
-                int co = pllco() , ad = pllad() ;
-                int ok = 0 ;
-                if ( ad == 0 ) {
-                    if (co == 4) {
-                        if ( cubearray[0][0][0][1].equals(cubearray[0][2][1][1])){
-                            s.append(" ").append(stringalg("M2 U M2 U2 M2 U M2"));
-                        }
-                        else {
-                            while ( !cubearray[0][0][0][2].equals(cubearray[0][2][1][1]) && ok < 4) { s.append(" ").append(U()); ok++ ;  }
-                            s.append(" ").append(stringalg("M2 U2 M U' M2 U' M2 U' M"));
-                        }
-                    } else {
-                        s.append(" ").append(stringalg("R' U L' D2 L U' R L' U R' D2 R U' L"));
-                        s.append(" ").append(pll());
-                    }
-                }
-                else if ( ad == 3 ) {
-                    s.append(fillfront());
-                    if ( co == 4 ) {
-                        if ( cubearray[0][0][0][1].equals(cubearray[0][1][2][2])) {
-                            s.append(" ").append(stringalg("M2 U M' U2 M U M2"));
-                        }
-                        else {
-                            s.append(" ").append(stringalg("M2 U' M' U2 M U' M2"));
-                        }
+            StringBuilder s = new StringBuilder();
+            int co = pllco() , ad = pllad() ;
+            int ok = 0 ;
+            if ( ad == 0 ) {
+                if (co == 4) {
+                    if ( cubearray[0][0][0][1].equals(cubearray[0][2][1][1])){
+                        s.append(" ").append(stringalg("M2 U M2 U2 M2 U M2"));
                     }
                     else {
-                        s.append(" ").append(stringalg("L U' L' U L2 F U F' U' L' F' L F L2 U"));
+                        while ( !cubearray[0][0][0][2].equals(cubearray[0][2][1][1]) && ok < 4) { s.append(" ").append(U()); ok++ ;  }
+                        s.append(" ").append(stringalg("M2 U2 M U' M2 U' M2 U' M"));
+                    }
+                } else {
+                    s.append(" ").append(stringalg("R' U L' D2 L U' R L' U R' D2 R U' L"));
+                    s.append(" ").append(pll());
+                }
+            }
+            else if ( ad == 3 ) {
+                s.append(fillfront());
+                if ( co == 4 ) {
+                    if ( cubearray[0][0][0][1].equals(cubearray[0][1][2][2])) {
+                        s.append(" ").append(stringalg("M2 U M' U2 M U M2"));
+                    }
+                    else {
+                        s.append(" ").append(stringalg("M2 U' M' U2 M U' M2"));
                     }
                 }
-                else if ( ad == 4 ) {
-                    if (co == 0) {
-                        while ( !( cubearray[0][0][0][2].equals(cubearray[0][1][0][2])) && ok < 4) { s.append(" ").append(U()); ok++ ; }
-                        if ( cubearray[0][0][0][1].equals(cubearray[0][0][1][1])) {
-                            s.append(" ").append(stringalg("R' U R' U' B' R' B2 U' B' U B' R B R"));
-                        }
-                        else {
-                            s.append(" ").append(stringalg("F R' F R2 U' R' U' R U R' F' R U R' U' F'"));
-                        }
-                    } else {
-                        s.append(cofront());
-                        if ( cubearray[0][0][0][1].equals(cubearray[0][0][1][1])) {
-                            s.append(" ").append(stringalg("U F R U' R' U R U R2 F' R U R U' R'"));
-                        }
-                        else if ( cubearray[0][0][1][1].equals(cubearray[0][0][2][1]) ){
-                            s.append(" ").append(stringalg("R B' R F2 R' B R F2 R2"));
-                        }
-                        else {
-                            s.append(" ").append(stringalg("U r U r' U' r' F r r U' r' U' r U r' F'"));
-                        }
-                    }
+                else {
+                    s.append(" ").append(stringalg("L U' L' U L2 F U F' U' L' F' L F L2 U"));
                 }
-                else if ( ad == 2 ) {
+            }
+            else if ( ad == 4 ) {
+                if (co == 0) {
+                    while ( !( cubearray[0][0][0][2].equals(cubearray[0][1][0][2])) && ok < 4) { s.append(" ").append(U()); ok++ ; }
+                    if ( cubearray[0][0][0][1].equals(cubearray[0][0][1][1])) {
+                        s.append(" ").append(stringalg("R' U R' U' B' R' B2 U' B' U B' R B R"));
+                    }
+                    else {
+                        s.append(" ").append(stringalg("F R' F R2 U' R' U' R U R' F' R U R' U' F'"));
+                    }
+                } else {
                     s.append(cofront());
                     if ( cubearray[0][0][0][1].equals(cubearray[0][0][1][1])) {
-                        s.append(" ").append(stringalg("R' U2 R U2 R' F R U R' U' R' F' R2"));
+                        s.append(" ").append(stringalg("U F R U' R' U R U R2 F' R U R U' R'"));
                     }
-                    else if ( cubearray[0][0][1][1].equals(cubearray[0][0][2][1])) {
-                        s.append(" ").append(stringalg("U2 F2 D' L U' L U L' D F2 R U' R'"));
-                    }
-                    else if ( cubearray[0][2][0][1].equals(cubearray[0][2][1][1])) {
-                        s.append(" ").append(stringalg("U2 R U2 R' U2 R B' R' U' R U R B R2 U"));
-                    }
-                    else if ( cubearray[0][2][1][1].equals(cubearray[0][2][2][1])) {
-                        s.append(" ").append(stringalg("R U2' R' U' F' R U R2 U' R' F R U R2 U2' R'"));
-                    }
-                    else if ( cubearray[0][0][2][2].equals(cubearray[0][1][2][2])) {
-                        s.append(" ").append(stringalg("U R2 D L2 D F2 L D R' D2 L D' R' U2"));
-                    }
-                    else if ( cubearray[0][1][2][2].equals(cubearray[0][2][2][2])) {
-                        s.append(" ").append(stringalg("U2 R' F' R F' U' L' U F R' F' L F2 R"));
-                    }
-                }
-                else if ( ad == 9 ) {
-                    s.append(" ").append(fillfront());
-                    if (cubearray[0][0][0][1].equals(cubearray[0][0][1][1])) {
-                        s.append(" ").append(stringalg("U R U2 R' U' R U2 L' U R' U' L"));
-                    }
-                    else  {
-                        s.append(" ").append(stringalg("U' L' U2 L U L' U2 R U' L U R'" ));
-                    }
-                    s.append(" ").append(pll());
-
-                }
-                else if ( ad == 8 ) {
-                    if ( cubearray[0][1][0][2].equals(cubearray[0][2][0][2])) {
-                        s.append("\n (R U' L U2 R' U L')2 --> ()2, means repeat twice");
-                        stringalg("R U' L U2 R' U L' R U' L U2 R' U L'") ;
-
+                    else if ( cubearray[0][0][1][1].equals(cubearray[0][0][2][1]) ){
+                        s.append(" ").append(stringalg("R B' R F2 R' B R F2 R2"));
                     }
                     else {
-                        s.append("\n (R' U L' U2 R U' L)2 U --> ()2, means repeat twice");
-                        stringalg("R' U L' U2 R U' L R' U L' U2 R U' L U") ;
-
+                        s.append(" ").append(stringalg("U r U r' U' r' F r r U' r' U' r U r' F'"));
                     }
+                }
+            }
+            else if ( ad == 2 ) {
+                s.append(cofront());
+                if ( cubearray[0][0][0][1].equals(cubearray[0][0][1][1])) {
+                    s.append(" ").append(stringalg("R' U2 R U2 R' F R U R' U' R' F' R2"));
+                }
+                else if ( cubearray[0][0][1][1].equals(cubearray[0][0][2][1])) {
+                    s.append(" ").append(stringalg("U2 F2 D' L U' L U L' D F2 R U' R'"));
+                }
+                else if ( cubearray[0][2][0][1].equals(cubearray[0][2][1][1])) {
+                    s.append(" ").append(stringalg("U2 R U2 R' U2 R B' R' U' R U R B R2 U"));
+                }
+                else if ( cubearray[0][2][1][1].equals(cubearray[0][2][2][1])) {
+                    s.append(" ").append(stringalg("R U2' R' U' F' R U R2 U' R' F R U R2 U2' R'"));
+                }
+                else if ( cubearray[0][0][2][2].equals(cubearray[0][1][2][2])) {
+                    s.append(" ").append(stringalg("U R2 D L2 D F2 L D R' D2 L D' R' U2"));
+                }
+                else if ( cubearray[0][1][2][2].equals(cubearray[0][2][2][2])) {
+                    s.append(" ").append(stringalg("U2 R' F' R F' U' L' U F R' F' L F2 R"));
+                }
+            }
+            else if ( ad == 9 ) {
+                s.append(" ").append(fillfront());
+                if (cubearray[0][0][0][1].equals(cubearray[0][0][1][1])) {
+                    s.append(" ").append(stringalg("U' R' U L U' R U2 L' U L U2 L'"));
+                }
+                else  {
+                    s.append(" ").append(stringalg("U' R' L' U2 L U L' U2 R U' L U"));
+                }
+            }
+            else if ( ad == 8 ) {
+                if ( cubearray[0][1][0][2].equals(cubearray[0][2][0][2])) {
+                    s.append("(R U' L U2 R' U L')2 --> ()2, means repeat twice");
+                    stringalg("R U' L U2 R' U L' R U' L U2 R' U L'") ;
 
                 }
-                else if ( ad != 12 ){ return "You have either entered the cube wrongly, or one of your pieces is still flipped" ; }
-                int count =0 ;
-                while ( count < 4 && !(cubearray[0][1][0][2].equals(cubearray[1][1][0][1].substring(0,1)) && cubearray[0][0][0][2].equals(cubearray[1][1][0][1].substring(0,1)) && cubearray[0][2][0][2].equals(cubearray[1][1][0][1].substring(0,1)) ))  { s.append(" ").append(U()); count++ ;}
-                return s.toString();
+                else {
+                    s.append("(R' U L' U2 R U' L)2 U --> ()2, means repeat twice");
+                    stringalg("R' U L' U2 R U' L R' U L' U2 R U' L U") ;
+
+                }
             }
+            else if ( ad != 12 ){ return "You have either entered the cube wrongly, or one of your pieces is still flipped" ; }
+            int count =0 ;
+            while ( count < 4 && !(cubearray[0][1][0][2].equals(cubearray[1][1][0][1].substring(0,1)) && cubearray[0][0][0][2].equals(cubearray[1][1][0][1].substring(0,1)) && cubearray[0][2][0][2].equals(cubearray[1][1][0][1].substring(0,1)) ))  { s.append(" ").append(U()); count++ ;}
+            return s.toString();
+        }
 
         //public method to solve and return solution
         public String solve() {
@@ -773,7 +770,7 @@ import java.util.* ;
             return  s ;
         }
 
-       
+
 
         public String shorten(String s ) {
             s= s.replaceAll("F' F ", "") ;
@@ -916,6 +913,7 @@ import java.util.* ;
 
 
         }
+        public String indexString() { return super.indexString() ; }
     }
 
 
