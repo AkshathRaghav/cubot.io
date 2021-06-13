@@ -19,7 +19,7 @@
 # Description
 
 ### A Java library to help you : 
-* Virtually construct a Cube, 
+* Virtually construct a Cube ( 2x2/3x3 ), 
 * Quickly execute moves and perform algorithms seamlessly, 
 * Manipulate the Cube using simple java, 
 * Get the solution for the cube
@@ -40,7 +40,7 @@
 
 # Installation
 
-1. Download the Cubot.jar file above ( Version 1.0; v2.0 coming at the end of the month ) 
+1. Download the Cubot.jar (v1.0) file above ( v2.0 coming at the end of the month ) 
 2. Go to your project on Intellij or Eclipse 
 3. Click on Files on the top left corner, and then click on Project Structure
 <br> 
@@ -81,7 +81,7 @@ Cubot2 cube = new Cubot2(temp2) ; // 2x2
 ```
 <br> 
 
-3. To solve, use solve() which gives you the solution as a String ( you can use this if you want in your projects ). Or if you just want to solve your cube, just print the solution returned. <br> 
+3. To solve, use solve() which gives you the solution as a String ( you can use this if you want in your projects ). Or if you just want to solve your cube, print the solution returned. <br> 
 
 **Note : In case the String[] used while making the object is wrong or faulty you will have to re-enter the Strings. If they are all of same length, then Cubot will let you know if an edge is flipped or a corner is flipped. In either of the two cases, Cubot will stop solving, give you the output till there, and then let you know that something is wrong.** 
 
@@ -115,7 +115,7 @@ cube.stringalg("R U R' U'") ; // executes the algorithm and returns String ( if 
 ```
 <br> 
 
-7. You can print the entire cube on your terminal ( indexedString() does it differently ) <br> Refer to [Documentation](https://github.com/AkshathRaghav/cubot/blob/main/documentation.md) 
+7. You can print the entire cube on your terminal ( indexedString() does it differently ) <br> Refer to the respective Docmentation files
 
 ```java
 System.out.println(cube) ; // prints out the cube --> piece location, colors and centers 
@@ -147,9 +147,6 @@ String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cu
 ```
 In case of any confusion between Cubot and Cube classes, read more in the Documentation files.  
 <hr> 
-
-
-
 
 ## Sites used 
 * [Eli Bedernsky's Website](https://eli.thegreenplace.net/2015/memory-layout-of-multi-dimensional-arrays)
