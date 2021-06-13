@@ -9,21 +9,21 @@
 <hr> 
 
 # Table of Contents  
-* [Cubot](#Cubot)  
-* [Cube](#Cube) 
-* [The Difference](#Difference) 
+* [Cubot3](#Cubot3)
+* [Cube3](#Cube3) 
+* [The Difference Between Cube and Cubot](#Difference) 
 * [Accessing the Cubearray](#Indexing)
 
 <hr> 
 
-# Cubot Objects
+# Cubot3
 
 *For Initialization guide, click [here](https://github.com/AkshathRaghav/cubot/blob/main/initialization.md)*
 
 #### Example Object 
 ```java
-String[] temp = {"WGBOROGGY", "YOYWGBOYB", "RBBOORRBY", "OBGWBYRYR", "GRWRGYWGB", "OWWWYROGG"};
-Cubot cube1 = new Cubot(temp) ; 
+String[] temp = {"WGBOROGGY", "YOYWGBOYB", "RBBOORRBY", "OBGWBYRYR", "GRWRGYWGB", "OWWWYROGG"}; // 3x3
+Cubot3 cube1 = new Cubot3(temp) ; // 3x3 Cubot Object
 ```
 <br> 
 
@@ -76,8 +76,6 @@ System.out.println(cube1.indexedString()) ;
 * R(),Rdash(), etc. --> Executes move on your cubot with R(), Rdash(), and other moves. Find the supported moves [here](https://github.com/AkshathRaghav/cubot/blob/main/moves.md)
 
 ```java
-String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"};
-Cubot cube1 = new Cubot(temp) ;
 System.out.println("Cube state == Solved ? --> " + cube1.isSolved());
 System.out.println("------------------------------------------");
 System.out.println("Moves can also be carried out induvidually. Example move : " + cube1.R());
@@ -92,8 +90,7 @@ System.out.println("Cube state == Solved ? --> " + cube1.isSolved());
 * stringalg(String s) --> Executes the moves given as a String on the cubot 
 
 ```java
-String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"};
-Cubot cube1 = new Cubot(temp) ;
+
 System.out.println("Cube state == Solved ? --> " + cube1.isSolved());
 System.out.println("------------------------------------------");
 System.out.println("Moves Carried Out by stringalg() : " + cube1.stringalg("R U R' U'") );
@@ -109,8 +106,6 @@ System.out.println("Cube state == Solved ? --> " + cube1.isSolved());
 * reverseAlg(String s, boolean check) --> reverses all the moves done ( s represents the moves executed ) if check is true, returns reversed String otherwise
 
 ```java
-String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"};
-Cubot cube = new Cubot(temp) ;
 String s = "R U R' U'" ; 
 System.out.println(cube.reversealg(s), false) ; // just reverses it 
 System.out.println(cube.isSolved()); // --> true ( as nothing was done to the cube ) 
@@ -138,8 +133,6 @@ ArrayList<String> positionsNotDone = cube1.compareToSolved() ;
 * getScramble(int n, boolean check if tru) --> gives you a scramble of input n ( and executes it on the cube if check is true, just gives a scramble if check is false ) 
 
 ```java
-String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"};
-Cubot cube = new Cubot(temp) ;
 String s = cube.getScramble(5, true); // makes scramble and changes cube
 System.out.println(s);
 System.out.println(cube.reversealg(s), true) ; // undoes s
@@ -156,14 +149,14 @@ String s = shorten("U U U F' F R' U' U") // Returns "U' R'"
 <hr> 
 
 
-# Cube Objects
+# Cube3
 
 ### Below is the Cube class 
 
 ```java 
-  private String[][][][] cube ; 
-  public Cube(String  [] temp) ; // Makes the Cube with String[]    
-  public boolean solved(Cube other) ; // tells you if its solved, with respect to another cube ( play around with it ;) )
+  private String[][][][] cube3 ; 
+  public Cube3(String  [] temp) ; // Makes the Cube with String[]    
+  public boolean solved(Cube3 other) ; // tells you if its solved, with respect to another cube ( play around with it ;) )
   public String toString() ; // returns a String representing the cube
   public String[][][][] getCube() ; // returns the 4-D cube array
 ```
