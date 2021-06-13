@@ -38,9 +38,9 @@ System.out.println("Cube state == Solved ? --> " + cube1.isSolved());
 
 * solve() --> Solves the cube and returns the solution. 
 Returns a warning along with the solution as well on how to fix the issue if the cube 
-* has been incorrectly entered, 
-* has an edge flipped,
-* has a corner flipped 
+1. has been incorrectly entered, 
+2. has an edge flipped,\
+3. has a corner flipped 
 
 
 ```java
