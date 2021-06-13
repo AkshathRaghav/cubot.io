@@ -67,14 +67,17 @@
 1. First make a String[] containing the sides of the cube as explained in the [Initialization](https://github.com/AkshathRaghav/cubot/blob/main/initialization.md). 
 
 ```java
-String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"}; // This represents a solved cube
+String[] temp3 = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"}; // 3x3
+String[] temp2 = {"RRRR", "GGGG", "OOOO", "BBBB", "WWWW", "YYYY"}; // 2x2
 ```
 <br> 
 
 2. Now make a Cubot object with the String[] 
 
 ```java
-Cubot cube = new Cubot(temp) ; // makes your cube with the given input 
+Cubot3 cube = new Cubot3(temp3) ; // 3x3 
+// OR 
+Cubot2 cube = new Cubot2(temp2) ; // 2x2
 ```
 <br> 
 
@@ -130,13 +133,13 @@ String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cu
 <hr> 
  
 
-## Note :  Cubot makes use of a Cube object to work. If you wish to just have a Cube object ( of Cube type ) , you can. 
+## Note :  Cubot(2/3) objects makes use of a Cube(2/3) object to work. If you wish to just have a Cube object ( of Cube type ) , you can. <br> As of now, the source files for both are seperate. 
 ### Below is the Cube class 
 
 ```java 
   private String[][][][] cube ; 
-  public Cube(String  [] temp) ; // Makes the Cube with String[]    
-  public boolean solved(Cube other) ; // tells you if its solved, with respect to another cube ( play around with it ;) )
+  public Cube(2/3)(String  [] temp) ; // Makes the Cube with String[]    
+  public boolean solved(Cube(2/3) other) ; // tells you if its solved, with respect to another cube ( play around with it ;) )
   public String toString() ; // returns a String representing the cube
   public String[][][][] getCube() ; // returns the 4-D cube array
 ```
