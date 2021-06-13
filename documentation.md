@@ -167,9 +167,9 @@ String s = shorten("U U U F' F R' U' U") // Returns "U' R'"
 
 ```java
 String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"};
-Cube cube1 = new Cube(temp) ;
+Cube3 cube1 = new Cube3(temp) ;
 String[] temp2 = {"WGBOROGGY", "YOYWGBOYB", "RBBOORRBY", "OBGWBYRYR", "GRWRGYWGB", "OWWWYROGG"};
-Cube cube2 = new Cube(temp2) ; 
+Cube3 cube2 = new Cube3(temp2) ; 
 System.out.println(cube1.solved(cube2)) ; --> Returns false
 ```
 <br> 
