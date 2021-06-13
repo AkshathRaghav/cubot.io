@@ -257,6 +257,5 @@ public class Moves {
             piece[1] = temp ;
         }
     }
-    public boolean isValid() { return cubie.isValid(); }
     public String indexString() { return cubie.indexedString();}
 }
