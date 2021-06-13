@@ -40,7 +40,7 @@
 
 # Installation
 
-1. Download the Cubot.jar file above 
+1. Download the Cubot.jar file above ( Version 1.0; v2.0 coming at the end of the month ) 
 2. Go to your project on Intellij or Eclipse 
 3. Click on Files on the top left corner, and then click on Project Structure
 <br> 
