@@ -130,7 +130,7 @@ String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cu
 
 
 #### For the other methods, and a detailed explanation, go to 
-* [Documentation for Cubot3](https://github.com/AkshathRaghav/cubot/blob/main/documentation.md)
+* [Documentation for Cubot3](https://github.com/AkshathRaghav/cubot.io/blob/main/documentation3x3.md)
 * [Documentation for Cubot2](https://github.com/AkshathRaghav/cubot.io/blob/main/documentation2x2.md)
 <hr> 
  
