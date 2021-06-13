@@ -185,9 +185,9 @@ System.out.println(cube1.solved(cube2)) ; --> Returns false
 
 
 # Difference Between the two classes 
-#### The Cubot and Cube classes have a composition relationship - Cubot has-a Cube <br> 
-#### With an object of Cube class, you can only make, compare with another Cube, and get the cubearray (String[][][][]) <br> 
-#### With an object of Cubot class, you can do much more + what Cube can do 
+#### The Cubot3 and Cube3 classes have a composition relationship - Cubot3 has-a Cube3 <br> 
+#### With an object of Cube3 class, you can only make, compare with another Cube3, and get the cubearray (String[][][][]) <br> 
+#### With an object of Cubot3 class, you can do much more + what Cube can do 
 
 <hr> 
 
