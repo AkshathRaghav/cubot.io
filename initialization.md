@@ -15,7 +15,7 @@ String[] temp2 = {"RRRR", "GWGW", "OOOO", "YBYB", "WBWB", "YGYG"};
 Cubot3 cube = new Cubot3(temp) ; 
 Cubot2 cube2 = new Cubot2(temp2) ; 
 ``` 
-* Add a String element to the <temp> with the first letters of each color you see on a face, in row-major order. 
+* Add a String element to the {temp String[]} with the first letters of each color you see on a face, in row-major order. 
 * While entering the White and Yellow faces, remember to keep the Green face facing you ( as shown in the pictures below ) 
   
 #### The pictures below are for Cubot3, but you should do the same for Cubot2. 
