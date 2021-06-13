@@ -129,7 +129,9 @@ String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cu
 ```
 
 
-#### For the other methods, and a detailed explanation, go to [Documentation](https://github.com/AkshathRaghav/cubot/blob/main/documentation.md)
+#### For the other methods, and a detailed explanation, go to 
+* [Documentation for Cubot3](https://github.com/AkshathRaghav/cubot/blob/main/documentation.md)
+* [Documentation for Cubot2](https://github.com/AkshathRaghav/cubot.io/blob/main/documentation2x2.md)
 <hr> 
  
 
@@ -143,7 +145,7 @@ String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cu
   public String toString() ; // returns a String representing the cube
   public String[][][][] getCube() ; // returns the 4-D cube array
 ```
-In case of any confusion between Cubot and Cube classes, read more in the [Documentation](https://github.com/AkshathRaghav/cubot/blob/main/documentation.md) as well 
+In case of any confusion between Cubot and Cube classes, read more in the Documentation files.  
 <hr> 
 
 
