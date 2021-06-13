@@ -221,6 +221,7 @@ public class Moves {
         Ddash();
         return "y" ;
     }
+
     public String z() {
         F() ;
         S() ;
@@ -233,8 +234,6 @@ public class Moves {
         Mdash() ;
         return "x" ;
     }
-
-    
     public String Rotaterightlower() {
         Edash() ;
         Ddash();
@@ -258,4 +257,6 @@ public class Moves {
             piece[1] = temp ;
         }
     }
+    public boolean isValid() { return cubie.isValid(); }
+    public String indexString() { return cubie.indexedString();}
 }
