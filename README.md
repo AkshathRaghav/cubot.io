@@ -80,6 +80,8 @@ String[] temp2 = {"RRRR", "GGGG", "OOOO", "BBBB", "WWWW", "YYYY"}; // 2x2
 Cubot cube = new Cubot(temp3) ; // 3x3 
 // OR 
 Cubot cube = new Cubot(temp2) ; // 2x2
+// OR
+Cubot cube = new Cubot([]) ; // Solved State 3x3
 ```
 <br> 
 
