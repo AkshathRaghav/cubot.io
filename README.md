@@ -139,23 +139,11 @@ cube.makeSolved() ; // brings it to Solved state
 ```
 
 
-#### For the other methods, and a detailed explanation, go to [Documentation](https://github.com/AkshathRaghav/cubot.io/blob/main/documentation3x3.md)
+#### For the other methods, and a detailed explanation of all three Cubots, go to [Documentation](https://github.com/AkshathRaghav/cubot.io/blob/main/documentation3x3.md)
 
 <hr> 
- 
 
-## Note :  Cubot(2/3) objects makes use of a Cube(2/3) object to work. If you wish to just have a Cube object ( of Cube type ) , you can. <br> As of now, the source files for both are seperate. 
-### Below is the Cube class 
 
-```java 
-  private String[][][][] cube ; 
-  public Cube(2/3)(String  [] temp) ; // Makes the Cube with String[]    
-  public boolean solved(Cube(2/3) other) ; // tells you if its solved, with respect to another cube ( play around with it ;) )
-  public String toString() ; // returns a String representing the cube
-  public String[][][][] getCube() ; // returns the 4-D cube array
-```
-In case of any confusion between Cubot and Cube classes, read more in the Documentation files.  
-<hr> 
 
 ## Sites used 
 * [Eli Bedernsky's Website](https://eli.thegreenplace.net/2015/memory-layout-of-multi-dimensional-arrays)
