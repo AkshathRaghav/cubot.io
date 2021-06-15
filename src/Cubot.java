@@ -107,27 +107,6 @@ public class Cubot {
         } 
         else { return "Cube2" ; }
     }
-    public void change(String[] s) { 
-        for (int i = 0; i < 6; i++) {
-            if (!(s[i].length() == 9 || s[i].length() == 4)) {
-                throw new IllegalArgumentException("Cube not entered correctly!");
-            }
-        }
-        if (s[0].length() == 9) {
-            try {
-                cube3 = new Cubot3(s); 
-                cube2 = null ; 
-            }
-            catch (IllegalArgumentException e) { cube3 = null ; throw e;   }
-        }
-        else {
-            try {
-                cube2 = new Cubot2(s) ;
-                cube3 = null ; 
-            }
-            catch (IllegalArgumentException e) { cube2 = null ; throw e;   }
-        }
-    }
     public String shorten(String s) { 
         if (cube3 != null) { 
             return cube3.shorten(s) ; 
