@@ -128,4 +128,11 @@ public class Cubot {
             catch (IllegalArgumentException e) { cube2 = null ; throw e;   }
         }
     }
+    public String shorten(String s) { 
+        if (cube3 != null) { 
+            return cube3.shorten(s) ; 
+        } 
+        else { return cube2.shorten(s) ;  }
+    }
+        
 }
