@@ -10,8 +10,8 @@
 
 # Table of Contents  
 * [Cubot](#Cubot)
-* [Whats Cubot3 and Cubot2?](#Cubot3/Cubot2) 
-* [Whats Cube3 and Cube2](#Cube3/Cube2)
+* [What's Cubot3 and Cubot2?](#Cubot3/Cubot2) 
+* [What's Cube3 and Cube2?](#Cube3/Cube2)
 * [Heirarchy of the Classes](#Hierarchy)
 * [Accessing the Cubearray](#Indexing)
 
