@@ -9,9 +9,9 @@
 <hr> 
 
 # Table of Contents  
-* [Cubot3](#Cubot3)
-* [Cube3](#Cube3) 
-* [The Difference Between Cube and Cubot](#Difference) 
+* [Cubot](#Cubot3)
+* [Whats Cubot3 and Cubot2?](#Cubot vs Cubot3/Cubot2) 
+* [Whats Cube3 and Cube2](#What's Cube3 and Cube2)
 * [Accessing the Cubearray](#Indexing)
 
 <hr> 
@@ -22,13 +22,15 @@
 
 #### Example Object 
 ```java
-String[] temp = {"WGBOROGGY", "YOYWGBOYB", "RBBOORRBY", "OBGWBYRYR", "GRWRGYWGB", "OWWWYROGG"}; // 3x3
-Cubot3 cube1 = new Cubot3(temp) ; // 3x3 Cubot Object
+String[] temp3 = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"}; // 3x3
+Cubot cube = new Cubot(temp3) ; // 3x3  
+// OR
+String[] temp2 = {"RRRR", "GGGG", "OOOO", "BBBB", "WWWW", "YYYY"}; // 2x2
+Cubot cube = new Cubot(temp2) ; // 2x2
 ```
 <br> 
 
 * isSolved() --> Tells you if your cube is solved or not 
-
 ```java
 System.out.println("Cube state == Solved ? --> " + cube1.isSolved());
 ```
@@ -36,12 +38,11 @@ System.out.println("Cube state == Solved ? --> " + cube1.isSolved());
   <img width="250" src="https://user-images.githubusercontent.com/75845563/119397066-4bd11300-bcf3-11eb-8a7b-feee3a81b287.png" alt="example">
 </p>
 
-* solve() --> Solves the cube and returns the solution. 
+* solve() --> Solves the cube and returns the solution. ( 2x2 not supported yet ) 
 Returns a warning along with the solution as well on how to fix the issue if the cube 
 1. has been incorrectly entered, 
 2. has an edge flipped,
 3. has a corner flipped 
-
 
 ```java
 System.out.println("Cube state == Solved ? --> " + cube1.isSolved());
@@ -73,20 +74,6 @@ System.out.println(cube1.indexedString()) ;
   <img width="350" src="https://user-images.githubusercontent.com/75845563/119397820-4e803800-bcf4-11eb-9eb1-c156694a7613.png" alt="example">
 </p>
 
-* R(),Rdash(), etc. --> Executes move on your cubot with R(), Rdash(), and other moves. Find the supported moves [here](https://github.com/AkshathRaghav/cubot/blob/main/moves.md)
-
-```java
-System.out.println("Cube state == Solved ? --> " + cube1.isSolved());
-System.out.println("------------------------------------------");
-System.out.println("Moves can also be carried out induvidually. Example move : " + cube1.R());
-System.out.println("------------------------------------------");
-System.out.println("Cube state == Solved ? --> " + cube1.isSolved());
-```
-
-<p align="center">
-  <img width="300" src="https://user-images.githubusercontent.com/75845563/119398164-ccdcda00-bcf4-11eb-9e2b-94de573443c5.png" alt="example">
-</p
-
 * stringalg(String s) --> Executes the moves given as a String on the cubot 
 
 ```java
@@ -98,8 +85,7 @@ System.out.println("------------------------------------------");
 System.out.println("Cube state == Solved ? --> " + cube1.isSolved());
 ```
 
-
- <p align="center">
+<p align="center">
   <img width="250" src="https://user-images.githubusercontent.com/75845563/119398424-26dd9f80-bcf5-11eb-9f67-003c5815635b.png" alt="example">
 </p
   
@@ -148,15 +134,24 @@ String s = shorten("U U U F' F R' U' U") // Returns "U' R'"
 
 <hr> 
 
+# Cubot vs Cubot3/Cubot2
+* Cubot has-a Cubot2 and Cubot3. Depending on your input, Cubot will hold Cubot3 or Cubot3 at a point
+* Cubot3 is the Cubot object for only 3x3, and the same goes for Cubot2x2
+* The main difference between them is that Cubot3/Cubot2 can directly use R(), Rdash(), etc. while Cubot needs stringalg()
 
-# Cube3
+<hr> 
+
+# What's Cube3 and Cube2
+* The Cubot(2/3) and Cube(2/3) classes have a composition relationship - Cubot(2/3) has-a Cube(2/3) <br> 
+* With an object of Cube3 class, you can only make, compare with another Cube3, and get the cubearray (String[][][][]) <br> 
+* With an object of Cubot3 class, you can do much more + what Cube3 can do 
 
 ### Below is the Cube class 
 
 ```java 
-  private String[][][][] cube3 ; 
-  public Cube3(String  [] temp) ; // Makes the Cube with String[]    
-  public boolean solved(Cube3 other) ; // tells you if its solved, with respect to another cube ( play around with it ;) )
+  private String[][][][] cube ; 
+  public Cube(2/3)(String  [] temp) ; // Makes the Cube with String[]    
+  public boolean solved(Cube(2/3) other) ; // tells you if its solved, with respect to another cube ( play around with it ;) )
   public String toString() ; // returns a String representing the cube
   public String[][][][] getCube() ; // returns the 4-D cube array
 ```
@@ -181,20 +176,11 @@ System.out.println(cube1.solved(cube2)) ; --> Returns false
 
 <hr> 
 
-
-
-
-# Difference Between the two classes 
-#### The Cubot3 and Cube3 classes have a composition relationship - Cubot3 has-a Cube3 <br> 
-#### With an object of Cube3 class, you can only make, compare with another Cube3, and get the cubearray (String[][][][]) <br> 
-#### With an object of Cubot3 class, you can do much more + what Cube3 can do 
-
-<hr> 
-
 # Indexing 
 #### cubearray[0][0][0][0] --> Color on top 
 #### cubearray[0][0][0][1] --> Color on side 
 #### cubearray[0][0][0][2] --> Color in front
+*( Additional 3x3 indexes ) 
 #### Only for Centers --> cubearray[0][0][0][1].substring(0,1) --> Gives you the color of the center piece
 #### cubearray[1][1][1] --> Joint Piece
 
