@@ -152,8 +152,8 @@ cube3.R() ;
 
 # Cube3/Cube2
 * The Cubot(2/3) and Cube(2/3) classes have a composition relationship - Cubot(2/3) has-a Cube(2/3) <br> 
-* With an object of Cube3 class, you can only make, compare with another Cube3, and get the cubearray (String[][][][]) <br> 
-* With an object of Cubot3 class, you can do much more + what Cube3 can do 
+* With an object of Cube(2/3) class, you can only make, compare with another Cube(2/3), and get the cubearray(String[][][][]) <br> 
+* With an object of Cubot(2/3) class, you can do much more + what Cube3 can do 
 
 ### Below is the Cube class 
 
