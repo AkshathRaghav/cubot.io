@@ -10,9 +10,9 @@
 
 # Table of Contents  
 * [Cubot](#Cubot3)
-* [Whats Cubot3 and Cubot2?](#Cubot vs Cubot3/Cubot2) 
-* [Whats Cube3 and Cube2](#What's Cube3 and Cube2)
-* [Understanding the different objects](#How are they related)
+* [Whats Cubot3 and Cubot2?](#Cubot3/Cubot2) 
+* [Whats Cube3 and Cube2](#Cube3/Cube2)
+* [Understanding the relationships](#Hierarchy)
 * [Accessing the Cubearray](#Indexing)
 
 <hr> 
@@ -129,14 +129,14 @@ System.out.println(cube.isSolved()); // --> true
 
 <hr> 
 
-# Cubot vs Cubot3/Cubot2
+# Cubot3/Cubot2
 * Cubot has-a Cubot2 and Cubot3. Depending on your input, Cubot will hold Cubot3 or Cubot3 at a point
 * Cubot3 is the Cubot object for only 3x3, and the same goes for Cubot2x2
 * The main difference between them is that Cubot3/Cubot2 can directly use R(), Rdash(), etc. while Cubot needs stringalg()
 
 <hr> 
 
-# What's Cube3 and Cube2
+# Cube3/Cube2
 * The Cubot(2/3) and Cube(2/3) classes have a composition relationship - Cubot(2/3) has-a Cube(2/3) <br> 
 * With an object of Cube3 class, you can only make, compare with another Cube3, and get the cubearray (String[][][][]) <br> 
 * With an object of Cubot3 class, you can do much more + what Cube3 can do 
@@ -170,7 +170,7 @@ System.out.println(cube1.solved(cube2)) ; --> Returns false
 
 <hr> 
 
-# How are they related ? 
+# Hierarchy 
 * Cubot has-a Cubot3 and Cubot2
 * Cubot(2/3) has-a Cube(2/3)
 * Cubot(2/3) extends Checker(2/3) extends Moves(2/3)
