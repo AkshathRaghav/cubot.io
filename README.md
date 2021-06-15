@@ -83,7 +83,32 @@ Cubot cube = new Cubot(temp2) ; // 2x2
 ```
 <br> 
 
-3. To solve, use solve() which gives you the solution as a String ( you can use this if you want in your projects ). Or if you just want to solve your cube, print the solution returned. <br> 
+3. toString()/System.out.println(cube) --> Prints out the cube in an easy to understand manner ( along with [indexes](https://eli.thegreenplace.net/images/2015/row-major-3D.png) ) 
+
+```java
+System.out.println(cube1) ; 
+```
+<p align="center">
+  <img width="350" src="https://user-images.githubusercontent.com/75845563/120409500-a9f29b80-c36e-11eb-9f03-8e99a294bb62.png" alt="example">
+</p>
+<p align="center">
+  <img width="350" src="https://user-images.githubusercontent.com/75845563/121994723-6dd62680-cdc3-11eb-95d6-ea590a8751c5.png" alt="example">
+</p>
+
+4. indexedString() --> Prints out the cube with indexes and colors on each face of the cube pieces 
+ 
+```java
+System.out.println(cube1.indexedString()) ; 
+```
+
+<p align="center">
+  <img width="350" src="https://user-images.githubusercontent.com/75845563/119397820-4e803800-bcf4-11eb-9eb1-c156694a7613.png" alt="example">
+</p>
+<p align="center">
+  <img width="350" src="https://user-images.githubusercontent.com/75845563/121994801-8a725e80-cdc3-11eb-9e9f-884e7f3994ba.png" alt="example">
+</p>
+
+5. To solve, use solve() which gives you the solution as a String ( you can use this if you want in your projects ). Or if you just want to solve your cube, print the solution returned. <br> 
 
 **Note : In case the String[] used while making the object is wrong or faulty you will have to re-enter the Strings. If they are all of same length, then Cubot will let you know if an edge is flipped or a corner is flipped. In either of the two cases, Cubot will stop solving, give you the output till there, and then let you know that something is wrong.** 
 
@@ -94,35 +119,29 @@ System.out.println(sol); // prints it out on the terminal
 ```
 <br> 
 
-4. With isSolved(), you can get the status of your cube ( solved or not ) --> For example, if you want to execute a move and check if the cube is solved or not, use this method. 
+6. With isSolved(), you can get the status of your cube ( solved or not ) --> For example, if you want to execute a move and check if the cube is solved or not, use this method. 
 
 ```java
 boolean solved = cube.isSolved() ; // returns true if solved, false if not
 ```
 <br> 
 
-5. Use makeSolved() to change your cube to the solved state
+7. Use makeSolved() to change your cube to the solved state
 
 ```java
 cube.makeSolved() ; // brings it to Solved state 
 ```
 <br> 
 
-6. Do you have an algorithm/move you want to try out? Use stringalg(String given) to use all the moves in (given) on your cube. 
+8. Do you have an algorithm/move you want to try out? Use stringalg(String given) to use all the moves in (given) on your cube. 
 
 ```java
 cube.stringalg("R U R' U'") ; // executes the algorithm and returns String ( if you want ) 
 ```
 <br> 
 
-7. You can print the entire cube on your terminal ( indexedString() does it differently ) <br> Refer to the respective Docmentation files
 
-```java
-System.out.println(cube) ; // prints out the cube --> piece location, colors and centers 
-```
-<br> 
-
-8. Using getCube(), you can access each piece of the cube however you want to. If you change something here, the original cube will change as well.
+9. Using getCube(), you can access each piece of the cube however you want to. If you change something here, the original cube will change as well.
 
 ```java
 String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cube
