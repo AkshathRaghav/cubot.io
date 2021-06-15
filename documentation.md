@@ -28,6 +28,8 @@ Cubot cube = new Cubot(temp3) ; // 3x3
 // OR
 String[] temp2 = {"RRRR", "GGGG", "OOOO", "BBBB", "WWWW", "YYYY"}; // 2x2
 Cubot cube = new Cubot(temp2) ; // 2x2
+// OR 
+Cubot cube = new Cubot([]) ; // Makes a default solved 3x3 
 ```
 <br> 
 
@@ -64,7 +66,9 @@ System.out.println(cube1) ;
 <p align="center">
   <img width="350" src="https://user-images.githubusercontent.com/75845563/120409500-a9f29b80-c36e-11eb-9f03-8e99a294bb62.png" alt="example">
 </p>
-
+<p align="center">
+  <img width="350" src="https://user-images.githubusercontent.com/75845563/121994723-6dd62680-cdc3-11eb-95d6-ea590a8751c5.png" alt="example">
+</p>
 * indexedString() --> Prints out the cube with indexes and colors on each face of the cube pieces 
  
 ```java
@@ -74,7 +78,9 @@ System.out.println(cube1.indexedString()) ;
 <p align="center">
   <img width="350" src="https://user-images.githubusercontent.com/75845563/119397820-4e803800-bcf4-11eb-9eb1-c156694a7613.png" alt="example">
 </p>
-
+<p align="center">
+  <img width="350" src="https://user-images.githubusercontent.com/75845563/121994801-8a725e80-cdc3-11eb-9e9f-884e7f3994ba.png" alt="example">
+</p>
 * stringalg(String s) --> Executes the moves given as a String on the cubot 
 
 ```java
@@ -125,8 +131,11 @@ System.out.println(s);
 System.out.println(cube.reversealg(s), true) ; // undoes s
 System.out.println(cube.isSolved()); // --> true 
 ```
-
-
+* cubeState() --> returns if its holding 3x3 or 2x2 
+```java 
+System.out.println(cube.cubeState()) ; 
+// --> "3x3" if 3x3, "2x2" if 2x2
+```
 <hr> 
 
 # Cubot3/Cubot2
@@ -156,7 +165,6 @@ cube3.R() ;
   public String[][][][] getCube() ; // returns the 4-D cube array
 ```
 
-<br> 
 
 * solved(Cube other) --> Returns true if Cube object matches another Cube object 
 
@@ -184,10 +192,10 @@ System.out.println(cube1.solved(cube2)) ; --> Returns false
 <hr>
 
 # Indexing 
-#### cubearray[0][0][0][0] --> Color on top 
-#### cubearray[0][0][0][1] --> Color on side 
-#### cubearray[0][0][0][2] --> Color in front
-* ( Additional 3x3 indexes ) 
-#### Only for Centers --> cubearray[0][0][0][1].substring(0,1) --> Gives you the color of the center piece
-#### cubearray[1][1][1] --> Joint Piece
+* cubearray[0][0][0][0] --> Color on top 
+* cubearray[0][0][0][1] --> Color on side 
+* cubearray[0][0][0][2] --> Color in front
+#### ( Additional 3x3 indexes ) 
+* Only for Centers --> cubearray[0][0][0][1].substring(0,1) --> Gives you the color of the center piece
+* cubearray[1][1][1] --> Joint Piece
 
