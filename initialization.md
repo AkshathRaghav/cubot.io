@@ -17,7 +17,7 @@ Cubot2 cube2 = new Cubot2(temp2) ;
 ``` 
 * Add a String element to the {temp String[]} with the first letters of each color you see on a face, in row-major order. 
 * While entering the White and Yellow faces, remember to keep the Green face facing you ( as shown in the pictures below ) 
-* The pictures below are for Cubot3, but you should do the same for Cubot2. 
+* The pictures below are for 3x3, but do the same for 2x2
 #### Green, White and Yellow Faces for example 
 <p align="center">
   <img width="300" src="https://cdn.discordapp.com/attachments/812010624301269012/846018771907117086/Untitled_design.png" alt="cubot">
