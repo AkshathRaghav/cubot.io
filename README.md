@@ -101,14 +101,10 @@ boolean solved = cube.isSolved() ; // returns true if solved, false if not
 ```
 <br> 
 
-5. You can access most of the cube moves like R(), R'(), etc. For more moves, see [All Moves](https://github.com/AkshathRaghav/cubot/blob/main/moves.md) 
-<br>
-#### Cubot3 and Cubot2 can do this. Cubot ( merged object only makes use of stringalg() ) 
+5. Use makeSolved() to change your cube to the solved state
 
 ```java
-String[] temp2 = {"RRRR", "GGGG", "OOOO", "BBBB", "WWWW", "YYYY"}; // 2x2
-// Assume cubot is in 3x3 state 
-cube.change(temp2) ; // Changes the state of cubot to a 2x2 
+cube.makeSolved() ; // brings it to Solved state 
 ```
 <br> 
 
@@ -131,13 +127,6 @@ System.out.println(cube) ; // prints out the cube --> piece location, colors and
 ```java
 String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cube
 ```
-
-9. Use makeSolved() to change your cube to the solved state
-
-```java
-cube.makeSolved() ; // brings it to Solved state 
-```
-
 
 #### For the other methods, and a detailed explanation of all three Cubots, go to [Documentation](https://github.com/AkshathRaghav/cubot.io/blob/main/documentation3x3.md)
 
