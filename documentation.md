@@ -9,7 +9,7 @@
 <hr> 
 
 # Table of Contents  
-* [Cubot](#Cubot3)
+* [Cubot](#Cubot)
 * [Whats Cubot3 and Cubot2?](#Cubot3/Cubot2) 
 * [Whats Cube3 and Cube2](#Cube3/Cube2)
 * [Heirarchy of the Classes](#Hierarchy)
@@ -17,7 +17,7 @@
 
 <hr> 
 
-# Cubot3
+# Cubot
 
 *For Initialization guide, click [here](https://github.com/AkshathRaghav/cubot/blob/main/initialization.md)*
 
