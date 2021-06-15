@@ -106,9 +106,9 @@ boolean solved = cube.isSolved() ; // returns true if solved, false if not
 #### Cubot3 and Cubot2 can do this. Cubot ( merged object only makes use of stringalg() ) 
 
 ```java
-cube.R() ; 
-cube.Rdash() ; 
-cube.L() ; 
+String[] temp2 = {"RRRR", "GGGG", "OOOO", "BBBB", "WWWW", "YYYY"}; // 2x2
+// Assume cubot is in 3x3 state 
+cube.change(temp2) ; // Changes the state of cubot to a 2x2 
 ```
 <br> 
 
