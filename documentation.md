@@ -126,12 +126,6 @@ System.out.println(cube.reversealg(s), true) ; // undoes s
 System.out.println(cube.isSolved()); // --> true 
 ```
 
-* shorten(String s) --> Returns the shortened version of the input algorithm ( Rdash -> R' ) 
-
-```java 
-String s = shorten("U U U F' F R' U' U") // Returns "U' R'" 
-```
-
 
 <hr> 
 
@@ -162,16 +156,15 @@ String s = shorten("U U U F' F R' U' U") // Returns "U' R'"
 * solved(Cube other) --> Returns true if Cube object matches another Cube object 
 
 ```java
-String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"};
+String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"}; // for 3x3 
 Cube3 cube1 = new Cube3(temp) ;
-String[] temp2 = {"WGBOROGGY", "YOYWGBOYB", "RBBOORRBY", "OBGWBYRYR", "GRWRGYWGB", "OWWWYROGG"};
+String[] temp2 = {"WGBOROGGY", "YOYWGBOYB", "RBBOORRBY", "OBGWBYRYR", "GRWRGYWGB", "OWWWYROGG"}; // for 3x3 
 Cube3 cube2 = new Cube3(temp2) ; 
 System.out.println(cube1.solved(cube2)) ; --> Returns false
 ```
-<br> 
 
 * toString/System.out.println --> Prints out the cube wtih indexes 
-
+* indexedString() --> Prints out the indexed Cube
 * getCube() --> Returns String[][][][] object containing the cubearray 
 
 
@@ -179,14 +172,15 @@ System.out.println(cube1.solved(cube2)) ; --> Returns false
 
 # How are they related ? 
 * Cubot has-a Cubot3 and Cubot2
-* Cubot(2/3) has-a Cube(2/3). Cubot(2/3) extends Checker(2/3) extends Moves(2/3)
+* Cubot(2/3) has-a Cube(2/3)
+* Cubot(2/3) extends Checker(2/3) extends Moves(2/3)
 * Cube(2/3) has-a cubearray (String[][][][]) 
 
 # Indexing 
 #### cubearray[0][0][0][0] --> Color on top 
 #### cubearray[0][0][0][1] --> Color on side 
 #### cubearray[0][0][0][2] --> Color in front
-( Additional 3x3 indexes ) 
+* ( Additional 3x3 indexes ) 
 #### Only for Centers --> cubearray[0][0][0][1].substring(0,1) --> Gives you the color of the center piece
 #### cubearray[1][1][1] --> Joint Piece
 
