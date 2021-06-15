@@ -36,7 +36,7 @@
 5. Cube constructor updated ( Enter cube faces randomly now ) - 3.6.2021
 6. toString() bug fixed, pll() bug fixed- 11.6.2021
 7. 2x2 files added, 3x3 files made sep - 14.6.2021
-8. Merged src added, use single Cubot for both Cubes - 15.6.2021
+8. Merged src added, use single Cubot for both Cubes, Documentation and README updated - 15.6.2021
 
 <hr>
 
