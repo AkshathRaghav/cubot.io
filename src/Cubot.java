@@ -7,6 +7,8 @@ public class Cubot {
     private final String[] end2  = {"RRRR", "GGGG", "OOOO", "BBBB", "WWWW", "YYYY"};
 
     public Cubot(String[] s) throws IllegalArgumentException {
+        if (s.length == 1 && s[0].isEmpty()) { cube3 = new Cubot3(end3) ; } 
+
         for (int i = 0; i < 6; i++) {
             if (!(s[i].length() == 9 || s[i].length() == 4)) {
                 throw new IllegalArgumentException("Cube not entered correctly!");
@@ -106,12 +108,6 @@ public class Cubot {
             return "Cube3" ; 
         } 
         else { return "Cube2" ; }
-    }
-    public String shorten(String s) { 
-        if (cube3 != null) { 
-            return cube3.shorten(s) ; 
-        } 
-        else { return cube2.shorten(s) ;  }
     }
         
 }
