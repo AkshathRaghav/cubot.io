@@ -12,6 +12,7 @@
 * [Cubot](#Cubot3)
 * [Whats Cubot3 and Cubot2?](#Cubot vs Cubot3/Cubot2) 
 * [Whats Cube3 and Cube2](#What's Cube3 and Cube2)
+* [Understanding the different objects](#How are they related)
 * [Accessing the Cubearray](#Indexing)
 
 <hr> 
@@ -176,11 +177,16 @@ System.out.println(cube1.solved(cube2)) ; --> Returns false
 
 <hr> 
 
+# How are they related ? 
+* Cubot has-a Cubot3 and Cubot2
+* Cubot(2/3) has-a Cube(2/3). Cubot(2/3) extends Checker(2/3) extends Moves(2/3)
+* Cube(2/3) has-a cubearray (String[][][][]) 
+
 # Indexing 
 #### cubearray[0][0][0][0] --> Color on top 
 #### cubearray[0][0][0][1] --> Color on side 
 #### cubearray[0][0][0][2] --> Color in front
-*( Additional 3x3 indexes ) 
+( Additional 3x3 indexes ) 
 #### Only for Centers --> cubearray[0][0][0][1].substring(0,1) --> Gives you the color of the center piece
 #### cubearray[1][1][1] --> Joint Piece
 
