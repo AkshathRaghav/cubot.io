@@ -12,7 +12,7 @@
 * [Cubot](#Cubot3)
 * [Whats Cubot3 and Cubot2?](#Cubot3/Cubot2) 
 * [Whats Cube3 and Cube2](#Cube3/Cube2)
-* [Understanding the relationships](#Hierarchy)
+* [Heirarchy of the Classes](#Hierarchy)
 * [Accessing the Cubearray](#Indexing)
 
 <hr> 
@@ -133,6 +133,11 @@ System.out.println(cube.isSolved()); // --> true
 * Cubot has-a Cubot2 and Cubot3. Depending on your input, Cubot will hold Cubot3 or Cubot3 at a point
 * Cubot3 is the Cubot object for only 3x3, and the same goes for Cubot2x2
 * The main difference between them is that Cubot3/Cubot2 can directly use R(), Rdash(), etc. while Cubot needs stringalg()
+```java 
+String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"}; // for 3x3 
+Cubot3 cube3 = new Cubot(temp) ; 
+cube3.R() ; 
+```
 
 <hr> 
 
@@ -175,6 +180,8 @@ System.out.println(cube1.solved(cube2)) ; --> Returns false
 * Cubot(2/3) has-a Cube(2/3)
 * Cubot(2/3) extends Checker(2/3) extends Moves(2/3)
 * Cube(2/3) has-a cubearray (String[][][][]) 
+
+<hr>
 
 # Indexing 
 #### cubearray[0][0][0][0] --> Color on top 
