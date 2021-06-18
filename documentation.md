@@ -1,8 +1,8 @@
 
-<h1 align="center">CUBOT</h1>
+
 
 <p align="center">
-  <img width="250" src="https://cdn.discordapp.com/attachments/812010624301269012/846043080104607744/output-onlinepngtools.png" alt="cubot">
+  <img width="1100" src="https://cdn.discordapp.com/attachments/797420478574362634/855449686982787082/cubot.io.png" alt="cubot">
 </p>
 
 
