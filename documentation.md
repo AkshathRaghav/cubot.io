@@ -139,7 +139,7 @@ System.out.println(cube.cubeState()) ;
 <hr> 
 
 # Cubot3/Cubot2
-* Cubot has-a Cubot2 and Cubot3. Depending on your input, Cubot will hold Cubot3 or Cubot3 at a point
+* Cubot has-a Cubot2 and Cubot3. Depending on your input, Cubot will hold Cubot3 or Cubot3 
 * Cubot3 is the Cubot object for only 3x3, and the same goes for Cubot2x2
 * The main difference between them is that Cubot3/Cubot2 can directly use R(), Rdash(), etc. while Cubot needs stringalg()
 ```java 
