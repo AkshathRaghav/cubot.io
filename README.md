@@ -1,4 +1,4 @@
-/github/v/release/:AkshathRaghav/:cubot.io
+(https://img.shields.io/badge/version-v1.0-brightgreen)
 
 <p align="center">
   <img width="1100" src="https://cdn.discordapp.com/attachments/797420478574362634/855449686982787082/cubot.io.png" alt="cubot">
