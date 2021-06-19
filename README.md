@@ -64,7 +64,7 @@
 
 <hr> 
 
-# Usage
+# 🗎 Usage
 
 1. First make a String[] containing the sides of the cube as explained in the [Initialization](https://github.com/AkshathRaghav/cubot/blob/main/initialization.md). 
 
