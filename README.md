@@ -90,16 +90,17 @@ Cubot cube = new Cubot([]) ; // Solved State 3x3
 ```java
 System.out.println(cube1) ; 
 ```
-
-Solarized dark             |  Solarized Ocean
+<p align = "center" > 
+3x3             |  2x2
 :-------------------------:|:-------------------------:
 ![1](https://user-images.githubusercontent.com/75845563/120409500-a9f29b80-c36e-11eb-9f03-8e99a294bb62.png)  |  ![2](https://user-images.githubusercontent.com/75845563/121994723-6dd62680-cdc3-11eb-95d6-ea590a8751c5.png)
+ </p> 
 <!-- <p align="center">
   <img width="350" src="https://user-images.githubusercontent.com/75845563/120409500-a9f29b80-c36e-11eb-9f03-8e99a294bb62.png" alt="example">
 </p>
 <p align="center">
   <img width="350" src="https://user-images.githubusercontent.com/75845563/121994723-6dd62680-cdc3-11eb-95d6-ea590a8751c5.png" alt="example">
-</p> -->
+-->
 
 4. indexedString() --> Prints out the cube with indexes and colors on each face of the cube pieces 
  
