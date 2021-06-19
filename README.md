@@ -7,7 +7,7 @@
 
 <hr> 
 
-# Table of Contents  
+# 🔠 Table of Contents  
 * [Description](#Description)  
 * [Updates](#Updates)
 * [Installation](#Installation) 
@@ -16,7 +16,7 @@
 <hr> 
 
 
-# Description
+# 📔 Description
 
 ### A Java library to help you : 
 * Virtually construct a Cube ( 2x2/3x3 ), 
@@ -27,7 +27,7 @@
 
 ---
 
-# Updates
+# 🎉 Updates
 
 1. getScramble(int n) added; reverseAlg(String s) added; minor tweaks in Checker - 30.5.2021
 2. E(), S() added, updated Moves in moves - 31.5.2021 
@@ -40,7 +40,7 @@
 
 <hr>
 
-# Installation
+# ⚙️ Installation
 
 1. Download the Cubot.jar (v1.0) file above ( <-- Old version. v2.0 coming at the end of the month ) 
 2. Go to your project on Intellij or Eclipse 
