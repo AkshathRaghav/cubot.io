@@ -4,7 +4,6 @@
 </p>
 
 
-<hr> 
 
 # 🔠 Table of Contents  
 * [Description](#Description)  
@@ -12,7 +11,6 @@
 * [Installation](#Installation) 
 * [Usage](#Usage)
 
-<hr> 
 
 
 # 📔 Description
@@ -37,8 +35,6 @@
 7. 2x2 files added, 3x3 files made sep - 14.6.2021
 8. Merged src added, use single Cubot for both Cubes, Documentation and README updated - 15.6.2021
 
-<hr>
-
 # ⚙️ Installation
 
 1. Download the Cubot.jar (v1.0) file above ( <-- Old version. v2.0 coming at the end of the month ) 
@@ -61,7 +57,6 @@
   <img width="250" src="https://cdn.discordapp.com/attachments/812010624301269012/846011334029344828/unknown.png" alt="example">
 </p>
 
-<hr> 
 
 # 🗎 Usage
 
@@ -155,7 +150,6 @@ String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cu
 
 #### For the other methods, and a detailed explanation of all three Cubots, go to [Documentation](https://github.com/AkshathRaghav/cubot.io/blob/main/documentation.md)
 
-<hr> 
 
 
 
