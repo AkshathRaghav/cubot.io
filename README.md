@@ -22,7 +22,6 @@
 * Get the solution for the cube
 * Use a cube in your own projects 
 
----
 
 # 🎉 Updates
 
