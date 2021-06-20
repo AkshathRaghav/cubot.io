@@ -10,8 +10,8 @@
 
 # Table of Contents  
 * [Cubot](#Cubot)
-* [What's Cubot3 and Cubot2?](#Cubot3/Cubot2) 
-* [What's Cube3 and Cube2?](#Cube3/Cube2)
+* [What's Cubot3 and Cubot2?](#Cubot(2/3)) 
+* [What's Cube3 and Cube2?](#Cube3(2/3))
 * [Heirarchy of the Classes](#Hierarchy)
 * [Accessing the Cubearray](#Indexing)
 
@@ -138,7 +138,7 @@ System.out.println(cube.cubeState()) ;
 ```
 <hr> 
 
-# Cubot3/Cubot2
+# Cubot(2/3)
 * Cubot has-a Cubot2 and Cubot3. Depending on your input, Cubot will hold Cubot3 or Cubot3 
 * Cubot3 is the Cubot object for only 3x3, and the same goes for Cubot
 * The main difference between them is that Cubot3/Cubot2 can directly use R(), Rdash(), etc. while Cubot needs stringalg()
@@ -150,7 +150,7 @@ cube3.R() ;
 
 <hr> 
 
-# Cube3/Cube2
+# Cube(2/3)
 * The Cubot(2/3) and Cube(2/3) classes have a composition relationship - Cubot(2/3) has-a Cube(2/3) <br> 
 * With an object of Cube(2/3) class, you can only make, compare with another Cube(2/3), and get the cubearray(String[][][][]) <br> 
 * With an object of Cubot(2/3) class, you can do much more + what Cube3 can do 
