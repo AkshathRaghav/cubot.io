@@ -11,7 +11,7 @@
 # Table of Contents  
 * [Cubot](#Cubot)
 * [What's Cubot3 and Cubot2?](#Cubot(2/3)) 
-* [What's Cube3 and Cube2?](#Cube3(2/3))
+* [What's Cube3 and Cube2?](#Cube(2/3))
 * [Heirarchy of the Classes](#Hierarchy)
 * [Accessing the Cubearray](#Indexing)
 
