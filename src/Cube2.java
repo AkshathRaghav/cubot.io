@@ -49,6 +49,35 @@
             }
         } // Makes the Cube with String[]
 
+        public String cubeToString() {
+            String s = "" ;
+            String store = toString() ;
+            String[] storeArr = store.split("\n"), charStore = new String[6];
+            for (int i =0 ; i < storeArr.length; i++ ) {
+                if (i < 2) {
+                    charStore[4] += storeArr[i].substring(storeArr[i].indexOf("|") + 1).substring(0, storeArr[0].indexOf("|") + 1).replaceAll(" ", "");
+                }
+                else if ( i > 3 ) {
+                    charStore[5] += storeArr[i].substring(storeArr[i].indexOf("|") + 1).substring(0, storeArr[0].indexOf("|") + 1).replaceAll(" ", "");
+                }
+                else {
+                    String[] temp  = storeArr[i].split(" | ");
+                    int count = -1 ;
+                    for (String k : temp) {
+                        if (k.equals("|")) { count ++ ; }
+                        else {
+                            charStore[count] += k;
+                        }
+                    }
+                }
+
+            }
+            for (String j : charStore) {
+                s += j.replaceAll("null", " ");
+            }
+            return s ;
+        }
+
         private boolean isValid() {
             for (int j = 0; j < cube.length; j++) {
                 for (int i = 0; i < cube.length; i++) {
