@@ -73,7 +73,32 @@ public class Cube3 {
     } // Makes the Cube with String[]
 
     public String cubeToString() {
-        return "" ;
+        String s = "" ;
+        String store = toString() ;
+        String[] storeArr = store.split("\n"), charStore = new String[6];
+        for (int i =0 ; i < storeArr.length; i++ ) {
+            if (i > 5 || i < 3 ) {
+                String temp = storeArr[i].substring(storeArr[i].indexOf("|") + 1) ;
+                int index = 4 ;
+                if ( i > 5  ) { index = 5 ;}
+                charStore[index] += temp.substring(0, temp.indexOf("|")).replaceAll(" ", "");
+            }
+            else {
+                String[] temp  = storeArr[i].split(" | ");
+                int count = -1 ;
+                for (String k : temp) {
+                    if (k.equals("|")) { count ++ ; }
+                    else {
+                        charStore[count] += k;
+                    }
+                }
+            }
+
+        }
+        for (String j : charStore) {
+            s += j.replaceAll("null", " ");
+        }
+        return s.substring(1) ;
     }
 
     private boolean isValid() {
