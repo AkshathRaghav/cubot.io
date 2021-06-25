@@ -136,6 +136,21 @@ System.out.println(cube.isSolved()); // --> true
 System.out.println(cube.cubeState()) ; 
 // --> "3x3" if 3x3, "2x2" if 2x2
 ```
+* cubeToSTring() --> returns the cube in the form of a String ( as given in the input ) 
+```java 
+String[] temp2 = {"RRRR", "GGGG", "OOOO", "BBBB", "WWWW", "YYYY"};
+Cubot cube = new Cubot(temp2) ;
+System.out.println(cube);
+System.out.println(cube.cubeToString());
+String[] temp  = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"};
+cube = new Cubot(temp) ;
+System.out.println(cube);
+System.out.println(cube.cubeToString());
+```
+<p align="center">
+  <img width="350" src="https://user-images.githubusercontent.com/75845563/123380113-ac7e9480-d5ac-11eb-8532-ff5272cd0d00.png" alt="example">
+</p>
+
 <hr> 
 
 # Cubot(2/3)
