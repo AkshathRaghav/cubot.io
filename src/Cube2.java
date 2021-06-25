@@ -54,11 +54,11 @@
             String store = toString() ;
             String[] storeArr = store.split("\n"), charStore = new String[6];
             for (int i =0 ; i < storeArr.length; i++ ) {
-                if (i < 2) {
-                    charStore[4] += storeArr[i].substring(storeArr[i].indexOf("|") + 1).substring(0, storeArr[0].indexOf("|") + 1).replaceAll(" ", "");
-                }
-                else if ( i > 3 ) {
-                    charStore[5] += storeArr[i].substring(storeArr[i].indexOf("|") + 1).substring(0, storeArr[0].indexOf("|") + 1).replaceAll(" ", "");
+                if (i > 3 || i < 2 ) {
+                    String temp = storeArr[i].substring(storeArr[i].indexOf("|") + 1) ;
+                    int index = 4 ;
+                    if ( i > 3  ) { index = 5 ;}
+                    charStore[index] += temp.substring(0, temp.indexOf("|")).replaceAll(" ", "");
                 }
                 else {
                     String[] temp  = storeArr[i].split(" | ");
@@ -75,7 +75,7 @@
             for (String j : charStore) {
                 s += j.replaceAll("null", " ");
             }
-            return s ;
+            return s.substring(1) ;
         }
 
         private boolean isValid() {
