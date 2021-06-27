@@ -61,6 +61,7 @@
 
 # 🗎 Usage
 
+### Documentation as well as src are being moved and updated. Implementation of all methods might not be updated here for a few more hours
 1. First make a String[] containing the sides of the cube as explained in the [Initialization](https://github.com/AkshathRaghav/cubot/blob/main/initialization.md). 
 
 ```java
