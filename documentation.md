@@ -141,7 +141,7 @@ cube = new Cubot(temp) ;
 System.out.println(cube.cubeState());
 ```
 <p align="center"> 
-  <img width="350" src="https://user-images.githubusercontent.com/75845563/123542937-e0eb7f80-d769-11eb-9eb6-881d038529c1.png" alt="example">
+  <img width="150" src="https://user-images.githubusercontent.com/75845563/123542937-e0eb7f80-d769-11eb-9eb6-881d038529c1.png" alt="example">
 </p>
 * cubeToSTring() --> returns the cube in the form of a String ( as given in the input ) 
 ```java 
@@ -160,7 +160,7 @@ for (String i : cubeInput) {
 }
 ```
 <p align="center"> 
-  <img width="350" src="https://user-images.githubusercontent.com/75845563/123542897-9b2eb700-d769-11eb-85ce-cbdc473b7b3b.png" alt="example">
+  <img width="400" src="https://user-images.githubusercontent.com/75845563/123542897-9b2eb700-d769-11eb-85ce-cbdc473b7b3b.png" alt="example">
 </p>
 
 <hr> 
