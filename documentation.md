@@ -132,7 +132,7 @@ System.out.println(cube.reversealg(s), true) ; // undoes s
 System.out.println(cube.isSolved()); // --> true 
 ```
 * cubeState() --> returns if its holding 3x3 or 2x2 
-```java 
+```java
 String[] temp2 = {"RRRR", "GGGG", "OOOO", "BBBB", "WWWW", "YYYY"};
 Cubot cube = new Cubot(temp2) ;
 System.out.println(cube.cubeState());
@@ -144,7 +144,8 @@ System.out.println(cube.cubeState());
   <img width="150" src="https://user-images.githubusercontent.com/75845563/123542937-e0eb7f80-d769-11eb-9eb6-881d038529c1.png" alt="example">
 </p>
 * cubeToSTring() --> returns the cube in the form of a String ( as given in the input ) 
-```java 
+
+```java
 String[] temp2 = {"RRRR", "GGGG", "OOOO", "BBBB", "WWWW", "YYYY"};
 Cubot cube = new Cubot(temp2) ;
 String[] cubeInput = cube.cubeToString() ;
