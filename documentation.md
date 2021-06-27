@@ -58,7 +58,7 @@ System.out.println("------------------------------------------");
   <img width="250" src="https://user-images.githubusercontent.com/75845563/119396729-e0874100-bcf2-11eb-8ac0-e6a943983f11.png" alt="example">
 </p>
 
-* toString()/System.out.println(cube) --> Prints out the cube in an easy to understand manner ( along with [indexes](https://eli.thegreenplace.net/images/2015/row-major-3D.png) ) 
+* toString()/System.out.println(cube) --> Prints out the cube in an easy to understand manner) 
 
 ```java
 System.out.println(cube1) ; 
@@ -69,7 +69,8 @@ System.out.println(cube1) ;
 <p align="center">
   <img width="350" src="https://user-images.githubusercontent.com/75845563/121994723-6dd62680-cdc3-11eb-95d6-ea590a8751c5.png" alt="example">
 </p>
-* indexedString() --> Prints out the cube with indexes and colors on each face of the cube pieces 
+
+* indexedString() --> Prints out the cube with indexes and colors on each face of the cube pieces  ( along with [indexes](https://eli.thegreenplace.net/images/2015/row-major-3D.png) 
  
 ```java
 System.out.println(cube1.indexedString()) ; 
