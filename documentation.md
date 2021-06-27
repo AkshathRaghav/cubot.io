@@ -17,7 +17,9 @@
 
 <hr> 
 
+#### Major Updates are being made. This guide might not be fully accurate for a day or two 
 # Cubot
+
 
 *For Initialization guide, click [here](https://github.com/AkshathRaghav/cubot/blob/main/initialization.md)*
 
