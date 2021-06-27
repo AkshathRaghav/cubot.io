@@ -133,22 +133,34 @@ System.out.println(cube.isSolved()); // --> true
 ```
 * cubeState() --> returns if its holding 3x3 or 2x2 
 ```java 
-System.out.println(cube.cubeState()) ; 
-// --> "3x3" if 3x3, "2x2" if 2x2
+String[] temp2 = {"RRRR", "GGGG", "OOOO", "BBBB", "WWWW", "YYYY"};
+Cubot cube = new Cubot(temp2) ;
+System.out.println(cube.cubeState());
+String[] temp  = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"};
+cube = new Cubot(temp) ;
+System.out.println(cube.cubeState());
 ```
+<p align="center"> 
+  <img width="350" src="https://user-images.githubusercontent.com/75845563/123542937-e0eb7f80-d769-11eb-9eb6-881d038529c1.png" alt="example">
+</p>
 * cubeToSTring() --> returns the cube in the form of a String ( as given in the input ) 
 ```java 
 String[] temp2 = {"RRRR", "GGGG", "OOOO", "BBBB", "WWWW", "YYYY"};
 Cubot cube = new Cubot(temp2) ;
-System.out.println(cube);
-System.out.println(cube.cubeToString());
+String[] cubeInput = cube.cubeToString() ;
+for (String i : cubeInput) {
+    System.out.print(i + " ");
+}
+System.out.println();
 String[] temp  = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"};
 cube = new Cubot(temp) ;
-System.out.println(cube);
-System.out.println(cube.cubeToString());
+cubeInput = cube.cubeToString() ;
+for (String i : cubeInput) {
+    System.out.print(i + " ");
+}
 ```
-<p align="center">
-  <img width="350" src="https://user-images.githubusercontent.com/75845563/123380113-ac7e9480-d5ac-11eb-8532-ff5272cd0d00.png" alt="example">
+<p align="center"> 
+  <img width="350" src="https://user-images.githubusercontent.com/75845563/123542897-9b2eb700-d769-11eb-85ce-cbdc473b7b3b.png" alt="example">
 </p>
 
 <hr> 
