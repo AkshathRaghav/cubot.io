@@ -72,15 +72,15 @@ public class Cube3 {
         }
     } // Makes the Cube with String[]
 
-    public String cubeToString() {
+    public String[] cubeToArr() {
         String s = "" ;
         String store = toString() ;
         String[] storeArr = store.split("\n"), charStore = new String[6];
         for (int i =0 ; i < storeArr.length; i++ ) {
             if (i > 5 || i < 3 ) {
                 String temp = storeArr[i].substring(storeArr[i].indexOf("|") + 1) ;
-                int index = 4 ;
-                if ( i > 5  ) { index = 5 ;}
+                int index = 5 ;
+                if ( i > 5  ) { index = 4 ;}
                 charStore[index] += temp.substring(0, temp.indexOf("|")).replaceAll(" ", "");
             }
             else {
@@ -95,10 +95,10 @@ public class Cube3 {
             }
 
         }
-        for (String j : charStore) {
-            s += j.replaceAll("null", " ");
+        for (int i = 0; i < charStore.length; i++ ) {
+            charStore[i] = charStore[i].replaceAll("null", " ").substring(1);
         }
-        return s.substring(1) ;
+        return charStore ;
     }
 
     private boolean isValid() {
