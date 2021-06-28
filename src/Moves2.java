@@ -155,8 +155,7 @@ public class Moves2 {
             piece[1] = temp ;
         }
     }
-    public String indexString() { return cubie.indexedString();}
-    public String cubeToString() { return cubie.cubeToString() ; }
+
 
 
 }
