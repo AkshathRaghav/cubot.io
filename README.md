@@ -35,6 +35,7 @@
 8. Merged src added, use single Cubot for both Cubes, Documentation and README updated - 15.6.2021
 9. cubeToString added for 2x2 - 22.6.2021
 10. cubeToString added to Cubot for both 2x2 and 3x3 - 25.6.2021
+11. wiki added for the repo, files updated, cubeToArr, toString, etc fixed - 28.6.2021
 
 # ⚙️ Installation
 
@@ -61,7 +62,6 @@
 
 # 🗎 Usage
 
-### Documentation as well as src are being moved and updated. Implementation of all methods might not be updated here for a few more hours
 1. First make a String[] containing the sides of the cube as explained in the [Initialization](https://github.com/AkshathRaghav/cubot/blob/main/initialization.md). 
 
 ```java
