@@ -10,6 +10,7 @@
 * [Updates](#Updates)
 * [Installation](#Installation) 
 * [Usage](#Usage)
+* [Wiki](https://github.com/AkshathRaghav/cubot.io/wiki)
 
 
 
