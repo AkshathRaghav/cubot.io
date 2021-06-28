@@ -202,20 +202,20 @@ import java.util.* ;
                 if ( color == 3 ) {
                     if (j == 0) {
                         if (k == 0) {
-                            if ( index == 1) { s.append(L()); }
+                            if ( index == 1) { s.append(L()+ " "); }
                             else {
                                 s.append(Fdash()); }
                         } else {
-                            if ( index == 1 ) { s.append(Ldash());}
-                            else { s.append(B());}
+                            if ( index == 1 ) { s.append(Ldash() + " " );}
+                            else { s.append(B() + " ");}
                         }
                     } else {
                         if (k == 0) {
-                            if ( index == 1 ) { s.append(Rdash()); }
-                            else {  s.append(F());}
+                            if ( index == 1 ) { s.append(Rdash()+ " "); }
+                            else {  s.append(F()+ " ");}
                         } else {
-                            if ( index == 1 ) { s.append(R()); }
-                            else {  s.append(Bdash());}
+                            if ( index == 1 ) { s.append(R()+ " "); }
+                            else {  s.append(Bdash()+ " ");}
                         }
                     }
                     return s.toString();
@@ -227,23 +227,19 @@ import java.util.* ;
                     }
                     if (k == 0) {
                         if (j == 0) {
-                            s.append(F());
-                            s.append(Udash());
-                            s.append(Fdash());
+                            s.append(stringalg("F U' F' ")) ;
+
                         } else {
-                            s.append(Fdash());
-                            s.append(Udash());
-                            s.append(F());
+                            s.append(stringalg("F' U' F ")) ;
+
                         }
                     } else {
                         if (j == 0) {
-                            s.append(Bdash());
-                            s.append(U());
-                            s.append(B());
+                            s.append(stringalg("B' U B ")) ;
+
                         } else {
-                            s.append(B());
-                            s.append(U());
-                            s.append(Bdash());
+                            s.append(stringalg("B U B' ")) ;
+
                         }
                     }
                 } else {
@@ -253,23 +249,15 @@ import java.util.* ;
                     }
                     if (k == 0) {
                         if (j == 0) {
-                            s.append(Ldash());
-                            s.append(U());
-                            s.append(L());
+                            s.append(stringalg("L' U L ")) ;
                         } else {
-                            s.append(R());
-                            s.append(Udash());
-                            s.append(Rdash());
+                            s.append(stringalg("R U' R' ")) ;
                         }
                     } else {
                         if (j == 0) {
-                            s.append(L());
-                            s.append(U());
-                            s.append(Ldash());
+                            s.append(stringalg("L U L' ")) ;
                         } else {
-                            s.append(Rdash());
-                            s.append(Udash());
-                            s.append(R());
+                            s.append(stringalg("R' U' R ") );
                         }
                     }
 
@@ -284,20 +272,15 @@ import java.util.* ;
                 }
                     if (j == 1) {
                         if (k == 0) {
-                            s.append(F());
-                            s.append(F());
+                            s.append(stringalg("F F ")) ;
                         } else {
-                            s.append(B());
-                            s.append(B());
+                            s.append(stringalg("B B ")) ;
                         }
                     } else if (j == 0) {
-                        s.append(L());
-                        s.append(L());
+                        s.append(stringalg("L L ")) ;
                     } else {
-                        s.append(R());
-                        s.append(R());
+                        s.append(stringalg("R R ")) ;
                     }
-
             }
             return s.toString();
         }
@@ -483,10 +466,10 @@ import java.util.* ;
                     }
                     count =0 ;
                     if (cubearray[0][1][0][2].equals("W") && cubearray[0][1][0][0].equals(cubearray[1][1][0][1].substring(0, 1))) {
-                        s.append(" (").append(U());
-                        s.append("  ").append(r());
-                        s.append("  ").append(Udash());
-                        s.append("  ").append(rdash()).append(")").append(" ");
+                        s.append(" ").append(U());
+                        s.append(" ").append(r());
+                        s.append(" ").append(Udash());
+                        s.append(" ").append(rdash()).append(" ");
 
                     } else  {
 
@@ -761,13 +744,12 @@ import java.util.* ;
             s +=  centers()  ;
             s+=  f2l();
             s+=  oll() ;
-//            if ( !(s.substring(s.length()-2).contains(" ")) && !s.contains("R") ) { return "Solved" ; }
             if ( !s.contains("Either") ) {
                 s += pll();
                 if ( !isSolved() ){ s += "The cube remains unsolved --> Recheck initilization or Report Bug " ; }
             }
             s = (shorten(s));
-            return  s ;
+            return  s.replaceAll("\n", " ").trim() ;
         }
 
 
@@ -812,6 +794,7 @@ import java.util.* ;
         }
         public String reversealg(String str, boolean check) {
             String s = "" ;
+            str =str.replaceAll("\n" , " ");
             while (str.contains(" ")) {
                 s = reversedo(str.substring(0, str.indexOf(" "))) + " " + s ;
                 str = str.substring(str.indexOf(" ") +1 ) ;
@@ -849,12 +832,14 @@ import java.util.* ;
                 case "M2" -> M2();
                 case "D2" -> D2();
                 case "y" -> y();
+                case "y'" -> ydash() ;
                 case "z" -> z();
                 case "x" -> x();
                 case "E" -> E();
                 case "E'" -> Edash();
                 case "S" -> S();
                 case "S'" -> Sdash();
+
 //                case "E" -> D2();
 
             }
@@ -872,7 +857,7 @@ import java.util.* ;
                     break;
                 case "U":  monthString = "U'";
                     break;
-                case "U'":  monthString = "U";
+                case "U'","Udash":  monthString = "U";
                     break;
                 case "D":  monthString = "D'";
                     break;
@@ -913,8 +898,7 @@ import java.util.* ;
 
 
         }
-        public String indexString() { return super.indexString() ; }
-        public String cubeToString() { return super.cubeToString() ; }
+
 
     }
 
