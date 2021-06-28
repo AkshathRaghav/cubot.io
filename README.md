@@ -98,7 +98,7 @@ System.out.println(cube1) ;
   <img width="350" src="https://user-images.githubusercontent.com/75845563/121994723-6dd62680-cdc3-11eb-95d6-ea590a8751c5.png" alt="example">
 -->
 
-4. indexedString() --> Prints out the cube with indexes and colors on each face of the cube pieces 
+4. indexString() --> Prints out the cube with indexes and colors on each face of the cube pieces 
  
 ```java
 System.out.println(cube1.indexedString()) ; 
@@ -151,8 +151,6 @@ String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cu
 ```
 
 #### For the other methods, and a detailed explanation of all three Cubots, go to [Documentation](https://github.com/AkshathRaghav/cubot.io/wiki)
-
-
 
 
 ## Sites used 
