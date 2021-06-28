@@ -150,7 +150,7 @@ cube.stringalg("R U R' U'") ; // executes the algorithm and returns String ( if 
 String[][][][] cubearray = cube.getCube() ; // Any change will reflect on the cube
 ```
 
-#### For the other methods, and a detailed explanation of all three Cubots, go to [Documentation](https://github.com/AkshathRaghav/cubot.io/blob/main/documentation.md)
+#### For the other methods, and a detailed explanation of all three Cubots, go to [Documentation](https://github.com/AkshathRaghav/cubot.io/wiki)
 
 
 
