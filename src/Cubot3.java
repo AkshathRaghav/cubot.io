@@ -10,7 +10,7 @@ public class Cubot3 extends Checker3 {
     public String toString() {
         return cubie.toString() ;
     }
-    public String[][][][] getCube() {
+    public String[][][][] getCubeArr() {
         return cubie.getCube();
     }
     public String[][][][] getSolvedCube() { return super.getSolvedCube() ; }
@@ -19,6 +19,7 @@ public class Cubot3 extends Checker3 {
     public String getScramble(int n, boolean check) { return super.getScramble(n, check) ; }
     public String reverseAlg(String s, boolean check ) { return  super.reversealg(s, check ) ; }
     public String indexString() { return cubie.indexedString();}
-    public String cubeToString() { return super.cubeToString() ; }
+    public Cube3 getCube() { return cubie ; }
+    public String[] cubeToArr() { return cubie.cubeToArr() ; }
 
 }
