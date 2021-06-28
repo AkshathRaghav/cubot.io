@@ -62,6 +62,37 @@ public class Checker2 extends Moves2 {
         return s;
 
     }
+//    public String slotter(int x, int y, int z) {
+//
+//    }
+//    public String bottom(String base) {
+//        for
+//
+//
+//
+//    }
+//
+//    public String solve() {
+//        String base = cubearray[1][0][0][0] ;
+//        for (int i =0 ; i <2 ; i++) {
+//            for(int j = 0 ; j < 2 ; j++ ) {
+//
+//        return bottom(base) ;
+//    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     private void choose(String ch) {
         switch (ch) {
             case "R" -> R();
@@ -118,8 +149,7 @@ public class Checker2 extends Moves2 {
         return monthString ;
 
     }
-    public String indexString() { return super.indexString() ; }
-    public String cubeToString() { return super.cubeToString() ; }
+
 
 
 }
