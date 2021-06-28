@@ -221,6 +221,12 @@ public class Moves3 {
         Ddash();
         return "y" ;
     }
+    public String ydash() {
+        Udash();
+        E() ;
+        D();
+        return "y'" ;
+    }
 
     public String z() {
         F() ;
@@ -257,7 +263,6 @@ public class Moves3 {
             piece[1] = temp ;
         }
     }
-    public String indexString() { return cubie.indexedString();}
-    public String cubeToString() { return cubie.cubeToString() ; }
+
 
 }
