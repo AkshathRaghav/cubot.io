@@ -18,6 +18,9 @@ public class Cubot {
         if (s[0].length() == 9) { cube3 = new Cubot3(s) ; }
         else { cube2 = new Cubot2(s) ; }
     }
+    public Cubot() {
+        cube3 = new Cubot3(end3) ;
+    }
 
     public String solve() {
         if (cube2 == null && cube3 != null) {
@@ -41,11 +44,16 @@ public class Cubot {
         return cube2.toString();
     }
 
-    public String[][][][] getCube() {
-        if (cube2 == null && cube3 != null) {
+    public String[][][][] getCubeArr() {
+        if (cube3 != null) {
+            return cube3.getCubeArr();
+        }
+        return cube2.getCubeArr();
+    }
+    public Object getCube() {
+        if (cube3 != null) {
             return cube3.getCube();
         }
-        assert cube2 != null;
         return cube2.getCube();
     }
 
@@ -82,18 +90,16 @@ public class Cubot {
     }
 
     public String reversealg(String s, boolean check) {
-        if (cube2 == null && cube3 != null) {
+        if (cube3 != null) {
             return cube3.reverseAlg(s, check);
         }
-        assert cube2 != null;
         return cube2.reverseAlg(s, check);
     }
 
     public String indexString() {
-        if (cube2 == null && cube3 != null) {
+        if (cube3 != null) {
             return cube3.indexString();
         }
-        assert cube2 != null;
         return cube2.indexString();
     }
     public void makeSolved() {
@@ -102,17 +108,31 @@ public class Cubot {
         }
         cube2 = new Cubot2(end2) ;
     }
-    public String cubeToString() {
+    public String[] cubeToArr() {
         if (cube3 != null) {
-            return cube3.cubeToString();
+            return cube3.cubeToArr();
         }
-        return cube2.cubeToString();
+        return cube2.cubeToArr();
     }
-    public String type() {
+    public String cubeType() {
         if (cube3 != null) {
             return "3x3";
         }
         return "2x2";
+    }
 
+    public boolean compareTo(Cubot other) {
+        if (other == null) {
+            return false;
+        }
+        try {
+            if (other.getCube() instanceof Cube3 && this.getCube() instanceof Cube3)
+                return ((Cube3) this.getCube()).solved((Cube3) other.getCube());
+            else
+                return ((Cube2) this.getCube()).solved((Cube2) other.getCube());
+
+        } catch (ClassCastException x) {
+            throw new IllegalArgumentException( "Error: Unmatched cubeTypes");
+        }
     }
 }
