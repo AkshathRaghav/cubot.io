@@ -9,7 +9,7 @@
  * @see <a href="https://github.com/AkshathRaghav/cubot.io">cubot.io</a>
  */
 public class Cube3 {
-    private String[][][][] cube;
+    private final String[][][][] cube;
     private int w = 0, g = 0, r = 0, o = 0, b = 0, y = 0;
 
     /**
@@ -63,7 +63,7 @@ public class Cube3 {
             }
         }
         if (!isValid()) {
-            throw new IllegalArgumentException("Cube not entered correctly!");
+            throw new IllegalArgumentException("Input Error");
         }
     }
 
@@ -100,10 +100,7 @@ public class Cube3 {
                 }
             }
         }
-        if ((w == 8) && (g == 8) && (r == 8) && (o == 8) && (b == 8) && (y == 8)) {
-            return true;
-        }
-        return false;
+        return (w == 8) && (g == 8) && (r == 8) && (o == 8) && (b == 8) && (y == 8);
     }
 
     /**
