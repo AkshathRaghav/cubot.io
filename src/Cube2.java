@@ -9,11 +9,11 @@
 * @see <a href="https://github.com/AkshathRaghav/cubot.io">cubot.io</a>
 */
 public class Cube2 {
-    private String[][][][] cube;
+    private final String[][][][] cube;
     private int w = 0, g = 0, r = 0, o = 0, b = 0, y = 0;
 
     /**
-     * Constructs a {@code Cube2} and stories it in the cube[][][][] array \
+     * Constructs a {@code Cube2} and stories it in the cube[][][][] array
      *
      * @param temp   String[] input from user containing the colors on each side
      * @exception    IllegalArgumentException on input error
@@ -72,10 +72,7 @@ public class Cube2 {
                 }
             }
         }
-        if ((w == 4) && (g == 4) && (r == 4) && (o == 4) && (b == 4) && (y == 4)) {
-            return true;
-        }
-        return false;
+        return (w == 4) && (g == 4) && (r == 4) && (o == 4) && (b == 4) && (y == 4);
     }
 
     /**
@@ -220,7 +217,7 @@ public class Cube2 {
      */
     public String[][][][] getCube() {
         return cube;
-    } // returns the 4-D cube array
+    } 
 
 
 
