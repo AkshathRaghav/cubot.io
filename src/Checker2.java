@@ -1,18 +1,56 @@
 import java.util.ArrayList;
 
+/**
+ * Checker2 extends Moves2 class
+ * <br>
+ * It is also responsible for additional changes made to the
+ * {@code Cube2} object in Moves2 class
+ *
+ * @author  Akshath Raghav
+ * @version 2.0
+ * @since   2021-06-15
+ * @see Cube2
+ * @see Checker2
+ * @see Moves2
+ * @see <a href="https://github.com/AkshathRaghav/cubot.io">cubot.io</a>
+ */
 public class Checker2 extends Moves2 {
     private final String[] temp =  {"RRRR", "GGGG", "OOOO", "BBBB", "WWWW", "YYYY"};
     private final Cube2 end = new Cube2(temp) ;
     private final String[] movesString = {"R", "R'", "L", "L'", "U", "U'", "D", "D'", "F", "F'", "B" , "B'", "U2", "F2", "R2", "L2",  "M2"} ;
-    public Checker2(String[] s) throws IllegalArgumentException {
-        super(s);
+
+    /**
+     * Moves2 has-a Cube2
+     * @param temp  String[] input from user containing the colors on each side
+     * @throws      IllegalArgumentException on input error
+     * @see         IllegalArgumentException
+     * @see         Moves2
+     */
+    public Checker2(String[] temp) throws IllegalArgumentException {
+        super(temp);
     }
+
+    /**
+     * Checks if the cube2 object held but the {@code Cube2} object in {@link Moves2} is solved
+     *
+     * @return boolean : true if solved, false otherwise
+     */
     public boolean isSolved() {
         return cubie.solved(end) ;
     }
+
+    /**
+     * @return String[][][][] - {@code Cube2} in base form
+     */
     public String[][][][] getSolvedCube() {
         return end.getCube() ;
     }
+
+    /**
+     * Returns all the positions which are not solved/in its right place + the index of those cubies
+     *
+     * @return ArrayList<String> - String : {"indexes : colors"}
+     */
     public ArrayList<String> compareToSolved() {
         String[][][][] endarray = end.getCube() ;
         ArrayList<String> change = new ArrayList<String>() ;
@@ -26,6 +64,15 @@ public class Checker2 extends Moves2 {
         }
         return change ;
     }
+
+    /**
+     * Returns a scramble of your desired length
+     * Executes the scramble depending on the parameter
+     *
+     * @param n       number of moves
+     * @param check   true, if moves to be executed, false if not
+     * @return        String, containing the scramble
+     */
     public String getScramble(int n, boolean check) {
         StringBuilder s = new StringBuilder(" ");
         for (int i = 0; i < n; i++) {
@@ -33,13 +80,24 @@ public class Checker2 extends Moves2 {
             s.append(movesString[x]).append(" ");
         }
         if (check) {
-            return stringalg(s.toString());
+            return stringAlg(s.toString());
         }
         else { return s.toString() ; }
     }
 
-    // If you add non-executable moves, Cubot will ignore
-    public String stringalg(String str) {
+    /**
+     * Executes the moves contained in the String input. <br>
+     * String must have the move names, seperated by a space
+     * <br>
+     * Correct : "R U" ;
+     * Incorrect : "RU"
+     * <br>
+     * In case spaces aren't given, both moves on either side will be ignored
+     *
+     * @param str    String containing moves to be carried out
+     * @return       String containing the executed moves
+     */
+    public String stringAlg(String str) {
         String s = str.trim();
         while (str.contains(" ")) {
             choose(str.substring(0, str.indexOf(" ")));
@@ -49,7 +107,20 @@ public class Checker2 extends Moves2 {
         return s ;
 
     }
-    public String reversealg(String str, boolean check) {
+
+    /**
+     * Reverses the moves contained in the String input. <br>
+     * If String is "R U",
+     * <br>
+     * output will be "U' R'"
+     * <br>
+     * If check is true, then the output will be executed on the {@code Cube2}
+     *
+     * @param str    String containing moves to be carried out
+     * @param check  true, if moves to be executed, false if not
+     * @return       String containing the executed moves
+     */
+    public String reverseAlg(String str, boolean check) {
         String s = "" ;
         while (str.contains(" ")) {
             s = reversedo(str.substring(0, str.indexOf(" "))) + " " + s ;
@@ -57,42 +128,17 @@ public class Checker2 extends Moves2 {
         }
         s = reversedo(str) + " " + s ;
         if (check) {
-            stringalg(s);
+            stringAlg(s);
         }
         return s;
 
     }
-//    public String slotter(int x, int y, int z) {
-//
-//    }
-//    public String bottom(String base) {
-//        for
-//
-//
-//
-//    }
-//
-//    public String solve() {
-//        String base = cubearray[1][0][0][0] ;
-//        for (int i =0 ; i <2 ; i++) {
-//            for(int j = 0 ; j < 2 ; j++ ) {
-//
-//        return bottom(base) ;
-//    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /**
+     * Helper method for {@link #stringAlg(String)}
+     *
+     * @param ch   Move to be executed
+     */
     private void choose(String ch) {
         switch (ch) {
             case "R" -> R();
@@ -116,6 +162,13 @@ public class Checker2 extends Moves2 {
 
         }
     }
+
+    /**
+     * Helper method for {@link #reverseAlg(String, boolean)}
+     *
+     * @param s  Move to be executed
+     * @return   String, of move executed
+     */
     private String reversedo(String s) {
         String monthString ="" ; // random thing i copied, just rename later
         switch (s) {
