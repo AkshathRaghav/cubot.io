@@ -15,7 +15,7 @@ public class Cubot2 extends Checker2 {
     public String getScramble(int n, boolean check) { return super.getScramble(n, check) ; }
     public String reverseAlg(String str, boolean check ) { return  super.reverseAlg(str, check ) ; }
     public String indexString() { return cubie.indexString();}
-    public String solve() { return "Coming soon" ; }
+    public String solve() { return super.solve()  ; }
     public String[] cubeToArr() { return cubie.cubeToArr() ; }
     public Cube2 getCube() { return cubie ; }
 
