@@ -38,6 +38,7 @@
 10. cubeToString added to Cubot for both 2x2 and 3x3 - 25.6.2021
 11. wiki added for the repo, files updated, cubeToArr, toString, etc fixed - 28.6.2021
 12. documentation for 2x2 files done - 1.7.2021
+13. 2x2 solver added and documented - 2.7.2021
 
 # ⚙️ Installation
 
