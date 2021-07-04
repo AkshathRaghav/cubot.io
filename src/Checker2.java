@@ -35,7 +35,12 @@ public class Checker2 extends Moves2 {
      * @return boolean : true if solved, false otherwise
      */
     public boolean isSolved() {
-        return cubie.solved(end) ;
+        String[][][][] endArr = end.getCube() ;
+        int count  =0 ;
+        while (!endArr[1][0][0][2].equals(cubearray[1][0][0][2])) { count++; Udash() ;  D(); }
+        boolean check = cubie.solved(end) ;
+        for (int i  =0 ; i < count ; i++ ) { U() ; Ddash() ; }
+        return check ;
     }
 
     /**
