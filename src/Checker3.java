@@ -18,7 +18,9 @@ public class Checker3 extends Moves3 {
         for (int i  =0 ; i < count ; i++ ) { ydash() ; }
         return check ;
     }
+    
     public String[][][][] getSolvedCube() { return end.getCube() ; }
+    
     public ArrayList<String> compareToSolved() {
         String[][][][] endarray = end.getCube() ;
         ArrayList<String> change = new ArrayList<String>() ;
@@ -31,16 +33,10 @@ public class Checker3 extends Moves3 {
                             if ( !( cubearray[i][j][k][1].equals(endarray[i][j][k][1]) && cubearray[i][j][k][2].equals(endarray[i][j][k][2]) )) { change.add("( " +i + " " + j + " " + k + " : Side - " + endarray[i][j][k][1] + " , F/B - " + endarray[i][j][k][2] + " ) "  ) ; }
                         } else if (cubearray[i][j][k][1] == null) {
                             if ( !( cubearray[i][j][k][0].equals(endarray[i][j][k][0]) && cubearray[i][j][k][2].equals(endarray[i][j][k][2]) )) { change.add("( " +i + " " + j + " " + k + " : T/b - " + endarray[i][j][k][0] + " , F/B - " + endarray[i][j][k][2] + " ) " ) ; }
-
-
                         } else if (cubearray[i][j][k][2] == null) {
                             if ( !( cubearray[i][j][k][1].equals(endarray[i][j][k][1]) && cubearray[i][j][k][0].equals(endarray[i][j][k][0]) )) { change.add("( " + i + " " + j + " " + k + " : T/b - " + endarray[i][j][k][0] + " , Side - " + endarray[i][j][k][1] + " ) " )  ; }
-
-
                         } else {
                             if ( !( cubearray[i][j][k][1].equals(endarray[i][j][k][1]) && cubearray[i][j][k][2].equals(endarray[i][j][k][2]) || cubearray[i][j][k][0].equals(endarray[i][j][k][0]) )) { change.add("( " +i + " " + j + " " + k + " : T/b - " + endarray[i][j][k][0] + " . Side - " + endarray[i][j][k][1]  + " . F/B - " + endarray[i][j][k][2] + " ) " ) ; }
-
-
                         }
                     }
                 }
@@ -77,7 +73,6 @@ public class Checker3 extends Moves3 {
                     k = edges[0][count + 2];
                 }
             }
-    //            if (cubearray[2][edges[1][count+1]][edges[1][count+2]][1] == null )
             else if (cubearray[0][edges[2][count+1]][edges[2][count+2]][2] == null ) {
                 if ((cubearray[0][edges[2][count+1]][edges[2][count+2]][0].equals(color) && cubearray[0][edges[2][count+1]][edges[2][count+2]][1].equals(colorside))  || (cubearray[0][edges[2][count+1]][edges[2][count+2]][1].equals(color) && cubearray[0][edges[2][count+1]][edges[2][count+2]][0].equals(colorside)) ) {
                     i = 0;
@@ -161,7 +156,6 @@ public class Checker3 extends Moves3 {
                 }
                 if ( check1 && check2 ) { count -= 1 ; }
         }
-    //        if (count == 4) { count = 3 ; }
         fin += count ;
         count =0 ;
         int[] temp2 =  { 0, 1, 0,0,0,0,0,2,0, 0, 1, 2,0,2,2,0,0,2 } ;
@@ -182,7 +176,6 @@ public class Checker3 extends Moves3 {
             if ( check1 && check2 ) { count -= 1 ; }
 
         }
-    //        if (count == 4) { count = 3 ; }
         fin += count ;
         return fin ;
     }
