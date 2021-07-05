@@ -62,7 +62,7 @@
 
 <hr> 
 
-### For all methods, usgae and a detailed explanation of all three Cubots, go to [Documentation](https://github.com/AkshathRaghav/cubot.io/wiki)
+### For all methods, usage and a detailed explanation of all three Cubots, go to [Documentation](https://github.com/AkshathRaghav/cubot.io/wiki)
 <hr> 
 
 ## Sites used 
