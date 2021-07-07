@@ -1,15 +1,42 @@
 import java.util.* ;
+/**
+ * Checker3 extends Moves3 class
+ * <br>
+ * It is also responsible for additional changes made to the
+ * {@code Cube3} object in Moves3 class
+ *
+ * @author  Akshath Raghav
+ * @version 2.0
+ * @since   2021-06-15
+ * @see Cube3
+ * @see Checker3
+ * @see Moves3
+ * @see <a href="https://github.com/AkshathRaghav/cubot.io">cubot.io</a>
+ */
 public class Checker3 extends Moves3 {
     private final String[] temp = {"RRRRRRRRR", "GGGGGGGGG", "OOOOOOOOO", "BBBBBBBBB", "WWWWWWWWW", "YYYYYYYYY"};
     private final Cube3 end = new Cube3(temp) ;
     private final String[] movesString = {"R", "R'", "L", "L'", "U", "U'", "D", "D'", "F", "F'", "B" , "B'", "U2", "F2", "R2", "L2",  "M2"} ;
-
-    public Checker3(String[] s) throws IllegalArgumentException {
-        super(s) ;
-    }
     private final int[][] edges = {{2, 0, 1, 2, 1, 0, 2, 2, 1, 2, 1, 2}, {1, 0, 0, 1, 0, 2, 1, 2, 0, 1, 2, 2}, {0, 0, 1, 0, 1, 0, 0, 2, 1, 0, 1, 2}};
     private final int[][] corners = {{2, 0, 0, 2, 0, 2, 2, 2, 0, 2, 2, 2}, {0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 2, 2}};
 
+    /**
+     * Moves3 has-a Cube3
+     *
+     * @param temp  String[] input from user containing the colors on each side
+     * @throws      IllegalArgumentException on input error
+     * @see         IllegalArgumentException
+     * @see         Moves2
+     */
+    public Checker3(String[] temp) throws IllegalArgumentException {
+        super(temp) ;
+    }
+
+    /**
+     * Checks if the {@code Cube3} object in {@link Moves3} is solved
+     *
+     * @return boolean : true if solved, false otherwise
+     */
     public boolean isSolved() {
         String[][][][] endArr = end.getCube() ;
         int count  =0 ;
@@ -18,9 +45,17 @@ public class Checker3 extends Moves3 {
         for (int i  =0 ; i < count ; i++ ) { ydash() ; }
         return check ;
     }
-    
+
+    /**
+     * @return String[][][][] - {@code Cube3} in base form
+     */
     public String[][][][] getSolvedCube() { return end.getCube() ; }
-    
+
+    /**
+     * Returns all the positions which are not solved/in its right place + the index of those cubies
+     *
+     * @return ArrayList<String> - String : {"indexes : colors"}
+     */
     public ArrayList<String> compareToSolved() {
         String[][][][] endarray = end.getCube() ;
         ArrayList<String> change = new ArrayList<String>() ;
@@ -44,6 +79,15 @@ public class Checker3 extends Moves3 {
         }
         return change ;
     }
+
+    /**
+     * Returns a scramble of your desired length
+     * Executes the scramble depending on the parameter
+     *
+     * @param n       number of moves
+     * @param check   true, if moves to be executed, false if not
+     * @return        String, containing the scramble
+     */
     public String getScramble(int n, boolean check) {
         StringBuilder s = new StringBuilder(" ");
         for (int i = 0; i < n; i++) {
@@ -56,12 +100,67 @@ public class Checker3 extends Moves3 {
         else { return s.toString() ; }
     }
 
+    /**
+     * Executes the moves contained in the String input. <br>
+     * String must have the move names, separated by a space
+     * <br>
+     * Correct : "R U" ;
+     * Incorrect : "RU"
+     * <br>
+     * In case spaces aren't given, both moves on either side will be ignored
+     *
+     * @param str    String containing moves to be carried out
+     * @return       String containing the executed moves
+     */
+    public String stringalg(String str) {
+        String s = str.trim();
+        while (str.contains(" ")) {
+            choose(str.substring(0, str.indexOf(" ")));
+            str = str.substring(str.indexOf(" ") +1 ) ;
+        }
+        choose(str);
+        return s ;
+    }
 
+    /**
+     * Reverses the moves contained in the String input. <br>
+     * If String is "R U",
+     * <br>
+     * output will be "U' R'"
+     * <br>
+     * If check is true, then the output will be executed on the {@code Cube2}
+     *
+     * @param str    String containing moves to be carried out
+     * @param check  true, if moves to be executed, false if not
+     * @return       String containing the executed moves
+     */
+    public String reversealg(String str, boolean check) {
+        String s = "" ;
+        str =str.replaceAll("\n" , " ");
+        while (str.contains(" ")) {
+            s = reversedo(str.substring(0, str.indexOf(" "))) + " " + s ;
+            str = str.substring(str.indexOf(" ") +1 ) ;
+        }
+        s = reversedo(str) + " " + s ;
+        if (check) {
+            stringalg(s);
+        }
+        return s;
+    }
+
+
+    /**
+     * Helper method for {@link #centers()}
+     *
+     * @param color       4th Dimensional Index of White color
+     * @param colorside   4th Dimensional Index of the other color
+     * @return
+     */
     private String throwcoloredgers(String color, String colorside ) {
         String s = "" ;
         int i = 5 , j = 5 , k = 5 ;
         for (int count = 0 ; count < 10 ; count += 3 ) {
-            if ( (cubearray[1][edges[1][count+1]][edges[1][count+2]][1].equals(color) && cubearray[1][edges[1][count+1]][edges[1][count+2]][2].equals(colorside))  || (cubearray[1][edges[1][count+1]][edges[1][count+2]][2].equals(color) && cubearray[1][edges[1][count+1]][edges[1][count+2]][1].equals(colorside)) )   {
+            if ( (cubearray[1][edges[1][count+1]][edges[1][count+2]][1].equals(color) && cubearray[1][edges[1][count+1]][edges[1][count+2]][2].equals(colorside)) || (cubearray[1][edges[1][count+1]][edges[1][count+2]][2].equals(color) && cubearray[1][edges[1][count+1]][edges[1][count+2]][1].equals(colorside)) )   {
                 i = 1 ;
                 j = edges[1][count+1] ;
                 k = edges[1][count+2] ;
@@ -93,10 +192,7 @@ public class Checker3 extends Moves3 {
                     s += " " +Ldash() ;
                 }
                 s += " " +U() ;
-
-
                 return cubearray[0][0][1][0] + s  ;
-
             }
             else {
                 if (k == 0) {
@@ -105,98 +201,31 @@ public class Checker3 extends Moves3 {
                     s += " " +Rdash() ;
                     s += " " +U() ;
                     s += " " +U() ;
-
                 } else {
                     s += " " +Rdash() ;
                     s += " " +U() ;
                     s += " " +R() ;
-
                 }
                 return cubearray[0][1][0][0] + s;
             }
-
         }
-        return cubearray[i][j][k][0]  + s ;
+        return cubearray[i][j][k][0] + s ;
     }
 
-    //pll helper methods
-    private int pllco() {
-        int count = 0 ;
-        int[] temp = {0, 0, 0, 0, 0, 2, 0, 2, 2, 0, 2, 0,0,0,0} ;
-        boolean check = true ;
-        for (int i = 0; i < 10; i += 3) {
-            if ( check ) {
-                if (cubearray[temp[i]][temp[i + 1]][temp[i + 2]][1].equals(cubearray[temp[i + 3]][temp[i + 4]][temp[i + 5]][1])) {
-                    count++;
-                }
-            }
-            else {
-                if (cubearray[temp[i]][temp[i + 1]][temp[i + 2]][2].equals(cubearray[temp[i + 3]][temp[i + 4]][temp[i + 5]][2])) {
-                    count++;
-                }
-            }
-            check = !check ;
-        }
 
-        return count ;
-    }
-    private int pllad() {
-        int count =0, fin = 0  ;
-        int[] temp = {0, 0, 1,0,0,0,0,0,2, 0, 2, 1,0,2,0,  0,2,2} ;
-        for (int i = 0; i < temp.length- 6; i += 9) {
-            boolean check1 = false , check2 = false ;
-                if (cubearray[temp[i]][temp[i + 1]][temp[i + 2]][1].equals(cubearray[temp[i + 3]][temp[i + 4]][temp[i + 5]][1])) {
-                    check1 = true ;
-                    count+=2;
-                }
-
-                if (cubearray[temp[i]][temp[i + 1]][temp[i + 2]][1].equals(cubearray[temp[i + 6]][temp[i + 7]][temp[i + 8]][1])) {
-                    check2 = true ;
-                    count+=2;
-                }
-                if ( check1 && check2 ) { count -= 1 ; }
-        }
-        fin += count ;
-        count =0 ;
-        int[] temp2 =  { 0, 1, 0,0,0,0,0,2,0, 0, 1, 2,0,2,2,0,0,2 } ;
-        for (int i = 0; i < temp2.length - 6; i += 9) {
-            boolean check1 = false , check2 = false ;
-
-            if (cubearray[temp2[i]][temp2[i + 1]][temp2[i + 2]][2].equals(cubearray[temp2[i + 3]][temp2[i + 4]][temp2[i + 5]][2])) {
-
-                check1 = true ;
-                count+=2;
-            }
-
-            if (cubearray[temp2[i]][temp2[i + 1]][temp2[i + 2]][2].equals(cubearray[temp2[i + 6]][temp2[i + 7]][temp2[i + 8]][2])) {
-                check2 = true ;
-                count+=2;
-
-            }
-            if ( check1 && check2 ) { count -= 1 ; }
-
-        }
-        fin += count ;
-        return fin ;
-    }
-    private String fillfront() {
-        StringBuilder s = new StringBuilder();
-        int count = 0 ;
-        while ( !cubearray[0][0][0][2].equals(cubearray[0][1][0][2]) && cubearray[0][0][0][2].equals(cubearray[0][2][0][2]) && count < 4 ) { s.append(" ").append(Udash()); count++; }
-        return " " + s ;
-    }
-    private String cofront() {
-        StringBuilder s = new StringBuilder();
-        int count = 0 ;
-        while ( !cubearray[0][0][0][2].equals(cubearray[0][2][0][2]) && count < 4  ) { s.append(" ").append(Udash());  count++; }
-        return " " + s ;
-    }
-
-    //helper methods for slotting/optimizing corners and centers - Try to make it better
+    /**
+     * Helper method for {@link #centers()}
+     *
+     * @param i      1st Dimensional Index
+     * @param j      2nd Dimensional Index
+     * @param k      3rd Dimensional Index
+     * @param index  4th Dimensional Index of White color
+     * @param color  4th Dimensional Index of the other color
+     * @return
+     */
     private String centerslotter(int i, int j, int k, int index, int color) {
         StringBuilder s = new StringBuilder();
         if (i == 1) {
-            // 3 is the case when the edge is connected ( but in various position - this is to speed up the solution )
             if ( color == 3 ) {
                 if (j == 0) {
                     if (k == 0) {
@@ -262,139 +291,31 @@ public class Checker3 extends Moves3 {
             }
         }
         else {
-            if ( i == 1 ) {
-                int  count = 0 ;
-                while (cubearray[index][j][k][color].equals("W") && count < 4) {
-                    s.append(Udash()); count++;
-                }
+            int  count = 0 ;
+            while ((cubearray[index][j][k][0].equals("W") || ( (cubearray[index][j][k][2] != null && cubearray[index][j][k][2].equals("W"))) || (cubearray[index][j][k][1] != null && cubearray[index][j][k][1].equals("W")))  && count < 4) {
+                s.append(Udash()); count++;
             }
-                if (j == 1) {
-                    if (k == 0) {
-                        s.append(stringalg("F F ")) ;
-                    } else {
-                        s.append(stringalg("B B ")) ;
-                    }
-                } else if (j == 0) {
-                    s.append(stringalg("L L ")) ;
+            if (j == 1) {
+                if (k == 0) {
+                    s.append(stringalg("F F ")) ;
                 } else {
-                    s.append(stringalg("R R ")) ;
+                    s.append(stringalg("B B ")) ;
                 }
+            } else if (j == 0) {
+                s.append(stringalg("L L ")) ;
+            } else {
+                s.append(stringalg("R R ")) ;
+            }
         }
         return s.toString();
     }
-    private String cornerslotter(int i , int j , int k ,String temp1 ,String temp2) {
-        String colorinfront;
-        String coloronside;
-        String colorontop;
-        StringBuilder s = new StringBuilder();
-
-        if ( i == 2 ) {
-            if (j == 0) {
-                if (k == 0) {
-                    s.append(" ").append(stringalg("L' U' L"));
-                     colorontop = cubearray[0][2][0][0] ;
-                     coloronside = cubearray[0][2][0][1] ;
-                     colorinfront = cubearray[0][2][0][2] ;
-
-                } else {
-                    s.append(" ").append(stringalg("L U' L''"));
-                    colorontop = cubearray[0][0][2][0] ;
-                    coloronside = cubearray[0][0][2][1] ;
-                    colorinfront = cubearray[0][0][2][2] ;
-                }
-            } else {
-                if (k == 0) {
-                    s.append(" ").append(stringalg("R U R'"));
-                    colorontop = cubearray[0][0][0][0] ;
-                    coloronside = cubearray[0][0][0][1] ;
-                    colorinfront = cubearray[0][0][0][2] ;
-                } else {
-                    s.append(" ").append(stringalg("R' U R"));
-                    colorontop = cubearray[0][2][2][0] ;
-                    coloronside = cubearray[0][2][2][1] ;
-                    colorinfront = cubearray[0][2][2][2] ;
-                }
-            }
-        }
-        else {
-            colorontop = cubearray[i][j][k][0] ;
-            coloronside = cubearray[i][j][k][1] ;
-            colorinfront = cubearray[i][j][k][2] ;
-        }
-        int count =0 ;
-        while ( !( ( cubearray[0][2][0][0].equals(colorontop) ) && ((cubearray[0][2][0][1].equals(coloronside) && cubearray[0][2][0][2].equals(colorinfront) ) || ( cubearray[0][2][0][1].equals(colorinfront) && cubearray[0][2][0][2].equals(coloronside)  ))  ) && count < 4){ s.append(" ").append(U()); count++ ; }
-        count = 0;
-        String topcolor = throwcoloredgers(temp1, temp2);
-
-        s.append(topcolor.substring(1));
-
-        topcolor = topcolor.substring(0,1) ;
-
-        if ( cubearray[0][2][0][0].equals("W")) {
-            s.append(" ").append(R());
-            s.append(" ").append(Udash());
-            if (!(cubearray[0][1][0][0].equals(topcolor) && ( cubearray[0][1][0][2].equals(temp1) || cubearray[0][1][0][2].equals(temp2)) )) {
-                s.append(" ").append(Udash());
-                s.append(" ").append(Rdash());
-            }
-            else {
-
-                s.append(" ").append(Rdash());
-                s.append(" ").append(Udash());
-
-            }
-            s.append(" ").append(Udash());
-
-        }
 
 
-        if ( cubearray[0][2][0][1].equals("W") ) {
-            if (cubearray[0][1][0][0].equals(cubearray[0][2][0][0]) &&  cubearray[0][1][0][2].equals(cubearray[0][2][0][2])) {
-                s.append(" ").append(stringalg("F R' F' R"));
-            } else if (cubearray[0][2][0][0].equals(cubearray[0][2][1][1]) && cubearray[0][2][0][2].equals(cubearray[0][2][1][0])) {
-                s.append(" ").append(stringalg("R U' R' U R U U R' U R' F R F'"));
-            }else if (cubearray[0][2][0][0].equals(cubearray[0][2][1][0]) && cubearray[0][2][0][2].equals(cubearray[0][2][1][1])) {
-                s.append(" ").append(stringalg("R U' R' U U F' U' F"));
-            } else {
-                s.append(" ").append(stringalg("U F'"));
-                if ( cubearray[2][0][0][1].equals(topcolor)) {
-                    while ( !( cubearray[0][0][1][0].equals(topcolor) && cubearray[0][0][1][1].equals(cubearray[2][0][0][0])  ) && count < 4) { s.append(" ").append(U()); count++ ; }
-                    s.append(" ").append(stringalg("F U' F R' F' R"));
-                }
-                else {
-                    while ( !( cubearray[0][2][1][0].equals(topcolor) && cubearray[0][2][1][1].equals(cubearray[2][0][0][1])  ) && count < 4 ) { s.append(" ").append(U());  count++ ; }
-                    s.append(" ").append(stringalg("F U' R U R'"));
-                }
-                count = 0 ;
-            }
-
-        }
-        else {
-            if (cubearray[0][2][1][0].equals(cubearray[0][2][0][0]) && cubearray[0][2][1][1].equals(cubearray[0][2][0][1]) ) {
-                s.append(" ").append(stringalg("R' F R F'"));
-            } else if (cubearray[0][2][0][0].equals(cubearray[0][1][0][0]) && cubearray[0][2][0][1].equals(cubearray[0][1][0][2])) {
-                s.append(" ").append(stringalg("F' U F U' U' R U R' U'"));
-            } else if (cubearray[0][2][0][0].equals(cubearray[0][1][0][2]) && cubearray[0][2][0][1].equals(cubearray[0][1][0][0])) {
-                s.append(" ").append(stringalg("U R U' R' U R U' R' F R' F' R"));
-            } else {
-                s.append(" ").append(stringalg("U' R"));
-                if ( cubearray[2][2][2][2].equals(topcolor)) {
-                    while ( !( cubearray[0][1][2][0].equals(topcolor) && cubearray[0][1][2][2].equals(cubearray[2][2][2][0])  ) && count < 4 ) { s.append(" ").append(U()); count++ ; }
-                    s.append(" ").append(stringalg("R' U R' F R F'"));
-                }
-                else {
-                    while ( !( cubearray[0][1][0][0].equals(topcolor) && cubearray[0][1][0][2].equals(cubearray[2][2][2][2])  ) && count < 4 ) { s.append(" ").append(U());  count++ ;}
-                    s.append(" ").append(stringalg("R' U F' U' F"));
-                }
-            }
-
-
-        }
-
-        return s.toString();
-    }
-
-    //actual methods to solve
+    /**
+     * Orients all the white center pieces to form the star, on the bottom layer
+     *
+     * @return  String containing solution for this phase of {@link #solve()}
+     */
     private String centers() {
         int total = 0 ;
         StringBuilder s = new StringBuilder("\n");
@@ -425,7 +346,6 @@ public class Checker3 extends Moves3 {
         for (int k = 0; k < 2; k++) {
             for (int i = 0; i < 10; i += 3) {
                 if (cubearray[layer[i]][layer[i + 1]][layer[i + 2]][0].equals("W") || (layer[i + 1] == 1 && cubearray[layer[i]][layer[i + 1]][layer[i + 2]][2].equals("W")) || (layer[i + 1] != 1 && cubearray[layer[i]][layer[i + 1]][layer[i + 2]][1].equals("W"))) {
-
                     if ((layer[i + 1] == 1 && !cubearray[layer[i]][layer[i + 1]][layer[i + 2]][2].equals(cubearray[1][layer[i + 1]][layer[i + 2]][1].substring(0, 1))) || (layer[i + 1] != 1 && !cubearray[layer[i]][layer[i + 1]][layer[i + 2]][1].equals(cubearray[1][layer[i + 1]][layer[i + 2]][1].substring(0, 1)))) {
                         s.append(" ").append(centerslotter(layer[i], layer[i + 1], layer[i + 2], 0, 0)).append("  ");
 
@@ -484,6 +404,125 @@ public class Checker3 extends Moves3 {
         return s.toString();
     }
 
+
+    /**
+     * Assists {@link #f2l()} to slot the corners into place
+     *
+     * @param i      1st Dimensional Index
+     * @param j      2nd Dimensional Index
+     * @param k      3rd Dimensional Index
+     * @param temp1  4th Dimensional Color Index
+     * @param temp2  4th Dimensional Color Index
+     * @return
+     */
+    private String cornerslotter(int i , int j , int k ,String temp1 ,String temp2) {
+        String colorinfront,  coloronside, colorontop;
+        StringBuilder s = new StringBuilder();
+        if ( i == 2 ) {
+            if (j == 0) {
+                if (k == 0) {
+                    s.append(" ").append(stringalg("L' U' L"));
+                    colorontop = cubearray[0][2][0][0] ;
+                    coloronside = cubearray[0][2][0][1] ;
+                    colorinfront = cubearray[0][2][0][2] ;
+
+                } else {
+                    s.append(" ").append(stringalg("L U' L'"));
+                    colorontop = cubearray[0][0][2][0] ;
+                    coloronside = cubearray[0][0][2][1] ;
+                    colorinfront = cubearray[0][0][2][2] ;
+                }
+            } else {
+                if (k == 0) {
+                    s.append(" ").append(stringalg("R U R'"));
+                    colorontop = cubearray[0][0][0][0] ;
+                    coloronside = cubearray[0][0][0][1] ;
+                    colorinfront = cubearray[0][0][0][2] ;
+                } else {
+                    s.append(" ").append(stringalg("R' U R"));
+                    colorontop = cubearray[0][2][2][0] ;
+                    coloronside = cubearray[0][2][2][1] ;
+                    colorinfront = cubearray[0][2][2][2] ;
+                }
+            }
+        }
+        else {
+            colorontop = cubearray[i][j][k][0] ;
+            coloronside = cubearray[i][j][k][1] ;
+            colorinfront = cubearray[i][j][k][2] ;
+        }
+        int count =0 ;
+        while ( !( ( cubearray[0][2][0][0].equals(colorontop) ) && ((cubearray[0][2][0][1].equals(coloronside) && cubearray[0][2][0][2].equals(colorinfront) ) || ( cubearray[0][2][0][1].equals(colorinfront) && cubearray[0][2][0][2].equals(coloronside)  ))  ) && count < 4){ s.append(" ").append(U()); count++ ; }
+        count = 0;
+
+        String topcolor = throwcoloredgers(temp1, temp2);
+        s.append(topcolor.substring(1));
+        topcolor = topcolor.substring(0,1) ;
+        if ( cubearray[0][2][0][0].equals("W")) {
+            s.append(" ").append(R());
+            s.append(" ").append(Udash());
+            if (!(cubearray[0][1][0][0].equals(topcolor) && ( cubearray[0][1][0][2].equals(temp1) || cubearray[0][1][0][2].equals(temp2)) )) {
+                s.append(" ").append(Udash());
+                s.append(" ").append(Rdash());
+            }
+            else {
+                s.append(" ").append(Rdash());
+                s.append(" ").append(Udash());
+            }
+            s.append(" ").append(Udash());
+
+        }
+        if ( cubearray[0][2][0][1].equals("W") ) {
+            if (cubearray[0][1][0][0].equals(cubearray[0][2][0][0]) &&  cubearray[0][1][0][2].equals(cubearray[0][2][0][2])) {
+                s.append(" ").append(stringalg("F R' F' R"));
+            } else if (cubearray[0][2][0][0].equals(cubearray[0][2][1][1]) && cubearray[0][2][0][2].equals(cubearray[0][2][1][0])) {
+                s.append(" ").append(stringalg("R U' R' U R U U R' U R' F R F'"));
+            }else if (cubearray[0][2][0][0].equals(cubearray[0][2][1][0]) && cubearray[0][2][0][2].equals(cubearray[0][2][1][1])) {
+                s.append(" ").append(stringalg("R U' R' U U F' U' F"));
+            } else {
+                s.append(" ").append(stringalg("U F'"));
+                if ( cubearray[2][0][0][1].equals(topcolor)) {
+                    while ( !( cubearray[0][0][1][0].equals(topcolor) && cubearray[0][0][1][1].equals(cubearray[2][0][0][0])  ) && count < 4) { s.append(" ").append(U()); count++ ; }
+                    s.append(" ").append(stringalg("F U' F R' F' R"));
+                }
+                else {
+                    while ( !( cubearray[0][2][1][0].equals(topcolor) && cubearray[0][2][1][1].equals(cubearray[2][0][0][1])  ) && count < 4 ) { s.append(" ").append(U());  count++ ; }
+                    s.append(" ").append(stringalg("F U' R U R'"));
+                }
+                count = 0 ;
+            }
+
+        }
+        else {
+            if (cubearray[0][2][1][0].equals(cubearray[0][2][0][0]) && cubearray[0][2][1][1].equals(cubearray[0][2][0][1]) ) {
+                s.append(" ").append(stringalg("R' F R F'"));
+            } else if (cubearray[0][2][0][0].equals(cubearray[0][1][0][0]) && cubearray[0][2][0][1].equals(cubearray[0][1][0][2])) {
+                s.append(" ").append(stringalg("F' U F U' U' R U R' U'"));
+            } else if (cubearray[0][2][0][0].equals(cubearray[0][1][0][2]) && cubearray[0][2][0][1].equals(cubearray[0][1][0][0])) {
+                s.append(" ").append(stringalg("U R U' R' U R U' R' F R' F' R"));
+            } else {
+                s.append(" ").append(stringalg("U' R"));
+                if ( cubearray[2][2][2][2].equals(topcolor)) {
+                    while ( !( cubearray[0][1][2][0].equals(topcolor) && cubearray[0][1][2][2].equals(cubearray[2][2][2][0])  ) && count < 4 ) { s.append(" ").append(U()); count++ ; }
+                    s.append(" ").append(stringalg("R' U R' F R F'"));
+                }
+                else {
+                    while ( !( cubearray[0][1][0][0].equals(topcolor) && cubearray[0][1][0][2].equals(cubearray[2][2][2][2])  ) && count < 4 ) { s.append(" ").append(U());  count++ ;}
+                    s.append(" ").append(stringalg("R' U F' U' F"));
+                }
+            }
+
+
+        }
+
+        return s.toString();
+    }
+
+    /**
+     * Orients all the corner pieces with white facing downwards on the bottom layer
+     *
+     * @return   String containing solution for this phase of {@link #solve()}
+     */
     private String f2l() {
         StringBuilder s = new StringBuilder("\n");
         for (int count = 0; count < 4; count++) {
@@ -514,7 +553,6 @@ public class Checker3 extends Moves3 {
                                 if (!( cubearray[2][2][0][0].equals("W") && cubearray[1][2][0][2].equals(color) && cubearray[1][2][0][1].equals(colorside) )) {
                                     s.append(cornerslotter(corners[x][y], corners[x][y + 1], corners[x][y + 2], color, colorside)).append(" ");
                                 }
-
                                 x = 10 ;
                                 y = 15 ;
                             }
@@ -525,13 +563,17 @@ public class Checker3 extends Moves3 {
                 }
             }
             s.append(y()).append("\n");
-
         }
 
         return s.toString();
 
     }
 
+    /**
+     * Orients all the pieces with Yellow on top, in the top layer
+     *
+     * @return   String containing solution for this phase of {@link #solve()}
+     */
     private String oll() {
         StringBuilder s = new StringBuilder();
         int count = 0 ;
@@ -621,6 +663,101 @@ public class Checker3 extends Moves3 {
         return s.toString();
     }
 
+    /**
+     * Returns the number of corners with yellow forming a headlight
+     *
+     * @return int, as per the description
+     */
+    private int pllco() {
+        int count = 0 ;
+        int[] temp = {0, 0, 0, 0, 0, 2, 0, 2, 2, 0, 2, 0,0,0,0} ;
+        boolean check = true ;
+        for (int i = 0; i < 10; i += 3) {
+            if ( check ) {
+                if (cubearray[temp[i]][temp[i + 1]][temp[i + 2]][1].equals(cubearray[temp[i + 3]][temp[i + 4]][temp[i + 5]][1])) {
+                    count++;
+                }
+            }
+            else {
+                if (cubearray[temp[i]][temp[i + 1]][temp[i + 2]][2].equals(cubearray[temp[i + 3]][temp[i + 4]][temp[i + 5]][2])) {
+                    count++;
+                }
+            }
+            check = !check ;
+        }
+
+        return count ;
+    }
+
+    /**
+     * Returns the number of corners with yellows adjacent to one another
+     *
+     * @return int, as per the description
+     */
+    private int pllad() {
+        int count =0, fin = 0  ;
+        int[] temp = {0, 0, 1,0,0,0,0,0,2, 0, 2, 1,0,2,0,  0,2,2} ;
+        for (int i = 0; i < temp.length- 6; i += 9) {
+            boolean check1 = false , check2 = false ;
+            if (cubearray[temp[i]][temp[i + 1]][temp[i + 2]][1].equals(cubearray[temp[i + 3]][temp[i + 4]][temp[i + 5]][1])) {
+                check1 = true ;
+                count+=2;
+            }
+
+            if (cubearray[temp[i]][temp[i + 1]][temp[i + 2]][1].equals(cubearray[temp[i + 6]][temp[i + 7]][temp[i + 8]][1])) {
+                check2 = true ;
+                count+=2;
+            }
+            if ( check1 && check2 ) { count -= 1 ; }
+        }
+        fin += count ;
+        count =0 ;
+        int[] temp2 =  { 0, 1, 0,0,0,0,0,2,0, 0, 1, 2,0,2,2,0,0,2 } ;
+        for (int i = 0; i < temp2.length - 6; i += 9) {
+            boolean check1 = false , check2 = false ;
+            if (cubearray[temp2[i]][temp2[i + 1]][temp2[i + 2]][2].equals(cubearray[temp2[i + 3]][temp2[i + 4]][temp2[i + 5]][2])) {
+                check1 = true ;
+                count+=2;
+            }
+            if (cubearray[temp2[i]][temp2[i + 1]][temp2[i + 2]][2].equals(cubearray[temp2[i + 6]][temp2[i + 7]][temp2[i + 8]][2])) {
+                check2 = true ;
+                count+=2;
+            }
+            if ( check1 && check2 ) { count -= 1 ; }
+        }
+        fin += count ;
+        return fin ;
+    }
+
+    /**
+     * Manipulates the {@code Cube3} till a bar can be found in the front face of the cube
+     *
+     * @return String, containing the moves required to obtain the above
+     */
+    private String fillfront() {
+        StringBuilder s = new StringBuilder();
+        int count = 0 ;
+        while ( !cubearray[0][0][0][2].equals(cubearray[0][1][0][2]) && cubearray[0][0][0][2].equals(cubearray[0][2][0][2]) && count < 4 ) { s.append(" ").append(Udash()); count++; }
+        return " " + s ;
+    }
+
+    /**
+     * Manipulates the {@code Cube3} till adjacent pieces can be found in the front face of the cube
+     *
+     * @return String, containing the moves required to obtain the above
+     */
+    private String cofront() {
+        StringBuilder s = new StringBuilder();
+        int count = 0 ;
+        while ( !cubearray[0][0][0][2].equals(cubearray[0][2][0][2]) && count < 4  ) { s.append(" ").append(Udash());  count++; }
+        return " " + s ;
+    }
+
+    /**
+     * Represents the last phase of the {@link #solve()}
+     *
+     * @return   String containing solution for this phase of {@link #solve()}
+     */
     private String pll() {
         StringBuilder s = new StringBuilder();
         int co = pllco() , ad = pllad() ;
@@ -717,15 +854,28 @@ public class Checker3 extends Moves3 {
 
             }
         }
-        else if ( ad != 12 ){ return "You have either entered the cube wrongly, or one of your pieces is still flipped" ; }
+        else if ( ad != 12 ){
+            return "You have either entered the cube wrongly, or one of your pieces is still flipped" ; }
         int count =0 ;
         while ( count < 4 && !(cubearray[0][1][0][2].equals(cubearray[1][1][0][1].substring(0,1)) && cubearray[0][0][0][2].equals(cubearray[1][1][0][1].substring(0,1)) && cubearray[0][2][0][2].equals(cubearray[1][1][0][1].substring(0,1)) ))  { s.append(" ").append(U()); count++ ;}
         return s.toString();
     }
 
-    //public method to solve and return solution
-    public String solve() {
-        String s = "\n" ;
+    /**
+     * Solves the {@code Cube3} using the Ortega Method and orients it with Green side facing forward
+     *
+     * @throws Error     If Cubot is unable to solve the cube, then
+     *                   an CubeError will be raised
+     *                   <br>
+     *                   Common causes are :
+     *                   <br>
+     *                   Input Error
+     *                   <br>
+     *                   Cube piece is twisted
+     * @return String containing the solution
+     */
+    public String solve() throws Error {
+        String s = "" ;
         int count =0 ;
         for (int i = 0 ; i < 2 ; i++ ) {
             count =0 ;
@@ -737,19 +887,26 @@ public class Checker3 extends Moves3 {
         }
         count =0 ;
         while ( ( !cubearray[2][1][1][1].equals("White") && count < 3 )) { s += " " +  z() ; }
-        s +=  centers()  ;
-        s+=  f2l();
-        s+=  oll() ;
+        s += centers() + f2l()  + oll() ;
         if ( !s.contains("Either") ) {
-            s += pll();
-            if ( !isSolved() ){ s += "The cube remains unsolved --> Recheck initilization or Report Bug " ; }
+            s += pll() ;
+            if ( s.contains("Either") ) {
+
+               throw new Error("CubeError : Unable to finish solve") ;
+            }
         }
+        else {throw new Error("CubeError : Unable to finish solve") ;}
         s = (shorten(s));
         return  s.replaceAll("\n", " ").trim() ;
     }
 
 
-
+    /**
+     * Shortens the String given to it as an input
+     *
+     * @param s     String input to be shortened
+     * @return      String containing the shortened String input by a few moves
+     */
     public String shorten(String s ) {
         s= s.replaceAll("F' F ", "") ;
         s= s.replaceAll("F F'", "") ;
@@ -764,7 +921,6 @@ public class Checker3 extends Moves3 {
         s = s.replaceAll("U' U2", "U ") ;
         s = s.replaceAll("U U2'", "U' ") ;
         s= s.replaceAll("y y y y", "" ) ;
-
         s= s.replaceAll("y y y", "y'" ) ;
         s= s.replaceAll("x x x", "x'" ) ;
         s= s.replaceAll("z z z", "z'" ) ;
@@ -778,30 +934,12 @@ public class Checker3 extends Moves3 {
 
         return s ;
     }
-    public String stringalg(String str) {
-        String s = str.trim();
-        while (str.contains(" ")) {
-            choose(str.substring(0, str.indexOf(" ")));
-            str = str.substring(str.indexOf(" ") +1 ) ;
-        }
-        choose(str);
-        return s ;
 
-    }
-    public String reversealg(String str, boolean check) {
-        String s = "" ;
-        str =str.replaceAll("\n" , " ");
-        while (str.contains(" ")) {
-            s = reversedo(str.substring(0, str.indexOf(" "))) + " " + s ;
-            str = str.substring(str.indexOf(" ") +1 ) ;
-        }
-        s = reversedo(str) + " " + s ;
-        if (check) {
-            stringalg(s);
-        }
-        return s;
-
-    }
+    /**
+     * Helper method for {@link #stringalg(String)}
+     *
+     * @param ch   Move to be executed
+     */
     private void choose(String ch) {
         switch (ch) {
             case "R" -> R();
@@ -837,8 +975,15 @@ public class Checker3 extends Moves3 {
             case "S'" -> Sdash();
         }
     }
+
+    /**
+     * Helper method for {@link #reversealg(String, boolean)}
+     *
+     * @param s  Move to be executed
+     * @return   String, of move executed
+     */
     private String reversedo(String s) {
-        String monthString ="" ; // random thing i copied, just rename later
+        String monthString ="" ;
         switch (s) {
             case "R":  monthString = "R'";
                 break;
@@ -868,7 +1013,6 @@ public class Checker3 extends Moves3 {
                 break;
             case "M'": monthString = "M";
                 break;
-
             case "r": monthString = "r'";
                 break;
             case "r'": monthString = "r";
@@ -888,7 +1032,11 @@ public class Checker3 extends Moves3 {
             default: monthString = s ;
         }
         return monthString ;
+
+
     }
+
+
 }
 
 
