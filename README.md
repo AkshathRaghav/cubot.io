@@ -5,10 +5,12 @@
 
 
 # Table of contents
-1. [Introduction](#Overview)
-2. [Some paragraph](#paragraph1)
-    1. [Sub paragraph](#subparagraph1)
-3. [Another paragraph](#paragraph2)
+1. [Overview](#Overview)
+2. [What is Cubot?](#What-is-Cubot?)
+3. [Why would you want it?](#Why-would-you-want-it?)
+4. [Documentation](https://github.com/AkshathRaghav/cubot.io/wiki)
+5. [Installation](#Installation)
+4. [Updates](#Updates)
 
 
 # 📔 Overview
@@ -27,7 +29,7 @@ There are many Rubik's Cube-related graphic projects and solvers which implement
 **But** programmers might not want something just for visualizing the cube, they might want a data-structure type of solution for them to use in their own projects without having to make their own files. Perhaps they want to only make a 3D cube with the help of a library. Cubot is a library meant for this very purpose. 
 
 
-# 🤔 Why would I want it?
+# 🤔 Why would you want it?
 #### With Cubot, you can 
 * **Virtually** construct a Cube ( 2x2/3x3 ), 
 * _Quickly_ execute moves and perform algorithms seamlessly, 
