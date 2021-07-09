@@ -4,14 +4,6 @@
 </p>
 
 
-
-# 🔠 Table of Contents  
-* [Description](#Description)  
-* [Updates](#Updates)
-* [Installation](#Installation) 
-* [Wiki](https://github.com/AkshathRaghav/cubot.io/wiki)
-
-
 # 📔 Overview
 
 ### A Java library to help you : 
@@ -20,24 +12,67 @@
 * Manipulate the Cube using simple java, 
 * Get the solution for the cube
 * Use a cube in your own projects 
+--- 
+
+<a><img src="https://cdn.discordapp.com/attachments/812010624301269012/846043080104607744/output-onlinepngtools.png" align="left" height = "40" vspace="5"></a>
+# What is Cubot? 
+There are many Rubik's Cube-related graphic projects and solvers which implement various algorithms for solving the cube. <br> 
+**But** programmers might not want something just for visualizing the cube, they might want a data-structure type of solution for them to use in their own projects without having to make their own files. Perhaps they want to only make a 3D cube with the help of a library. Cubot is a library meant for this very purpose. 
 
 
-# 🎉 Updates
+# 🤔 Why would I want it?
+#### With Cubot, you can 
+* **Virtually** construct a Cube ( 2x2/3x3 ), 
+* _Quickly_ execute moves and perform algorithms seamlessly, 
+* Manipulate the Cube using simple java, 
+* Get the solution for the cube
+* Use a cube in your own projects 
+* and so much more, with the help of the methods it provides 
 
-1. getScramble(int n) added; reverseAlg(String s) added; minor tweaks in Checker - 30.5.2021
-2. E(), S() added, updated Moves in moves - 31.5.2021 
-3. Edash(), Sdash(), x(), y(), y'() + Optimized the big slice moves; solve(), stringalg(), reversealg() updated - 1.6.2021
-4. toString() improved to make it much easier to understand the cube-state ( check out the new output in Documentation ) - 2.6.2021 
-5. Cube constructor updated ( Enter cube faces randomly now ) - 3.6.2021
-6. toString() bug fixed, pll() bug fixed- 11.6.2021
-7. 2x2 files added, 3x3 files made sep - 14.6.2021
-8. Merged src added, use single Cubot for both Cubes, Documentation and README updated - 15.6.2021
-9. cubeToString added for 2x2 - 22.6.2021
-10. cubeToString added to Cubot for both 2x2 and 3x3 - 25.6.2021
-11. wiki added for the repo, files updated, cubeToArr, toString, etc fixed - 28.6.2021
-12. documentation for 2x2 files done - 1.7.2021
-13. 2x2 solver added and documented - 2.7.2021
-14. 3x3 classes documented - 7.7.2021
+Now speed is relative, as we all know. But Cubot can scramble the Cube, print, solve the Cube, print, bring the cube back into the scrambled state and print again, in less than a second on average.
+
+```java
+long startTime = System.nanoTime();
+
+Cubot cube = new Cubot();
+// "U2 F2 D2 U R' D2 B2 U L2 B' D' U2 F L F U' B' R' F' U F' U B L' D2 B R' B F2 R'" --> Offical WCA Scramble
+
+cube.stringAlg("U2 F2 D2 U R' D2 B2 U L2 B' D' U2 F L F U' B' R' F' U F' U B L' D2 B R' B F2 R'") ;
+// scrambles
+
+
+Cubot cube2 = new Cubot(cube.cubeToArr()) ;
+System.out.println(cube);
+// prints output
+
+String s  = cube.solve() ;
+// solves
+
+System.out.println(cube);
+// prints ouput
+
+System.out.println();
+
+cube.reverseAlg(s, true) ;
+// rescrambles with the solve again
+
+System.out.println(cube);
+// prints output
+
+System.out.println("Re-scrambled ? = " + ((Cube3) cube.getCube()).solved((Cube3) cube2.getCube())) ;
+// checks if the rescrambled cube is the same as the first scramble
+
+long endTime = System.nanoTime();
+long time = (endTime - startTime) ;
+System.out.println("-----------------------------");
+System.out.println("Execution time in milliseconds: " + time / 1000000);
+
+```
+
+![Example](https://cdn.discordapp.com/attachments/850164310612377640/860192610832613387/unknown.png)
+![Example](https://cdn.discordapp.com/attachments/850164310612377640/860192636558901248/unknown.png)
+
+<hr> 
 
 # ⚙️ Installation
 
@@ -61,10 +96,22 @@
   <img width="250" src="https://cdn.discordapp.com/attachments/812010624301269012/846011334029344828/unknown.png" alt="example">
 </p>
 
-<hr> 
+# 🎉 Updates
 
-### For all methods, usage and a detailed explanation of all three Cubots, go to [Documentation](https://github.com/AkshathRaghav/cubot.io/wiki)
-<hr> 
+1. getScramble(int n) added; reverseAlg(String s) added; minor tweaks in Checker - 30.5.2021
+2. E(), S() added, updated Moves in moves - 31.5.2021 
+3. Edash(), Sdash(), x(), y(), y'() + Optimized the big slice moves; solve(), stringalg(), reversealg() updated - 1.6.2021
+4. toString() improved to make it much easier to understand the cube-state ( check out the new output in Documentation ) - 2.6.2021 
+5. Cube constructor updated ( Enter cube faces randomly now ) - 3.6.2021
+6. toString() bug fixed, pll() bug fixed- 11.6.2021
+7. 2x2 files added, 3x3 files made sep - 14.6.2021
+8. Merged src added, use single Cubot for both Cubes, Documentation and README updated - 15.6.2021
+9. cubeToString added for 2x2 - 22.6.2021
+10. cubeToString added to Cubot for both 2x2 and 3x3 - 25.6.2021
+11. wiki added for the repo, files updated, cubeToArr, toString, etc fixed - 28.6.2021
+12. documentation for 2x2 files done - 1.7.2021
+13. 2x2 solver added and documented - 2.7.2021
+14. 3x3 classes documented - 7.7.2021
 
 ## Sites used 
 * [Eli Bedernsky's Website](https://eli.thegreenplace.net/2015/memory-layout-of-multi-dimensional-arrays)
