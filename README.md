@@ -4,6 +4,13 @@
 </p>
 
 
+# Table of contents
+1. [Introduction](#Overview)
+2. [Some paragraph](#paragraph1)
+    1. [Sub paragraph](#subparagraph1)
+3. [Another paragraph](#paragraph2)
+
+
 # 📔 Overview
 
 ### A Java library to help you : 
@@ -71,6 +78,8 @@ System.out.println("Execution time in milliseconds: " + time / 1000000);
 
 ![Example](https://cdn.discordapp.com/attachments/850164310612377640/860192610832613387/unknown.png)
 ![Example](https://cdn.discordapp.com/attachments/850164310612377640/860192636558901248/unknown.png)
+
+### Head over to the [Docs](https://github.com/AkshathRaghav/cubot.io/wiki) for more on Cubot and how to use it
 
 <hr> 
 
