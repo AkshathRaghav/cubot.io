@@ -4,7 +4,7 @@
 </p>
 
 
-# Table of contents
+# 📑 Table of contents
 1. [Overview](#Overview)
 2. [What is Cubot?](#What-is-Cubot?)
 3. [Why would you want it?](#Why-would-you-want-it?)
