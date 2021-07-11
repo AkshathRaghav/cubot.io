@@ -124,6 +124,7 @@ System.out.println("Execution time in milliseconds: " + time / 1000000);
 13. 2x2 solver added and documented - 2.7.2021
 14. 3x3 classes documented - 7.7.2021
 15. v2.0 published - 11.7.2021
-16. 
+
+
 ## Sites used 
 * [Eli Bedernsky's Website](https://eli.thegreenplace.net/2015/memory-layout-of-multi-dimensional-arrays)
