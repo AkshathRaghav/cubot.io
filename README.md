@@ -87,7 +87,7 @@ System.out.println("Execution time in milliseconds: " + time / 1000000);
 
 # ⚙️ Installation
 
-1. Download the Cubot.jar (v1.0) file above ( <-- Old version. v2.0 coming at the end of the month ) 
+1. Download the Cubot.jar (v2.0)
 2. Go to your project on Intellij or Eclipse 
 3. Click on Files on the top left corner, and then click on Project Structure
 <br> 
