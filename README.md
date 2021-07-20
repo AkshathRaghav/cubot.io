@@ -26,7 +26,7 @@
 <a><img src="https://cdn.discordapp.com/attachments/812010624301269012/846043080104607744/output-onlinepngtools.png" align="left" height = "40" vspace="5"></a>
 # What is Cubot? 
 There are many Rubik's Cube-related graphic projects and solvers which implement various algorithms for solving the cube. <br> 
-**But** programmers might not want something just for visualizing the cube, they might want a data-structure type of solution for them to use in their own projects without having to make their own files. Perhaps they want to only make a 3D cube with the help of a library. Cubot is a library meant for this very purpose. 
+**But** programmers might not want something just for visualizing the cube, they might want a data-structure kind of solution for them to use in their own projects without having to make their own classes. Perhaps they want to only execute moves and compare cubes with the help of a library. Boom, *Cubot enters the chat*
 
 
 # 🤔 Why would you want it?
