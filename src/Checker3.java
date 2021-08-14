@@ -128,7 +128,7 @@ public class Checker3 extends Moves3 {
      * <br>
      * output will be "U' R'"
      * <br>
-     * If check is true, then the output will be executed on the {@code Cube2}
+     * If check is true, then the output will be executed on the {@code Cube3}
      *
      * @param str    String containing moves to be carried out
      * @param check  true, if moves to be executed, false if not
@@ -209,7 +209,13 @@ public class Checker3 extends Moves3 {
                 return cubearray[0][1][0][0] + s;
             }
         }
-        return cubearray[i][j][k][0] + s ;
+        String checknotfive = "";
+        try  {
+            return cubearray[i][j][k][0] + s;
+        }
+        catch (ArrayIndexOutOfBoundsException we) {
+            throw new Error("CubeError : Unable to finish solve");
+        }
     }
 
 
@@ -249,7 +255,8 @@ public class Checker3 extends Moves3 {
             }
             int count = 0 ;
             if (color == 1) {
-                while (cubearray[index][0][1][0].equals("W") && count < 4 ) {
+                // index = 0
+                while ((cubearray[index][0][1][0].equals("W") || cubearray[index][0][1][1].equals("W")) && count < 4 ) {
                     s.append(U()); count++ ;
                 }
                 if (k == 0) {
@@ -270,8 +277,7 @@ public class Checker3 extends Moves3 {
                     }
                 }
             } else {
-
-                while (cubearray[index][1][0][0].equals("W")&& count< 4) {
+                while ((cubearray[index][1][0][0].equals("W") || (cubearray[index][1][0][2].equals("W")) && count< 4)) {
                     s.append(U()); count++ ;
                 }
                 if (k == 0) {
@@ -324,7 +330,7 @@ public class Checker3 extends Moves3 {
         for (int checker = 3 ; checker > 0 ; checker-- ) {
             int count =0 ;
             for (int i = 0; i < 10; i += 3) {
-                if (cubearray[layer[i]][layer[i + 1]][layer[i + 2]][1].equals("W") && (cubearray[layer[i]][layer[i + 1]][layer[i + 2]][2].equals(colors[count]))) {
+                if (cubearray[layer[i]][layer[i + 1]][layer[i + 2]][1].equals("W") && cubearray[layer[i]][layer[i + 1]][layer[i + 2]][2].equals(colors[count])) {
                     s.append(" ").append(centerslotter(layer[i], layer[i + 1], layer[i + 2], 2, 3)).append("  ");
                     total++;
                 }
@@ -337,14 +343,19 @@ public class Checker3 extends Moves3 {
         }
         layer = edges[2] ;
         for (int i = 0; i < 10; i += 3) {
-            if (cubearray[layer[i]][layer[i + 1]][layer[i + 2]][0].equals("W") && ( ( layer[i+1] == 1 && cubearray[1][layer[i + 1]][layer[i + 2]][1].equals(cubearray[layer[i]][layer[i + 1]][layer[i + 2]][2])) && ( layer[i+1] == 2 && cubearray[1][layer[i + 1]][layer[i + 2]][1].equals(cubearray[layer[i]][layer[i + 1]][layer[i + 2]][1])) ) )  {
-                s.append(" ").append(centerslotter(layer[i], layer[i + 1], layer[i + 2], 0, 0)).append("  ");
-                total++;
+
+            if (cubearray[layer[i]][layer[i + 1]][layer[i + 2]][0].equals("W")) {
+                if ( ( layer[i+1] == 1 && cubearray[1][layer[i + 1]][layer[i + 2]][1].substring(0, 1).equals(cubearray[layer[i]][layer[i + 1]][layer[i + 2]][2])) || ( layer[i+1] != 1 && cubearray[1][layer[i + 1]][layer[i + 2]][1].substring(0, 1).equals(cubearray[layer[i]][layer[i + 1]][layer[i + 2]][1])) )
+                {
+                    s.append(" ").append(centerslotter(layer[i], layer[i + 1], layer[i + 2], 0, 0)).append("  ");
+                    total++;
+                }
             }
         }
         layer = edges[0] ;
         for (int k = 0; k < 2; k++) {
             for (int i = 0; i < 10; i += 3) {
+
                 if (cubearray[layer[i]][layer[i + 1]][layer[i + 2]][0].equals("W") || (layer[i + 1] == 1 && cubearray[layer[i]][layer[i + 1]][layer[i + 2]][2].equals("W")) || (layer[i + 1] != 1 && cubearray[layer[i]][layer[i + 1]][layer[i + 2]][1].equals("W"))) {
                     if ((layer[i + 1] == 1 && !cubearray[layer[i]][layer[i + 1]][layer[i + 2]][2].equals(cubearray[1][layer[i + 1]][layer[i + 2]][1].substring(0, 1))) || (layer[i + 1] != 1 && !cubearray[layer[i]][layer[i + 1]][layer[i + 2]][1].equals(cubearray[1][layer[i + 1]][layer[i + 2]][1].substring(0, 1)))) {
                         s.append(" ").append(centerslotter(layer[i], layer[i + 1], layer[i + 2], 0, 0)).append("  ");
@@ -550,7 +561,7 @@ public class Checker3 extends Moves3 {
                         }
                         if ( check ) {
                             if (( cubearray[corners[x][y]][corners[x][y + 1]][corners[x][y + 2]][corn2].equals(color)  &&  cubearray[corners[x][y]][corners[x][y + 1]][corners[x][y + 2]][corn3].equals(colorside) ) || ( cubearray[corners[x][y]][corners[x][y + 1]][corners[x][y + 2]][corn3].equals(color)  && cubearray[corners[x][y]][corners[x][y + 1]][corners[x][y + 2]][corn2].equals(colorside) )) {
-                                if (!( cubearray[2][2][0][0].equals("W") && cubearray[1][2][0][2].equals(color) && cubearray[1][2][0][1].equals(colorside) )) {
+                                if (!( cubearray[2][2][0][0].equals("W") && cubearray[2][2][0][2].equals(color) && cubearray[2][2][0][1].equals(colorside)  && cubearray[1][2][0][2].equals(color) && cubearray[1][2][0][1].equals(colorside) )) {
                                     s.append(cornerslotter(corners[x][y], corners[x][y + 1], corners[x][y + 2], color, colorside)).append(" ");
                                 }
                                 x = 10 ;
@@ -587,7 +598,7 @@ public class Checker3 extends Moves3 {
             count = 2;
         }
         int ok =0 ;
-         if ( count ==2 ) {
+        if ( count ==2 ) {
             if ((cubearray[0][0][1][0].equals("Y") && cubearray[0][2][1][0].equals("Y")) || (cubearray[0][1][0][0].equals("Y") && cubearray[0][1][2][0].equals("Y")) ) {
                 while (!(cubearray[0][0][1][0].equals("Y") && cubearray[0][2][1][0].equals("Y"))  && ok < 4) {
                     s.append(U()).append(" "); ok++;
@@ -600,11 +611,11 @@ public class Checker3 extends Moves3 {
                 }
                 s.append(" ").append(stringalg("F U R U' R'"));
             }
-             s.append(" ").append(Fdash());
-         }
+            s.append(" ").append(Fdash());
+        }
         else if ( count !=  4){
-             s.append("\n Either you have entered the cube wrongly, or an edge piece is flipped") ;
-             return s.toString();
+            s.append("\n Either you have entered the cube wrongly, or an edge piece is flipped") ;
+            return s.toString();
         }
 
         s.append("\n");
@@ -634,7 +645,7 @@ public class Checker3 extends Moves3 {
         }
         else if ( frontcount == 2 && sidecount == 2 ) {
             while ( !cubearray[0][0][0][1].equals("Y") && ok < 4 ) {  s.append(" ").append(U()); ok++;   }
-            s.append(" ").append(stringalg("R U2 R2 U' R2 U' R2 U2 R"));
+            s.append(" ").append(stringalg("R U2 R2 U' R2 U' R2 U2 R")).append(oll()) ;
         }
         else if ( frontcount == 2 || sidecount ==2   ) {
             while (!cubearray[0][0][2][2].equals("Y")&& ok < 4 ) {
@@ -773,7 +784,6 @@ public class Checker3 extends Moves3 {
                 }
             } else {
                 s.append(" ").append(stringalg("R' U L' D2 L U' R L' U R' D2 R U' L"));
-                s.append(" ").append(pll());
             }
         }
         else if ( ad == 3 ) {
@@ -840,6 +850,7 @@ public class Checker3 extends Moves3 {
             }
             else  {
                 s.append(" ").append(stringalg("U' R' L' U2 L U L' U2 R U' L U"));
+
             }
         }
         else if ( ad == 8 ) {
@@ -858,6 +869,7 @@ public class Checker3 extends Moves3 {
             return "You have either entered the cube wrongly, or one of your pieces is still flipped" ; }
         int count =0 ;
         while ( count < 4 && !(cubearray[0][1][0][2].equals(cubearray[1][1][0][1].substring(0,1)) && cubearray[0][0][0][2].equals(cubearray[1][1][0][1].substring(0,1)) && cubearray[0][2][0][2].equals(cubearray[1][1][0][1].substring(0,1)) ))  { s.append(" ").append(U()); count++ ;}
+        if ( !cubie.solved(end)) {   s.append(" ").append(pll()) ; }
         return s.toString();
     }
 
@@ -887,15 +899,18 @@ public class Checker3 extends Moves3 {
         }
         count =0 ;
         while ( ( !cubearray[2][1][1][1].equals("White") && count < 3 )) { s += " " +  z() ; }
-        s += centers() + f2l()  + oll() ;
+        s += centers() ;
+        s += f2l()  ;
+        s += oll() ;
         if ( !s.contains("Either") ) {
             s += pll() ;
             if ( s.contains("Either") ) {
 
-               throw new Error("CubeError : Unable to finish solve") ;
+                throw new Error("CubeError : Unable to finish solve") ;
             }
         }
-        else {throw new Error("CubeError : Unable to finish solve") ;}
+        else {
+            throw new Error("CubeError : Unable to finish solve") ;}
         s = (shorten(s));
         return  s.replaceAll("\n", " ").trim() ;
     }
@@ -930,7 +945,6 @@ public class Checker3 extends Moves3 {
         s= s.replaceAll("y\ny\ny\ny", "\n" ) ;
         s = s.replaceAll("\n\n\n\n", "" );
         s = s.replaceAll("\n\n\n", "" );
-        s = s.replaceAll("Either", "\n Either" );
 
         return s ;
     }
@@ -1035,8 +1049,6 @@ public class Checker3 extends Moves3 {
 
 
     }
-
-
 }
 
 
